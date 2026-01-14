@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pydantic
+transformers
+torch
+accelerate
+bitsandbytes
+python-multipart
+httpx
+jinja2
+python-dotenv

@@ -1,0 +1,258 @@
+import json
+import os
+import torch
+from typing import List, Dict, Any
+from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+from ..schemas.triage import IntakeRequest, TriageResult, FollowUpQuestion, ReferralSummary
+
+class TriageAgent:
+    def __init__(self, mode=None):
+        self.mode = mode or os.getenv("FIRSTLINE_MODE", "mock")
+        self.model_id = "google/medgemma-1.5-4b-it"
+        self.tokenizer = None
+        self.model = None
+        
+        if self.mode == "actual":
+            print(f"📦 Loading {self.model_id}...")
+            self.tokenizer = AutoTokenizer.from_pretrained(self.model_id)
+            
+            # Determine best device (MPS for Mac, CUDA for Linux, CPU as fallback)
+            device = "cpu"
+            if torch.backends.mps.is_available():
+                device = "mps"
+            elif torch.cuda.is_available():
+                device = "cuda"
+            
+            print(f"🎯 Target Device: {device}")
+            
+            self.model = AutoModelForCausalLM.from_pretrained(
+                self.model_id,
+                torch_dtype=torch.bfloat16,
+                device_map="auto"
+            )
+            print("✅ Model loaded successfully.")
+
+    def check_red_flags(self, intake: IntakeRequest) -> List[str]:
+        """Deterministic rule-based check for emergency signs."""
+        flags = []
+        if intake.rr and intake.rr > 50:
+            flags.append("Tachypnea (High Respiratory Rate)")
+        if intake.temp_c and intake.temp_c > 39.5:
+            flags.append("High Fever (>39.5°C)")
+        if intake.pregnancy_status:
+            if "bleeding" in intake.symptoms.lower():
+                flags.append("Pregnancy-related Bleeding")
+            if "headache" in intake.symptoms.lower() and "vision" in intake.symptoms.lower():
+                flags.append("Suspected Pre-eclampsia (Severe Headache + Vision Changes)")
+        if any(word in intake.symptoms.lower() for word in ["seizure", "convulsion", "unconscious", "lethargic"]):
+            flags.append("Altered Consciousness or Seizures")
+        return flags
+
+    def _call_model(self, prompt: str) -> str:
+        """Helper to run inference."""
+        if self.mode == "mock":
+            return ""
+        
+        inputs = self.tokenizer(prompt, return_tensors="pt").to(self.model.device)
+        with torch.no_grad():
+            outputs = self.model.generate(**inputs, max_new_tokens=512, temperature=0.1)
+        
+        full_response = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+        response_body = full_response.split(prompt)[-1].strip()
+        print(f"🤖 RAW AI RESPONSE:\n{response_body}\n{'-'*30}")
+        return response_body
+
+    def _extract_json(self, text: str, start_char: str, end_char: str) -> str:
+        """Helper to extract JSON strings from messy model output."""
+        try:
+            # First try finding content between markers if they exist (e.g. ```json )
+            if "```" in text:
+                content = text.split("```")[1]
+                if content.startswith("json"):
+                    content = content[4:].strip()
+                return content
+            
+            # Fallback to character finding
+            start = text.find(start_char)
+            end = text.rfind(end_char)
+            if start != -1 and end != -1:
+                return text[start:end+1]
+            return text
+        except:
+            return text
+
+    async def generate_followups(self, intake: IntakeRequest) -> List[FollowUpQuestion]:
+        """
+        Generate follow-up questions using WHO IMCI & GHS guidelines.
+        Uses rule-based selection for consistency and clinical accuracy.
+        """
+        # Import the question bank
+        from .question_bank import select_questions
+        
+        # Convert intake to dict for question selection
+        intake_dict = {
+            'symptoms': intake.symptoms,
+            'age': intake.age,
+            'sex': intake.sex,
+            'duration_days': intake.duration_days,
+            'pregnancy_status': getattr(intake, 'pregnancy_status', False)
+        }
+        
+        # Get WHO IMCI/GHS compliant questions
+        selected_questions = select_questions(intake_dict)
+        
+        # Convert to FollowUpQuestion format
+        followup_questions = []
+        for q in selected_questions:
+            if q['type'] == 'choice':
+                # Multiple choice question
+                followup_questions.append(
+                    FollowUpQuestion(
+                        question=q['question'],
+                        options=q['options']
+                    )
+                )
+            else:
+                # Open-ended question (number or text)
+                followup_questions.append(
+                    FollowUpQuestion(
+                        question=q['question'],
+                        options=[]  # Empty options = text input
+                    )
+                )
+        
+        return followup_questions
+
+    async def perform_triage(self, intake: IntakeRequest, followups: Dict[str, str]) -> TriageResult:
+        red_flags = self.check_red_flags(intake)
+        if red_flags:
+            return TriageResult(
+                risk_tier="RED",
+                danger_signs=red_flags,
+                reasoning="Emergency signs detected deterministically.",
+                uncertainty="LOW",
+                recommended_actions=["Refer immediately"]
+            )
+
+        if self.mode == "mock":
+            return TriageResult(risk_tier="GREEN", danger_signs=[], reasoning="Mock green result.", uncertainty="LOW", recommended_actions=["Monitor"])
+
+        prompt = f"""<start_of_turn>user
+Assign a triage tier (GREEN/YELLOW/RED) for:
+Patient: {intake.age}yo {intake.sex}, Symptoms: {intake.symptoms}
+History: {json.dumps(followups)}
+
+Return ONLY JSON:
+{{
+  "risk_tier": "...",
+  "danger_signs": [],
+  "reasoning": "...",
+  "uncertainty": "...",
+  "recommended_actions": []
+}}<end_of_turn>
+<start_of_turn>model
+"""
+        response = self._call_model(prompt)
+        try:
+            json_str = self._extract_json(response, "{", "}")
+            data = json.loads(json_str)
+            return TriageResult(**data)
+        except Exception as e:
+            print(f"❌ Triage Parsing Error: {e}")
+            return TriageResult(
+                risk_tier="YELLOW", 
+                danger_signs=[], 
+                reasoning="Safety fallback: Error parsing AI reasoning.", 
+                uncertainty="HIGH", 
+                recommended_actions=["Manual clinical review required"]
+            )
+
+    async def generate_referral(self, intake: IntakeRequest, triage: TriageResult) -> ReferralSummary:
+        """
+        Generate professional SOAP note for referral.
+        Uses structured format that always works, with optional AI enhancement.
+        """
+        from datetime import datetime
+        
+        # Generate structured SOAP note
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
+        
+        # SUBJECTIVE
+        subjective = f"Chief Complaint: {intake.symptoms}\n"
+        subjective += f"Duration: {intake.duration_days} day(s)\n"
+        if hasattr(intake, 'temp_c') and intake.temp_c:
+            subjective += f"Reported Temperature: {intake.temp_c}°C\n"
+        
+        # OBJECTIVE
+        objective = f"Patient: {intake.age} year old {intake.sex}\n"
+        if hasattr(intake, 'rr') and intake.rr:
+            objective += f"Respiratory Rate: {intake.rr}/min\n"
+        if hasattr(intake, 'temp_c') and intake.temp_c:
+            objective += f"Temperature: {intake.temp_c}°C\n"
+        objective += f"Triage Classification: {triage.risk_tier}\n"
+        objective += f"AI Confidence: {triage.uncertainty}\n"
+        
+        # ASSESSMENT
+        assessment = f"Clinical Assessment:\n"
+        assessment += f"- {triage.reasoning}\n"
+        if triage.danger_signs:
+            assessment += f"\nDANGER SIGNS IDENTIFIED:\n"
+            for sign in triage.danger_signs:
+                assessment += f"- ⚠️ {sign}\n"
+        
+        # PLAN
+        plan = "Recommended Actions:\n"
+        for action in triage.recommended_actions:
+            plan += f"- {action}\n"
+        
+        # Combine into SOAP format
+        soap_note = f"""REFERRAL SUMMARY - {timestamp}
+{'='*50}
+
+SUBJECTIVE:
+{subjective}
+
+OBJECTIVE:
+{objective}
+
+ASSESSMENT:
+{assessment}
+
+PLAN:
+{plan}
+
+{'='*50}
+Referring Facility: Community Health Post
+Decision Support: FirstLine AI (MedGemma 1.5)
+Note: This is a clinical decision support tool. Final decisions rest with qualified healthcare providers.
+"""
+        
+        # Determine priority based on triage tier
+        priority_map = {
+            "RED": "URGENT - Immediate transfer required",
+            "YELLOW": "Semi-urgent - Transfer within 24 hours",
+            "GREEN": "Routine - Can be managed locally"
+        }
+        priority = priority_map.get(triage.risk_tier, "Routine")
+        
+        # Determine facility type
+        facility_map = {
+            "RED": "District Hospital Emergency Department",
+            "YELLOW": "Health Center",
+            "GREEN": "Community Health Post"
+        }
+        suggested_facility = facility_map.get(triage.risk_tier, "Health Center")
+        
+        # Extract key findings
+        key_findings = []
+        if triage.danger_signs:
+            key_findings.extend(triage.danger_signs)
+        key_findings.append(f"Triage: {triage.risk_tier}")
+        key_findings.append(f"Duration: {intake.duration_days} days")
+        
+        return ReferralSummary(
+            soap_note=soap_note,
+            priority=priority,
+            key_findings=key_findings,
+            suggested_facility_type=suggested_facility
+        )

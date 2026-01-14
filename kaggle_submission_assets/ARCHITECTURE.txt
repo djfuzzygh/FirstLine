@@ -1,0 +1,33 @@
+FIRSTLINE SYSTEM ARCHITECTURE
+============================
+
+[ MOBILE DEVICE ] (Edge / Offline)
+-----------------------------------
+|  JETPACK COMPOSE UI             | <--- User Interaction
+|  (Welcome, Intake, Follow-up)   |
+-----------------------------------
+|  LOCAL ROOM DB                  | <--- Persistence (Encrypted)
+|  (Cases, Results, Audit Trail)  |
+-----------------------------------
+|  LITE AGENT ENGINE              |
+|  - Deterministic Red-Flags      | <--- Safety Gate 1
+|  - MediaPipe (Option)           |
+-----------------------------------
+           ^     |
+           |     v (Sync when Online / Local Hub)
+           |     |
+[ BACKEND SERVER ] (Local/Hosted)
+-----------------------------------
+|  FASTAPI ORCHESTRATOR           |
+-----------------------------------
+|  AGENTIC PIPELINE               |
+|  1. Intake Normalization        |
+|  2. MedGemma Reasoning          | <--- Brain
+|  3. Uncertainty Gating          | <--- Safety Gate 2
+|  4. SOAP Note Generation        |
+-----------------------------------
+|  MODELS (Hugging Face)          |
+|  - MedGemma 2b/7b               |
+|  - MedASR (Speech)              |
+|  - MedSigLIP (Vision Embed)     |
+-----------------------------------

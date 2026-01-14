@@ -1,0 +1,101 @@
+[
+    {
+        "id": "CASE-001",
+        "description": "Pediatric Fever + Fast Breathing",
+        "input": {
+            "age": 3,
+            "sex": "Female",
+            "symptoms": "High fever, cough, and making noise when breathing.",
+            "duration_days": 2,
+            "temp_c": 38.5,
+            "rr": 55,
+            "has_consent": true
+        },
+        "expected_behavior": {
+            "triage": "RED",
+            "reasoning_contains": [
+                "pneumonia",
+                "tachypnea"
+            ],
+            "safety_trigger": "High Respiratory Rate rule"
+        }
+    },
+    {
+        "id": "CASE-002",
+        "description": "Mild Malaria suspicion",
+        "input": {
+            "age": 25,
+            "sex": "Male",
+            "symptoms": "Headache, joint pain, and feeling cold.",
+            "duration_days": 1,
+            "temp_c": 37.8,
+            "has_consent": true
+        },
+        "expected_behavior": {
+            "triage": "YELLOW",
+            "reasoning_contains": [
+                "fever",
+                "malaria endemic"
+            ],
+            "safety_trigger": "Follow-up question on travel/stiff neck"
+        }
+    },
+    {
+        "id": "CASE-003",
+        "description": "Pregnancy Danger Sign",
+        "input": {
+            "age": 22,
+            "sex": "Female",
+            "pregnancy_status": true,
+            "symptoms": "Blurry vision and a very bad headache.",
+            "duration_days": 1,
+            "has_consent": true
+        },
+        "expected_behavior": {
+            "triage": "RED",
+            "reasoning_contains": [
+                "pre-eclampsia",
+                "emergency"
+            ],
+            "safety_trigger": "Pregnancy high-risk rule"
+        }
+    },
+    {
+        "id": "CASE-004",
+        "description": "Simple Wound (Minor)",
+        "input": {
+            "age": 10,
+            "sex": "Male",
+            "symptoms": "Scratched knee while playing. Clean wound.",
+            "duration_days": 1,
+            "has_consent": true
+        },
+        "expected_behavior": {
+            "triage": "GREEN",
+            "reasoning_contains": [
+                "home care",
+                "cleaning"
+            ],
+            "safety_trigger": "No red flags"
+        }
+    },
+    {
+        "id": "CASE-005",
+        "description": "Severe Dehydration (Child)",
+        "input": {
+            "age": 1,
+            "sex": "Female",
+            "symptoms": "Diarrhea and vomiting. Not able to drink water.",
+            "duration_days": 1,
+            "has_consent": true
+        },
+        "expected_behavior": {
+            "triage": "RED",
+            "reasoning_contains": [
+                "dehydration",
+                "inability to drink"
+            ],
+            "safety_trigger": "Inability to drink rule"
+        }
+    }
+]
