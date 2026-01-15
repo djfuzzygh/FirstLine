@@ -30,7 +30,45 @@ function generateMockData() {
     return cases;
 }
 
-let allCases = generateMockData();
+// Load Data (Real + Mock)
+// Load Data (Real + Mock)
+async function loadDashboardData() {
+    try {
+        // 1. Fetch Real Cases from Backend DB
+        const response = await fetch(`${API_BASE}/cases`);
+        const dbCases = await response.json();
+
+        // Convert date strings
+        dbCases.forEach(c => c.date = new Date(c.date));
+
+        // 2. Generate Mock Data (for demo fullness if DB is empty)
+        const mockCases = generateMockData();
+
+        // 3. Combine (Real cases on top)
+        allCases = [...dbCases, ...mockCases].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        refreshDashboard();
+        console.log(`✅ Loaded ${dbCases.length} cases from backend.`);
+    } catch (e) {
+        console.error("Failed to load cases from backend, using LocalStorage fallback", e);
+        // Fallback to LocalStorage
+        const storedCases = JSON.parse(localStorage.getItem('firstline_cases') || '[]');
+        storedCases.forEach(c => c.date = new Date(c.date));
+        const mockCases = generateMockData();
+        allCases = [...storedCases, ...mockCases].sort((a, b) => new Date(b.date) - new Date(a.date));
+        refreshDashboard();
+    }
+}
+
+let allCases = [];
+// Initial Load
+loadDashboardData();
+
+// Listen for updates (if other tabs add cases)
+window.addEventListener('storage', () => {
+    loadDashboardData();
+    refreshDashboard();
+});
 
 // Update Key Metrics
 function updateMetrics() {

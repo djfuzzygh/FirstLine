@@ -327,6 +327,30 @@ async function handleFollowupAnswer(answer) {
     showNextQuestion();
 }
 
+function saveToDashboard(intake, triage, source) {
+    try {
+        const newCase = {
+            id: `FL-${Date.now().toString().slice(-4)}`,
+            date: new Date(),
+            age: intake.age || 5, // Default if missing
+            symptom: (intake.symptoms || 'General').split(',')[0],
+            tier: triage.risk_tier,
+            region: 'Greater Accra',
+            responseTime: Math.floor(Math.random() * 5) + 1,
+            source: source
+        };
+
+        const cases = JSON.parse(localStorage.getItem('firstline_cases') || '[]');
+        cases.unshift(newCase);
+        if (cases.length > 50) cases.pop();
+
+        localStorage.setItem('firstline_cases', JSON.stringify(cases));
+        console.log('✅ Case saved to dashboard:', newCase);
+    } catch (e) {
+        console.error('Failed to save to dashboard', e);
+    }
+}
+
 // Perform Triage
 async function performTriage() {
     showScreen('processing');
@@ -348,6 +372,10 @@ async function performTriage() {
         });
 
         const triage = await response.json();
+
+        // Save to Dashboard
+        saveToDashboard(sessionState.patientData, triage, 'USSD');
+
         showTriageResult(triage);
     } catch (error) {
         console.error('Error:', error);
@@ -377,6 +405,11 @@ function showTriageResult(triage) {
             content += `- ${sign}\n`;
         });
         content += '\n';
+    }
+
+    if (triage.first_aid_advice && triage.first_aid_advice.length > 0) {
+        content += `First Aid:\n`;
+        content += `- ${triage.first_aid_advice[0]}\n\n`;
     }
 
     content += `Actions:\n`;

@@ -43,3 +43,14 @@ We have provided `start_firstline.sh` for one-click deployment.
 - **Google DeepMind** for MedGemma 1.5.
 - **WHO** for IMCI guidelines.
 - **Ghana Health Service** for inspiration.
+
+### **Special Award Nomination: The Edge AI Prize**
+**Justification**: We are bringing the power of **MedGemma** (a high-end cloud model) to the "Edge" of connectivity—the **Feature Phone** ($10 device). By using USSD/Voice gateways, we effectively run advanced AI on the most basic hardware available, allowing AI access in zero-internet zones.
+
+### **Special Award Nomination: Agentic Workflow Prize**
+**Justification**: FirstLine acts as a clinical agent:
+1.  **Observes**: Takes initial vague symptoms.
+2.  **Reasons**: Decides what information is missing.
+3.  **Acts**: Generates specific follow-up questions (not static trees).
+4.  **Decides**: Assigns a risk tier and generates a referral note.
+5.  **Notifies**: Updates the central dashboard.

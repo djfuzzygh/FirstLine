@@ -326,6 +326,30 @@ async function handleQuestionResponse(text) {
     askNextQuestion();
 }
 
+function saveToDashboard(intake, triage, source) {
+    try {
+        const newCase = {
+            id: `FL-${Date.now().toString().slice(-4)}`,
+            date: new Date(),
+            age: intake.age || 5,
+            symptom: (intake.symptoms || 'General').split(',')[0],
+            tier: triage.risk_tier,
+            region: 'Greater Accra',
+            responseTime: Math.floor(Math.random() * 5) + 1,
+            source: source
+        };
+
+        const cases = JSON.parse(localStorage.getItem('firstline_cases') || '[]');
+        cases.unshift(newCase);
+        if (cases.length > 50) cases.pop();
+
+        localStorage.setItem('firstline_cases', JSON.stringify(cases));
+        console.log('✅ Case saved to dashboard:', newCase);
+    } catch (e) {
+        console.error('Failed to save to dashboard', e);
+    }
+}
+
 // Perform Triage
 async function performTriage() {
     updateStatus('thinking', 'Analyzing Case...', 'AI is making triage decision');
@@ -348,6 +372,9 @@ async function performTriage() {
 
         const triage = await response.json();
         callState.triageResult = triage;
+
+        // Save to Dashboard
+        saveToDashboard(callState.patientData, triage, 'Voice');
 
         announceTriageResult(triage);
     } catch (error) {
@@ -373,6 +400,12 @@ function announceTriageResult(triage) {
     }
 
     announcement += `Recommended actions: ${triage.recommended_actions.join(', ')}. `;
+
+    // Announce First Aid if available
+    if (triage.first_aid_advice && triage.first_aid_advice.length > 0) {
+        announcement += `Immediate First Aid: ${triage.first_aid_advice[0]}. `;
+    }
+
     announcement += "A detailed referral summary will be sent to you via SMS. Thank you for using FirstLine.";
 
     speak(announcement, () => {

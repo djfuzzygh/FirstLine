@@ -105,6 +105,7 @@ class TriageAgent:
 Patient: {intake.age}yo {intake.sex}
 Symptoms: {intake.symptoms}
 Duration: {intake.duration_days} days
+Visual Observation: {intake.image_description if intake.image_description else "None provided"}
 
 Act as a clinical expert.
 Generate 2 targeted follow-up questions to rule out serious conditions or clarify the diagnosis.
@@ -162,12 +163,23 @@ Return ONLY JSON array:
             )
 
         if self.mode == "mock":
-            return TriageResult(risk_tier="GREEN", danger_signs=[], reasoning="Mock green result.", uncertainty="LOW", recommended_actions=["Monitor"])
+            return TriageResult(
+                risk_tier="GREEN", 
+                danger_signs=[], 
+                reasoning="Mock green result.", 
+                uncertainty="LOW", 
+                recommended_actions=["Monitor"],
+                first_aid_advice=["Keep hydrated"],
+                monitoring_metrics=["Temperature every 4 hours"]
+            )
 
         prompt = f"""<start_of_turn>user
 Assign a triage tier (GREEN/YELLOW/RED) for:
 Patient: {intake.age}yo {intake.sex}, Symptoms: {intake.symptoms}
+Visual Observation: {intake.image_description if intake.image_description else "None provided"}
 History: {json.dumps(followups)}
+
+Provide specific FIRST AID advice (immediate steps) and MONITORING METRICS (what to watch).
 
 Return ONLY JSON:
 {{
@@ -175,7 +187,9 @@ Return ONLY JSON:
   "danger_signs": [],
   "reasoning": "...",
   "uncertainty": "...",
-  "recommended_actions": []
+  "recommended_actions": [],
+  "first_aid_advice": ["Step 1...", "Step 2..."],
+  "monitoring_metrics": ["Respiratory Rate", "Temperature"]
 }}<end_of_turn>
 <start_of_turn>model
 """
@@ -183,6 +197,10 @@ Return ONLY JSON:
         try:
             json_str = self._extract_json(response, "{", "}")
             data = json.loads(json_str)
+            # Safe defaults if missing
+            if 'first_aid_advice' not in data: data['first_aid_advice'] = []
+            if 'monitoring_metrics' not in data: data['monitoring_metrics'] = []
+            
             return TriageResult(**data)
         except Exception as e:
             print(f"❌ Triage Parsing Error: {e}")
@@ -191,7 +209,9 @@ Return ONLY JSON:
                 danger_signs=[], 
                 reasoning="Safety fallback: Error parsing AI reasoning.", 
                 uncertainty="HIGH", 
-                recommended_actions=["Manual clinical review required"]
+                recommended_actions=["Manual clinical review required"],
+                first_aid_advice=["Consult supervisor"],
+                monitoring_metrics=["Vitals"]
             )
 
     async def generate_referral(self, intake: IntakeRequest, triage: TriageResult) -> ReferralSummary:

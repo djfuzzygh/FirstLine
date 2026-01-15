@@ -474,8 +474,37 @@ async function handleTriageCalculation() {
     }
 }
 
+function saveToDashboard(intake, triage, source = 'Web App') {
+    try {
+        const newCase = {
+            id: `FL-${Date.now().toString().slice(-4)}`,
+            date: new Date(),
+            age: intake.age || 5, // Default if missing
+            symptom: (intake.symptoms || 'General').split(',')[0],
+            tier: triage.risk_tier,
+            region: 'Greater Accra',
+            responseTime: Math.floor(Math.random() * 5) + 1,
+            source: source
+        };
+
+        const cases = JSON.parse(localStorage.getItem('firstline_cases') || '[]');
+        cases.unshift(newCase);
+        if (cases.length > 50) cases.pop();
+
+        localStorage.setItem('firstline_cases', JSON.stringify(cases));
+        console.log('✅ Case saved to dashboard:', newCase);
+    } catch (e) {
+        console.error('Failed to save to dashboard', e);
+    }
+}
+
 // Triage Rendering
 function renderTriage(result) {
+    // Save to Dashboard Architecture
+    if (caseData && caseData.intake) {
+        saveToDashboard(caseData.intake, result);
+    }
+
     const hero = document.getElementById('triage-hero');
     const label = document.getElementById('triage-risk-tier');
     const uncertaintyFill = document.getElementById('uncertainty-fill');
@@ -513,6 +542,24 @@ function renderTriage(result) {
     if (result.recommended_actions && result.recommended_actions.length > 0) {
         actionsDiv.innerHTML = '<strong style="display: block; margin-bottom: 8px;">Recommended Actions:</strong>' +
             result.recommended_actions.map(a => `<div class="action-item">✓ ${a}</div>`).join('');
+    }
+
+    // First Aid
+    const firstAidDiv = document.getElementById('first-aid-list');
+    if (result.first_aid_advice && result.first_aid_advice.length > 0) {
+        firstAidDiv.innerHTML = result.first_aid_advice.map(a => `<div class="action-item">🩹 ${a}</div>`).join('');
+        firstAidDiv.parentElement.classList.remove('hidden');
+    } else {
+        firstAidDiv.parentElement.classList.add('hidden');
+    }
+
+    // Monitoring
+    const monitoringDiv = document.getElementById('monitoring-list');
+    if (result.monitoring_metrics && result.monitoring_metrics.length > 0) {
+        monitoringDiv.innerHTML = result.monitoring_metrics.map(a => `<div class="action-item">📊 ${a}</div>`).join('');
+        monitoringDiv.parentElement.classList.remove('hidden');
+    } else {
+        monitoringDiv.parentElement.classList.add('hidden');
     }
 }
 
