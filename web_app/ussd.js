@@ -1,7 +1,7 @@
 // FirstLine USSD Simulator
 // Demonstrates menu-driven triage on feature phones
 
-const API_BASE = 'http://localhost:8000';
+const API_BASE = 'https://heliolatrous-unstooping-rosy.ngrok-free.dev';
 
 // USSD Session State
 let sessionState = {

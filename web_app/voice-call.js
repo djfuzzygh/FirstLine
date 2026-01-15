@@ -1,7 +1,7 @@
 // FirstLine Voice Call Simulator
 // Demonstrates AI-powered triage via voice interface
 
-const API_BASE = 'http://localhost:8000';
+const API_BASE = 'https://heliolatrous-unstooping-rosy.ngrok-free.dev';
 
 // Voice Call State
 let callState = {
@@ -42,48 +42,54 @@ function initSpeechRecognition() {
     if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         recognition = new SpeechRecognition();
-        recognition.continuous = false;
+        recognition.continuous = true; // CHANGED: Alllow pauses
         recognition.interimResults = true;
         recognition.lang = currentLanguage;
 
+        let silenceTimer = null;
+
         recognition.onstart = () => {
-            updateStatus('listening', 'Listening...', 'Speak now');
+            updateStatus('listening', 'Listening...', 'Speak now (I will wait for you to finish)');
             transcript.classList.remove('hidden');
             waveform.classList.remove('hidden');
             btnMic.classList.add('recording');
         };
 
         recognition.onresult = (event) => {
+            if (silenceTimer) clearTimeout(silenceTimer);
+
             let interimTranscript = '';
-            let finalTranscript = '';
+            let finalText = '';
 
-            for (let i = event.resultIndex; i < event.results.length; i++) {
-                const transcriptPiece = event.results[i][0].transcript;
-                if (event.results[i].isFinal) {
-                    finalTranscript += transcriptPiece;
-                } else {
-                    interimTranscript += transcriptPiece;
-                }
+            // Combine all results (since continuous=true accumulates them)
+            for (let i = 0; i < event.results.length; i++) {
+                finalText += event.results[i][0].transcript;
             }
 
-            transcript.textContent = interimTranscript || finalTranscript || 'Listening...';
+            transcript.textContent = finalText || 'Listening...';
+            statusSubtext.textContent = "Processing pause...";
 
-            if (finalTranscript) {
-                handleUserSpeech(finalTranscript);
-            }
+            // Wait 2.5 seconds of silence before submitting
+            silenceTimer = setTimeout(() => {
+                recognition.stop();
+                handleUserSpeech(finalText);
+            }, 2500);
         };
 
         recognition.onerror = (event) => {
             console.error('Speech recognition error:', event.error);
-            addMessage('system', `Error: ${event.error}. Please try again.`);
+            if (event.error !== 'no-speech') {
+                addMessage('system', `Error: ${event.error}.`);
+            }
             transcript.classList.add('hidden');
             waveform.classList.add('hidden');
             btnMic.classList.remove('recording');
         };
 
         recognition.onend = () => {
-            transcript.classList.add('hidden');
-            waveform.classList.add('hidden');
+            // UI Cleanup
+            // transcript.classList.add('hidden'); 
+            // waveform.classList.add('hidden');
             btnMic.classList.remove('recording');
         };
     } else {

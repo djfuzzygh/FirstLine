@@ -23,43 +23,43 @@ This means you can run the **REAL MedGemma AI** (not just the Mock mode) without
 4.  Paste the following code into the first cell and run it:
 
 ```python
-# KAGGLE NOTEBOOK CELL 1
-# ==========================================
-# 1. Setup Environment
-# ==========================================
-!git clone https://github.com/YOUR_GITHUB_USERNAME/firstline.git  # <--- REPLACE THIS!
-%cd firstline/backend
+# ROBUST KAGGLE SCRIPT
+from huggingface_hub import login
+from pyngrok import ngrok
+import os
+import shutil
 
-# Install Dependencies
+# --- TOKENS (Replace with yours if needed, keeping defaults for easy copy-paste) ---
+HF_TOKEN_VAL = "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"
+NGROK_TOKEN_VAL = "38GuYbLmnQI3VxninGsCYBWESSG_6GewQPdxjA4i4m1PVyhC1"
+
+# 1. CLEANUP OLD RUNS (Fixes 'Folder exists' errors)
+if os.path.exists("FirstLine"):
+    shutil.rmtree("FirstLine")
+
+# 2. CLONE & INSTALL
+!git clone https://github.com/djfuzzygh/FirstLine.git
+%cd FirstLine/backend
 !pip install -r requirements.txt
 !pip install pyngrok uvicorn
 
-# ==========================================
-# 2. Login to Hugging Face (For MedGemma)
-# ==========================================
-from huggingface_hub import login
-# You need a Read token from https://huggingface.co/settings/tokens
-login("YOUR_HUGGING_FACE_TOKEN")  # <--- REPLACE THIS!
+# 3. LOGIN
+login(HF_TOKEN_VAL)
+ngrok.set_auth_token(NGROK_TOKEN_VAL)
 
-# ==========================================
-# 3. Setup Tunnel (Public URL)
-# ==========================================
-from pyngrok import ngrok
-# Get token from https://dashboard.ngrok.com/get-started/your-authtoken
-ngrok.set_auth_token("YOUR_NGROK_TOKEN")  # <--- REPLACE THIS!
+# 4. START TUNNEL
+try:
+    public_url = ngrok.connect(8000).public_url
+    print(f"\n🚀 SUCCESS! BACKEND URL: {public_url}\n")
+except:
+    print("\n⚠️ Tunnel already active. Check previous output.\n")
 
-# Open HTTP tunnel on port 8000
-public_url = ngrok.connect(8000).public_url
-print(f"🚀 YOUR PUBLIC BACKEND URL IS: {public_url}")
+# 5. START SERVER
+# Important: We print the logs to see WHY it crashes if it does
+os.environ["FIRSTLINE_MODE"] = "actual"
+os.environ["HF_TOKEN"] = HF_TOKEN_VAL
 
-# ==========================================
-# 4. Start Server with REAL AI
-# ==========================================
-import os
-os.environ["FIRSTLINE_MODE"] = "actual"  # Enable Real AI
-os.environ["HF_TOKEN"] = "YOUR_HUGGING_FACE_TOKEN" # Redundant but safe
-
-print("⏳ Loading MedGemma... This takes about 2 minutes...")
+print("⏳ STARTING SERVER... WATCH BELOW FOR ERRORS 👇")
 !uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
@@ -68,7 +68,7 @@ print("⏳ Loading MedGemma... This takes about 2 minutes...")
 ## 🔗 Step 2: Connect Frontend
 
 1.  Run the notebook cell.
-2.  Wait for the line: `🚀 YOUR PUBLIC BACKEND URL IS: https://xyz...ngrok.app`
+2.  Wait for the line: `🚀 SUCCESS! BACKEND URL: https://xyz...ngrok-free.app`
 3.  Copy that URL.
 4.  Open your local **FirstLine code**:
     *   Go to `web_app/main.js` (Lines 1-5)
@@ -77,7 +77,7 @@ print("⏳ Loading MedGemma... This takes about 2 minutes...")
 5.  Update the `API_BASE` variable:
     ```javascript
     // OLD: const API_BASE = 'http://localhost:8000';
-    const API_BASE = 'https://your-new-url.ngrok-free.app'; // <--- PASTE HERE
+    const API_BASE = 'https://YOUR-URL.ngrok-free.app'; // <--- PASTE HERE
     ```
 6.  **Deploy your Frontend** to Vercel (as explained in `DEPLOYMENT_GUIDE.md`) OR just run it locally on your laptop for the demo video.
 

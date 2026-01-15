@@ -83,13 +83,11 @@ class TriageAgent:
 
     async def generate_followups(self, intake: IntakeRequest) -> List[FollowUpQuestion]:
         """
-        Generate follow-up questions using WHO IMCI & GHS guidelines.
-        Uses rule-based selection for consistency and clinical accuracy.
+        Generate follow-up questions using MedGemma (in actual mode) or Rule-based (backup).
         """
-        # Import the question bank
+        # 1. Rule-Based Safety Checks (Always include 1 critical check)
         from .question_bank import select_questions
         
-        # Convert intake to dict for question selection
         intake_dict = {
             'symptoms': intake.symptoms,
             'age': intake.age,
@@ -98,30 +96,59 @@ class TriageAgent:
             'pregnancy_status': getattr(intake, 'pregnancy_status', False)
         }
         
-        # Get WHO IMCI/GHS compliant questions
-        selected_questions = select_questions(intake_dict)
+        rule_based_questions = select_questions(intake_dict)
+        final_questions = []
+
+        # 2. AI Generation (If in Actual Mode)
+        if self.mode == "actual":
+            prompt = f"""<start_of_turn>user
+Patient: {intake.age}yo {intake.sex}
+Symptoms: {intake.symptoms}
+Duration: {intake.duration_days} days
+
+Act as a clinical expert.
+Generate 2 targeted follow-up questions to rule out serious conditions or clarify the diagnosis.
+CRITICAL: Do NOT ask questions that are already answered by the symptoms above (e.g. if they say "vomiting", don't ask "are they vomiting?").
+Focus on missing information like severity, frequency, or associated symptoms.
+
+Return ONLY JSON array:
+[
+  {{ "question": "...", "options": ["Yes", "No"] }},
+  {{ "question": "...", "options": [] }}
+]<end_of_turn>
+<start_of_turn>model
+"""
+            try:
+                response = self._call_model(prompt)
+                json_str = self._extract_json(response, "[", "]")
+                ai_questions = json.loads(json_str)
+                
+                # Add AI questions first
+                for q in ai_questions:
+                    final_questions.append(
+                        FollowUpQuestion(
+                            question=q.get('question', 'Unknown'),
+                            options=q.get('options', [])
+                        )
+                    )
+            except Exception as e:
+                print(f"⚠️ AI Question Gen Failed: {e}")
         
-        # Convert to FollowUpQuestion format
-        followup_questions = []
-        for q in selected_questions:
-            if q['type'] == 'choice':
-                # Multiple choice question
-                followup_questions.append(
+        # 3. Add Rule-Based Safety Questions (Fill remaining slots up to 5)
+        # We prioritize the most critical rule-based questions (usually at the top of the list)
+        for q in rule_based_questions:
+            if len(final_questions) >= 5:
+                break
+            # Avoid duplicates (simple check by question text)
+            if not any(existing.question == q['question'] for existing in final_questions):
+                 final_questions.append(
                     FollowUpQuestion(
                         question=q['question'],
-                        options=q['options']
+                        options=q.get('options', [])
                     )
                 )
-            else:
-                # Open-ended question (number or text)
-                followup_questions.append(
-                    FollowUpQuestion(
-                        question=q['question'],
-                        options=[]  # Empty options = text input
-                    )
-                )
-        
-        return followup_questions
+
+        return final_questions[:5] # Cap at 5 questions max
 
     async def perform_triage(self, intake: IntakeRequest, followups: Dict[str, str]) -> TriageResult:
         red_flags = self.check_red_flags(intake)
