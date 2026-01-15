@@ -26,12 +26,21 @@ This means you can run the **REAL MedGemma AI** (not just the Mock mode) without
 # ROBUST KAGGLE SCRIPT
 from huggingface_hub import login
 from pyngrok import ngrok
+from kaggle_secrets import UserSecretsClient
 import os
 import shutil
 
-# --- TOKENS (Replace with yours if needed, keeping defaults for easy copy-paste) ---
-HF_TOKEN_VAL = "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"
-NGROK_TOKEN_VAL = "38GuYbLmnQI3VxninGsCYBWESSG_6GewQPdxjA4i4m1PVyhC1"
+# --- SECURE TOKEN LOADING ---
+# 1. Click "Add-ons" -> "Secrets" in Kaggle menu
+# 2. Add a secret called "HUGGINGFACE_TOKEN" with your HF value
+# 3. Add a secret called "NGROK_TOKEN" with your Ngrok value
+user_secrets = UserSecretsClient()
+try:
+    HF_TOKEN_VAL = user_secrets.get_secret("HUGGINGFACE_TOKEN")
+    NGROK_TOKEN_VAL = user_secrets.get_secret("NGROK_TOKEN")
+except Exception as e:
+    print("❌ ERROR: Secrets not found! Please add 'HUGGINGFACE_TOKEN' and 'NGROK_TOKEN' in Add-ons -> Secrets.")
+    raise e
 
 # 1. CLEANUP OLD RUNS (Fixes 'Folder exists' errors)
 if os.path.exists("FirstLine"):
