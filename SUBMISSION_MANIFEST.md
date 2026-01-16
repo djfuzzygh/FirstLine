@@ -16,7 +16,8 @@ This detailed manifest outlines the components of the **FirstLine** submission f
   - `app/services/agent.py`: MedGemma AI integration.
   - `app/services/question_bank.py`: WHO IMCI clinical rules.
 - **Frontend (Web)**: `web_app/`
-  - `home.html`: Unified landing page.
+  - `index.html`: Unified landing page (entry point).
+  - `app.html`: Main Clinical Triage App (Web Interface).
   - `main.js`: Core logic for the web app.
   - `voice-call.js`: Logic for the voice simulator.
   - `ussd.js`: Logic for the USSD simulator.

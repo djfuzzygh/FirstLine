@@ -70,7 +70,7 @@ npm run dev
 ```
 
 ### 4. Access the App
-Open your browser to: **http://localhost:5173/home.html**
+Open your browser to: **http://localhost:5173/index.html**
 
 ## 📂 Project Structure
 ```
@@ -82,8 +82,8 @@ root/
 │   └── main.py             # Server Entry Point
 │
 ├── web_app/                 # Frontend Interface
-│   ├── home.html           # Landing Page
-│   ├── index.html          # Main Triage App
+│   ├── index.html          # Unified Landing Page
+│   ├── app.html            # Main Triage App
 │   ├── voice-call.html     # Voice Simulator
 │   ├── ussd.html           # USSD Simulator
 │   ├── dashboard.html      # Analytics Dashboard
