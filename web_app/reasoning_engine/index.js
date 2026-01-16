@@ -3,7 +3,7 @@
  * Implements hybrid rule-based + ML approach for intelligent triage
  */
 
-import { CLINICAL_KNOWLEDGE_BASE } from '../clinical_knowledge_cleaned.js';
+import { CLINICAL_KNOWLEDGE_BASE } from '../clinical_knowledge_medgemma.js';
 import SemanticConditionMatcher from './semantic_matcher.js';
 
 class ClinicalReasoningEngine {
@@ -37,6 +37,7 @@ class ClinicalReasoningEngine {
             symptoms = [],
             vitals = {},
             age = null,
+            sex = 'unknown',
             duration = null,
             history = []
         } = input;
@@ -55,7 +56,7 @@ class ClinicalReasoningEngine {
 
         // Layer 5: Generate reasoning
         const topMatch = rankedMatches[0];
-        const reasoning = this.generateReasoning(topMatch, normalizedSymptoms, vitals, dangerAssessment);
+        const reasoning = this.generateReasoning(topMatch, normalizedSymptoms, vitals, dangerAssessment, age, sex);
 
         // Layer 6: Treatment synthesis
         const actions = this.synthesizeTreatment(topMatch, dangerAssessment, vitals);
@@ -129,12 +130,6 @@ class ClinicalReasoningEngine {
         }
 
         if (vitals.respiratoryRate) {
-            const ageThresholds = {
-                '<2months': 60,
-                '2-12months': 50,
-                '1-5years': 40
-            };
-
             if (age < 0.17 && vitals.respiratoryRate > 60) {
                 flags.push(`Fast breathing for age (${vitals.respiratoryRate}/min)`);
                 hasDangerSigns = true;
@@ -148,84 +143,7 @@ class ClinicalReasoningEngine {
      * Layer 3: Condition Matching (Semantic + TF-IDF)
      */
     async matchConditions(symptoms, vitals, age) {
-        // Use semantic matcher (TensorFlow.js if available, fallback to keyword)
         return await this.semanticMatcher.matchConditions(symptoms, 10);
-    }
-
-    /**
-     * Calculate TF-IDF-like similarity
-     */
-    calculateSimilarity(userSymptoms, conditionSymptoms) {
-        let score = 0;
-        const matched = new Set();
-
-        for (const userSymptom of userSymptoms) {
-            for (const condSymptom of conditionSymptoms) {
-                if (this.areSimilar(userSymptom, condSymptom)) {
-                    score += 10;
-                    matched.add(condSymptom);
-                }
-            }
-        }
-
-        // Bonus for high coverage
-        const coverage = matched.size / conditionSymptoms.length;
-        score *= (1 + coverage);
-
-        return score;
-    }
-
-    /**
-     * Check if two symptoms are similar
-     */
-    areSimilar(s1, s2) {
-        s1 = s1.toLowerCase();
-        s2 = s2.toLowerCase();
-
-        // Exact match
-        if (s1 === s2) return true;
-
-        // Substring match
-        if (s1.includes(s2) || s2.includes(s1)) return true;
-
-        // Levenshtein distance < 3
-        return this.levenshtein(s1, s2) < 3;
-    }
-
-    /**
-     * Levenshtein distance
-     */
-    levenshtein(a, b) {
-        const matrix = [];
-        for (let i = 0; i <= b.length; i++) {
-            matrix[i] = [i];
-        }
-        for (let j = 0; j <= a.length; j++) {
-            matrix[0][j] = j;
-        }
-        for (let i = 1; i <= b.length; i++) {
-            for (let j = 1; j <= a.length; j++) {
-                if (b.charAt(i - 1) === a.charAt(j - 1)) {
-                    matrix[i][j] = matrix[i - 1][j - 1];
-                } else {
-                    matrix[i][j] = Math.min(
-                        matrix[i - 1][j - 1] + 1,
-                        matrix[i][j - 1] + 1,
-                        matrix[i - 1][j] + 1
-                    );
-                }
-            }
-        }
-        return matrix[b.length][a.length];
-    }
-
-    /**
-     * Get matched symptoms
-     */
-    getMatchedSymptoms(userSymptoms, conditionSymptoms) {
-        return userSymptoms.filter(us =>
-            conditionSymptoms.some(cs => this.areSimilar(us, cs))
-        );
     }
 
     /**
@@ -233,23 +151,17 @@ class ClinicalReasoningEngine {
      */
     rankMatches(matches, dangerAssessment, age) {
         return matches.map(match => {
-            // Prior: condition prevalence (would be loaded from data)
-            const prior = 0.001; // Default
-
-            // Likelihood: symptom match score
+            const prior = 0.001;
             let likelihood = match.score / 100;
 
-            // Boost for danger signs
             if (match.tier === 'RED' && dangerAssessment.hasDangerSigns) {
                 likelihood *= 3.0;
             }
 
-            // Boost for tier match
             if (match.tier === dangerAssessment.severity) {
                 likelihood *= 1.5;
             }
 
-            // Posterior probability
             const posterior = likelihood * prior;
             const confidence = Math.min(Math.round(posterior * 10000), 99);
 
@@ -262,30 +174,39 @@ class ClinicalReasoningEngine {
     }
 
     /**
-     * Layer 5: Generate Clinical Reasoning
+     * Layer 5: Generate Clinical Reasoning (Enhanced)
      */
-    generateReasoning(match, symptoms, vitals, dangerAssessment) {
+    generateReasoning(match, symptoms, vitals, dangerAssessment, age, sex) {
         const parts = [];
 
-        // Symptom match explanation
-        parts.push(`You have ${match.matchedSymptoms.length} symptoms consistent with ${match.diagnosis}:`);
-        parts.push(`• ${match.matchedSymptoms.slice(0, 5).join(', ')}`);
+        // 1. Patient Context & Diagnosis
+        parts.push(`**Assessment for ${age || '?'}yo ${sex}:** Presentation is consistent with **${match.diagnosis}**.`);
 
-        // Danger sign context
+        // 2. Symptom Evidence
+        if (match.matchedSymptoms && match.matchedSymptoms.length > 0) {
+            parts.push(`Identified key correlation with: ${match.matchedSymptoms.join(', ')}.`);
+        }
+
+        // 3. Vital Signs Context
+        if (vitals.temperature) {
+            if (vitals.temperature > 38) parts.push(`Fever of ${vitals.temperature}°C significantly increases infection probability.`);
+            else if (vitals.temperature < 36) parts.push(`Hypothermia (${vitals.temperature}°C) is a critical warning sign.`);
+        }
+        if (vitals.systolicBP && vitals.systolicBP < 90) {
+            parts.push(`Hypotension (BP ${vitals.systolicBP}/${vitals.diastolicBP}) suggests possible shock.`);
+        }
+
+        // 4. Danger Analysis
         if (dangerAssessment.hasDangerSigns) {
-            parts.push(`\n⚠️ DANGER SIGNS DETECTED:`);
-            parts.push(dangerAssessment.flags.map(f => `• ${f}`).join('\n'));
+            parts.push(`\n⚠️ **CRITICAL FINDINGS:** Detected danger signs (${dangerAssessment.flags.join(', ')}) which mandate immediate escalation to RED tier.`);
         }
 
-        // Vital sign context
-        if (vitals.temperature && vitals.temperature > 38) {
-            parts.push(`\nYour temperature of ${vitals.temperature}°C indicates active infection or inflammation.`);
+        // 5. Clinical Knowledge Base Context
+        if (match.reasoning) {
+            parts.push(`\n**Protocol:** ${match.reasoning}`);
         }
 
-        // Clinical reasoning from knowledge base
-        parts.push(`\n${match.reasoning}`);
-
-        return parts.join('\n');
+        return parts.join(' ');
     }
 
     /**

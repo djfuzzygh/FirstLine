@@ -1,4 +1,5 @@
-// MedGemma-Enhanced via Kaggle
+// Auto-generated cleaned clinical knowledge base
+// Last updated: 2026-01-16
 
 export const CLINICAL_KNOWLEDGE_BASE = {
   "abdominal_aortic_aneurysm": {
@@ -12,13 +13,9 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "being overweight or obese"
     ],
     "reasoning": "Abdominal aortic aneurysm can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
-    "treatment": [
-      "Safety fallback: Error parsing AI reasoning."
-    ],
+    "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "achilles_tendinopathy": {
     "id": "achilles_tendinopathy",
@@ -33,13 +30,9 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "loss of movement and strength around the ankle and foot"
     ],
     "reasoning": "Achilles tendinopathy can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
-    "treatment": [
-      "The patient presents with Achilles tendinopathy, a common overuse injury. There are no immediate life-threatening symptoms or signs of acute trauma. The condition is chronic and typically managed conservatively."
-    ],
+    "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "acne": {
     "id": "acne",
@@ -51,12 +44,11 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     ],
     "reasoning": "Acne can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [
-      "The patient is a 30-year-old male presenting with acne symptoms that are cyclical and associated with hormonal fluctuations (period or polycystic ovary syndrome). These are common and generally manageable conditions without immediate emergency intervention. The symptoms described do not indicate a life-threatening condition."
+      "flares up around your period, or",
+      "is associated with hormonal conditions like polycystic ovary syndrome"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "acute_cholecystitis": {
     "id": "acute_cholecystitis",
@@ -65,12 +57,12 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "symptoms": [],
     "reasoning": "Acute cholecystitis requires prompt medical evaluation as symptoms can worsen rapidly. Early treatment significantly improves outcomes.",
     "treatment": [
-      "Acute cholecystitis is an inflammation of the gallbladder, often caused by gallstones. While the patient is receiving initial supportive care (fasting, IV fluids, pain medication), the symptoms suggest a moderate level of severity requiring further medical intervention. The patient is not described as being in immediate life-threatening danger, but the condition requires prompt medical evaluation and likely further treatment beyond initial supportive care."
+      "fasting (not eating or drinking) to take the strain off your gallbladder",
+      "receiving fluids through a drip directly into a vein (intravenously) to prevent dehydration",
+      "taking medication to relieve your pain"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "acute_lymphoblastic_leukaemia": {
     "id": "acute_lymphoblastic_leukaemia",
@@ -82,12 +74,12 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     ],
     "reasoning": "Acute lymphoblastic leukaemia requires prompt medical evaluation as symptoms can worsen rapidly. Early treatment significantly improves outcomes.",
     "treatment": [
-      "Acute lymphoblastic leukemia (ALL) is a serious and potentially life-threatening cancer. Symptoms can include fatigue, fever, easy bruising or bleeding, frequent infections, and bone pain. While the patient's symptoms are not explicitly stated, the diagnosis of ALL requires immediate and intensive medical intervention. The potential for rapid progression and complications necessitates a high-risk triage tier."
+      "the type of ALL",
+      "any gene changes (mutations) in the leukaemia cells",
+      "if the leukaemia cells produce certain proteins."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "acute_myeloid_leukaemia": {
     "id": "acute_myeloid_leukaemia",
@@ -99,12 +91,11 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     ],
     "reasoning": "Acute myeloid leukaemia requires prompt medical evaluation as symptoms can worsen rapidly. Early treatment significantly improves outcomes.",
     "treatment": [
-      "Acute myeloid leukemia (AML) is a serious and potentially life-threatening cancer. The symptoms described are indicative of a severe medical condition requiring immediate medical attention. The patient's age and the diagnosis of AML place them in a high-risk category."
+      "Intensive treatment – to get rid of the leukaemia cells in your blood and bone marrow. When this happens, it is called remission.",
+      "Non-intensive treatment – to get rid of any remaining leukaemia cells and reduce the risk of the leukaemia coming back."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "acute_pancreatitis": {
     "id": "acute_pancreatitis",
@@ -119,13 +110,9 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "tenderness or swelling of the abdomen (tummy)"
     ],
     "reasoning": "Acute pancreatitis requires prompt medical evaluation as symptoms can worsen rapidly. Early treatment significantly improves outcomes.",
-    "treatment": [
-      "Acute pancreatitis is a serious condition that can lead to severe complications. While the patient's age and symptoms suggest a moderate severity, the potential for rapid deterioration warrants a YELLOW tier classification. The symptoms described (severe abdominal pain, nausea, vomiting) are consistent with acute pancreatitis, but further evaluation is needed to rule out other causes and assess the severity."
-    ],
+    "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "acute_respiratory_infection_ari": {
     "id": "acute_respiratory_infection_ari",
@@ -145,12 +132,15 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     ],
     "reasoning": "Acute respiratory infection (ARI) requires prompt medical evaluation as symptoms can worsen rapidly. Early treatment significantly improves outcomes.",
     "treatment": [
-      "The patient presents with symptoms consistent with an acute respiratory infection (ARI), which is a common and generally self-limiting condition. The current treatments (fluids, healthy diet, OTC pain relief) are appropriate for mild to moderate symptoms. There are no immediate danger signs mentioned."
+      "drink plenty of fluids",
+      "eat healthily",
+      "take over-the-counter pain relief, such as paracetamol or ibuprofen, to relieve high temperature and aches",
+      "use decongestant sprays or tablets to relieve a blocked nose",
+      "use extra pillows to raise your head while sleeping to make breathing easier and clear your chest of mucus",
+      "try remedies such as gargling salt water and sucking on menthol sweets"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "addison_s_disease": {
     "id": "addison_s_disease",
@@ -168,12 +158,14 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     ],
     "reasoning": "Addison’s disease can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [
-      "The patient presents with classic signs and symptoms of acute adrenal insufficiency (Addison's disease crisis), including severe dehydration, hypotension (implied by pale, cold, clammy skin), and respiratory distress (rapid, shallow breathing). These are life-threatening conditions requiring immediate medical intervention."
+      "severe dehydration",
+      "pale, cold, clammy skin",
+      "rapid, shallow breathing",
+      "severe vomiting and diarrhoea",
+      "severe muscle weakness"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "adenomyosis": {
     "id": "adenomyosis",
@@ -187,12 +179,13 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     ],
     "reasoning": "Adenomyosis requires prompt medical evaluation as symptoms can worsen rapidly. Early treatment significantly improves outcomes.",
     "treatment": [
-      "The patient presents with symptoms consistent with mild adenomyosis, currently managed with anti-inflammatory medication, period-specific treatments, and hormone therapy. There are no immediate life-threatening signs or symptoms described. The current management appears to be addressing the symptoms effectively, and the patient is not in acute distress."
+      "anti-inflammatory medication to help relieve mild pain",
+      "treatment during your period to help reduce the amount of menstrual blood loss",
+      "hormone therapy such as the contraceptive pill, to help control heavy or painful periods",
+      "a hysterectomy (removal of the womb) – this would only be considered in extreme cases, where other treatments do not work and if you do not wish to become pregnant"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "alcohol_related_liver_disease": {
     "id": "alcohol_related_liver_disease",
@@ -206,23 +199,13 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "diarrhoea",
       "feeling generally unwell"
     ],
-    "reasoning": "The patient presents with symptoms suggestive of decompensated liver disease (abdominal pain, loss of appetite, fatigue, feeling sick, diarrhoea) in the context of known alcohol-related liver disease. While not immediately life-threatening without further signs, these symptoms indicate a potential worsening of the condition and require close monitoring and further investigation.",
+    "reasoning": "Alcohol-related liver disease can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [
-      "Ensure patient is in a safe and comfortable position.",
-      "Monitor vital signs closely.",
-      "Provide reassurance and explain the situation.",
-      "If abdominal pain is severe, consider pain relief as appropriate.",
-      "Encourage small, frequent meals if appetite is poor.",
-      "Ensure adequate hydration.",
-      "Assess vital signs (blood pressure, heart rate, respiratory rate, temperature).",
-      "Perform a physical examination focusing on abdominal tenderness, jaundice, ascites, and signs of bleeding.",
-      "Consider blood tests including liver function tests (LFTs), coagulation profile (INR), electrolytes, and renal function.",
-      "Consider abdominal ultrasound to evaluate for complications like varices or ascites."
+      "anabolic steroids (a more powerful type of steroid medication)",
+      "ropylthiouracil (a type of medicine originally designed to treat overactive thyroid glands)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "allergic_rhinitis": {
     "id": "allergic_rhinitis",
@@ -233,20 +216,14 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "itchiness",
       "a blocked or runny nose"
     ],
-    "reasoning": "The patient presents with symptoms consistent with Allergic rhinitis (sneezing, itchiness, runny/blocked nose). These are common, non-life-threatening symptoms. There are no signs of severe respiratory distress, anaphylaxis, or other acute emergencies.",
+    "reasoning": "Allergic rhinitis can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [
-      "Ensure the patient has access to tissues for sneezing.",
-      "Recommend using saline nasal sprays or rinses to help clear nasal passages.",
-      "Advise on avoiding known allergens if possible.",
-      "Educate the patient on allergic rhinitis triggers and avoidance strategies.",
-      "Recommend over-the-counter antihistamines or nasal corticosteroids for symptom management.",
-      "Advise on proper nasal hygiene.",
-      "Referral to an allergist if symptoms are severe or persistent."
+      "take over-the-counter medications, such as antihistamines",
+      "clean your nasal passages with a salt water solution",
+      "avoid triggers if you can"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "allergies": {
     "id": "allergies",
@@ -260,23 +237,15 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "a red, itchy rash",
       "worsening of asthma or eczema symptoms"
     ],
-    "reasoning": "The patient presents with symptoms consistent with an allergic reaction (sneezing, runny/blocked nose, itchy/watery eyes, wheezing, coughing, rash). While the symptoms are typical of allergies, the presence of wheezing and coughing raises concern for potential respiratory compromise. The rash could indicate a more severe reaction. This warrants a YELLOW tier due to the potential for worsening symptoms and the need for monitoring.",
+    "reasoning": "Allergies can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [
-      "Step 1: Ensure the patient is in a safe and well-ventilated area.",
-      "Step 2: If the patient is experiencing difficulty breathing, coughing, or wheezing, administer a short-acting bronchodilator (like albuterol) as prescribed by a healthcare professional.",
-      "Step 3: Administer antihistamines (like loratadine or cetirizine) to help relieve itching and sneezing.",
-      "Step 4: Apply a cool compress to the eyes if they are itchy and watery.",
-      "Step 5: If the rash is severe or spreading, consult a healthcare professional for appropriate treatment.",
-      "Step 6: Monitor the patient's breathing and overall condition closely.",
-      "Ensure patient is in a safe and well-ventilated area.",
-      "Administer prescribed antihistamines and/or inhaled corticosteroids if available and appropriate.",
-      "If wheezing or difficulty breathing is present, administer a short-acting bronchodilator (e.g., albuterol) as prescribed.",
-      "Monitor vital signs closely."
+      "antihistamines – these can be taken when you notice the symptoms of a reaction, or before being exposed to an allergen to stop a reaction occurring",
+      "decongestants – tablets, capsules, nasal sprays or liquids that can be used as a short-term treatment for a blocked nose",
+      "lotions and creams, such as moisturising creams (emollients) – these can reduce skin redness and itchiness",
+      "steroid medication – sprays, drops, creams, inhalers and tablets that can help reduce redness and swelling caused by an allergic reaction"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "alzheimer_s_disease": {
     "id": "alzheimer_s_disease",
@@ -293,23 +262,14 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "delusions (believing things that are untrue)",
       "low mood or anxiety"
     ],
-    "reasoning": "The patient presents with symptoms consistent with Alzheimer's disease, including confusion, disorientation, difficulty with planning/decision-making, speech/language problems, mobility issues, and difficulty with self-care. While these are chronic symptoms of the disease, the acute presentation of confusion and disorientation could indicate a potential exacerbation, underlying infection, medication side effect, or other acute medical issue superimposed on the chronic dementia. The patient's inability to perform self-care tasks increases the risk of complications like dehydration, malnutrition, or falls. Therefore, a YELLOW tier is appropriate to warrant further evaluation and monitoring.",
+    "reasoning": "Alzheimer’s disease can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [
-      "Ensure the patient is in a safe, quiet environment.",
-      "Orient the patient to their surroundings using familiar objects or people.",
-      "Provide reassurance and calm communication.",
-      "Do not force feeding or medication administration if the patient is refusing.",
-      "Ensure the patient is wearing appropriate identification (e.g., ID bracelet).",
-      "Assess vital signs (Blood Pressure, Heart Rate, Respiratory Rate, Temperature).",
-      "Perform a rapid neurological assessment (mental status, motor function, sensory function).",
-      "Review medication list for potential side effects or interactions.",
-      "Consider a urinalysis or blood tests to rule out infection (e.g., UTI).",
-      "Ensure patient safety and provide a safe environment."
+      "what support you or your carer need for you to remain as independent as possible",
+      "whether there are any changes that need to be made to your home to make it easier to live in",
+      "whether you need any financial assistance"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "anal_cancer": {
     "id": "anal_cancer",
@@ -320,23 +280,14 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "rectal cancer",
       "small bowel cancer"
     ],
-    "reasoning": "Patient has a known diagnosis of Anal cancer, which is a serious malignancy. The clinical presentation of Anal cancer requires immediate and urgent medical attention. The risk of metastasis and complications is high, necessitating a high-priority triage.",
+    "reasoning": "Anal cancer can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [
-      "Ensure patient is in a safe and comfortable position.",
-      "Maintain airway and breathing.",
-      "Control any severe bleeding if present.",
-      "Provide reassurance and comfort.",
-      "Notify emergency medical services (EMS) immediately.",
-      "Ensure patient safety and prevent further injury.",
-      "Transport patient to the nearest appropriate medical facility (e.g., hospital oncology unit or emergency department).",
-      "Provide oxygen if respiratory distress is present.",
-      "Administer medications as prescribed by medical professionals (e.g., pain relief, anti-nausea medication).",
-      "Prepare for potential surgical intervention, chemotherapy, or radiation therapy."
+      "examine you",
+      "ask how you are feeling and whether you have any ongoing treatment side effects",
+      "ask whether you have any new symptoms."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "anaphylaxis": {
     "id": "anaphylaxis",
@@ -346,9 +297,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Anaphylaxis is a medical emergency requiring immediate hospital treatment. Delays can lead to serious complications including organ failure or death.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "angina": {
     "id": "angina",
@@ -362,9 +311,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Angina can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "angioedema": {
     "id": "angioedema",
@@ -375,22 +322,10 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "swelling of the inside of the throat, the windpipe and the tongue, making breathing difficult",
       "swelling of the conjunctiva (the transparent layer of cells that cover the white part of the eye), which affects vision"
     ],
-    "reasoning": "The patient presents with angioedema, a potentially life-threatening condition characterized by rapid swelling of the deeper layers of the skin and subcutaneous tissues. The symptoms described, including swelling of the throat, windpipe, and tongue, along with difficulty breathing and vision changes, indicate a high risk of airway compromise. This warrants immediate attention and monitoring.",
-    "treatment": [
-      "If the patient is having difficulty breathing, administer epinephrine immediately if available and indicated.",
-      "If the patient is conscious and able to swallow, have them sit upright and lean forward to maximize airway opening.",
-      "If the patient is unconscious or unable to protect their airway, perform basic life support (CPR) if trained and necessary.",
-      "Keep the patient calm and comfortable.",
-      "Do not give anything by mouth if there is a risk of aspiration.",
-      "Ensure airway patency.",
-      "Administer appropriate medication (e.g., epinephrine, antihistamines, corticosteroids) based on suspected cause and severity.",
-      "Seek immediate medical evaluation.",
-      "Monitor vital signs closely."
-    ],
+    "reasoning": "Angioedema requires prompt medical evaluation as symptoms can worsen rapidly. Early treatment significantly improves outcomes.",
+    "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "ankle_sprain": {
     "id": "ankle_sprain",
@@ -406,9 +341,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Ankle sprain can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "ankle_avulsion_fracture": {
     "id": "ankle_avulsion_fracture",
@@ -418,9 +351,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Ankle avulsion fracture can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "ankylosing_spondylitis": {
     "id": "ankylosing_spondylitis",
@@ -442,9 +373,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "physiotherapy"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "anorexia_nervosa": {
     "id": "anorexia_nervosa",
@@ -462,23 +391,15 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "constantly checking your weight and comparing yourself to others",
       "if you get periods and you have anorexia nervosa, your periods may stop"
     ],
-    "reasoning": "The patient presents with symptoms consistent with Anorexia Nervosa, a serious mental health condition characterized by an intense fear of gaining weight and a distorted body image, leading to severe food restriction and weight loss. While Anorexia Nervosa carries significant risks, the provided information does not indicate any immediate life-threatening danger signs (e.g., severe electrolyte imbalance, cardiac instability, or imminent collapse). The patient is described as being under 18, which is a common demographic for the onset of Anorexia Nervosa, but the description focuses on the symptoms rather than acute medical emergencies.",
+    "reasoning": "Anorexia nervosa requires prompt medical evaluation as symptoms can worsen rapidly. Early treatment significantly improves outcomes.",
     "treatment": [
-      "Ensure the patient is in a safe and comfortable environment.",
-      "Provide reassurance and support.",
-      "Do not force the patient to eat unless they are medically unstable or severely malnourished.",
-      "Encourage hydration if possible, but do not force fluids.",
-      "Monitor vital signs (if possible and appropriate for the setting).",
-      "Referral to a mental health professional (psychiatrist, psychologist, therapist) specializing in eating disorders.",
-      "Referral to a multidisciplinary team including a physician, registered dietitian, and potentially a psychiatrist.",
-      "Ensure patient safety and provide a supportive environment.",
-      "Educate the patient and family about Anorexia Nervosa, its potential complications, and the importance of seeking professional help.",
-      "Monitor for signs of medical complications (e.g., bradycardia, hypotension, hypothermia, electrolyte imbalances, cardiac arrhythmias)."
+      "have a very low weight",
+      "lose weight quickly",
+      "are making themselves sick several times a day",
+      "are regularly using laxatives"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "anxiety_disorders_in_children_and_young_people": {
     "id": "anxiety_disorders_in_children_and_young_people",
@@ -496,40 +417,29 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "complaining of tummy aches and feeling unwell",
       "being withdrawn and not wanting to do things they used to enjoy"
     ],
-    "reasoning": "The patient presents with symptoms consistent with an anxiety disorder in children and young people, including difficulty concentrating, sleep disturbances, poor appetite, increased irritability, and excessive worry. While these symptoms indicate a significant distress and potential impact on functioning, they do not represent an immediate life-threatening situation. The symptoms are concerning and warrant attention, but do not meet the criteria for a RED tier, which would be reserved for acute, severe, or life-threatening conditions.",
+    "reasoning": "Anxiety disorders in children and young people can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [
-      "Step 1: Assess the patient's overall condition and level of distress. Ensure they are safe.",
-      "Step 2: Provide a calm and reassuring environment. Speak calmly and listen actively to the patient's concerns.",
-      "Step 3: Encourage the patient to express their feelings and worries in a safe space.",
-      "Step 4: Offer simple grounding techniques if the patient is feeling overwhelmed (e.g., focusing on their breath, noticing their surroundings).",
-      "Step 5: Do not offer definitive medical advice or diagnosis. Focus on providing support and directing them towards professional help.",
-      "Assess the patient's current level of distress and functional impairment.",
-      "Provide a calm and supportive environment.",
-      "Encourage the patient to identify coping mechanisms.",
-      "Refer to a mental health professional for further evaluation and management.",
-      "Ensure the patient has access to appropriate support systems."
+      "moving house and school often",
+      "parents who constantly fight or do not get on",
+      "the death of a close relative or friend",
+      "becoming ill or injured in an accident",
+      "a family member who is unwell or needs extra support",
+      "school-related issues like homework or exams, or bullying or friendship problems",
+      "becoming involved in crime",
+      "being abused or neglected"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "aplastic_anaemia": {
     "id": "aplastic_anaemia",
     "diagnosis": "Aplastic anaemia",
     "tier": "GREEN",
     "symptoms": [],
-    "reasoning": "Aplastic anaemia is a chronic condition characterized by bone marrow failure, leading to pancytopenia (low counts of red blood cells, white blood cells, and platelets). While it requires ongoing management and monitoring, the patient's current presentation described (clinical presentation of Aplastic anaemia) does not inherently indicate an immediate life-threatening emergency requiring a RED tier. The risk is primarily related to complications like infections, bleeding, and anemia, which are managed through routine care and monitoring rather than immediate first aid.",
-    "treatment": [
-      "Ensure patient is receiving appropriate medical management for Aplastic anaemia (e.g., immunosuppressive therapy, transfusions as needed).",
-      "Educate patient and family on signs and symptoms of infection, bleeding, and worsening anemia.",
-      "Arrange regular follow-up appointments with hematologist.",
-      "Ensure access to emergency medical care."
-    ],
+    "reasoning": "Aplastic anaemia can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
+    "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "appendicitis": {
     "id": "appendicitis",
@@ -545,9 +455,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Appendicitis is a medical emergency requiring immediate hospital treatment. Delays can lead to serious complications including organ failure or death.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "arterial_thrombosis": {
     "id": "arterial_thrombosis",
@@ -562,9 +470,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Arterial thrombosis is a medical emergency requiring immediate hospital treatment. Delays can lead to serious complications including organ failure or death.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "arthritis": {
     "id": "arthritis",
@@ -579,43 +485,31 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "warm, red skin on your joints",
       "weakness and muscle wasting"
     ],
-    "reasoning": "The patient presents with symptoms consistent with Arthritis, which is a chronic inflammatory condition affecting joints. While the symptoms can be debilitating, they are generally not life-threatening in the absence of complications or severe exacerbations. The presentation described is typical for arthritis and does not indicate an immediate, life-threatening emergency.",
+    "reasoning": "Arthritis can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [
-      "Ensure patient comfort and provide support for movement.",
-      "Encourage gentle range-of-motion exercises as tolerated.",
-      "Apply heat or cold packs to affected joints for pain relief (as appropriate for the type of arthritis).",
-      "Assist with mobility aids if needed.",
-      "Provide information on joint protection techniques.",
-      "Assess the patient's pain level and mobility.",
-      "Educate the patient on joint care, medication adherence, and lifestyle modifications.",
-      "Referral to a rheumatologist or orthopedic specialist for diagnosis and management.",
-      "Ensure appropriate pain management.",
-      "Monitor for signs of infection or complications."
+      "painkillers",
+      "non-steroidal anti-inflammatory drugs (NSAIDs)",
+      "corticosteroids",
+      "disease modifying anti-rheumatic drugs (DMARDs)",
+      "physiotherapy",
+      "regular exercise"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "asbestosis": {
     "id": "asbestosis",
     "diagnosis": "Asbestosis",
     "tier": "GREEN",
     "symptoms": [],
-    "reasoning": "The patient has a known diagnosis of Asbestosis, a chronic lung disease caused by inhaling asbestos fibers. While Asbestosis can lead to respiratory complications, the patient is currently presenting with their known clinical presentation. There are no immediate signs of acute decompensation or life-threatening conditions described. The risk tier is GREEN, indicating low risk.",
+    "reasoning": "Asbestosis can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [
-      "Ensure patient is in a comfortable position.",
-      "Provide supplemental oxygen if indicated by respiratory status.",
-      "Monitor respiratory rate and oxygen saturation.",
-      "Ensure patient is in a comfortable position.",
-      "Provide supplemental oxygen if indicated by respiratory status.",
-      "Monitor respiratory rate and oxygen saturation.",
-      "Educate patient on symptoms of worsening respiratory function and when to seek further medical attention."
+      "industrial injuries disablement benefit – a weekly benefit that may be paid to people with asbestosis who were exposed to asbestos while in employment (but not self-employed)",
+      "a civil claim for compensation through the courts – you’ll need to obtain legal advice about how to do this",
+      "a claim for a lump compensation sum under the Pneumoconiosis etc. (Workers’ Compensation) Act 1979 – if you have asbestosis, or you’re the dependent of someone who has died from the condition, and you haven’t been able to get compensation through the courts because the employer has ceased trading"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "asthma": {
     "id": "asthma",
@@ -633,9 +527,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "relieve your symptoms"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "ataxia": {
     "id": "ataxia",
@@ -656,9 +548,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "acquired ataxia as it can sometimes be treated if the specific cause is something like an infection where antibiotics or antiviral treatment might help"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "atopic_eczema": {
     "id": "atopic_eczema",
@@ -671,23 +561,13 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "blister or bleed",
       "painful"
     ],
-    "reasoning": "The patient presents with symptoms consistent with Atopic Eczema, a chronic inflammatory skin condition. The described symptoms (dry, cracked, crusty, scaly, thickened, red, white, purple or grey patches, potential blistering or bleeding) are characteristic of eczema flares. There are no immediate life-threatening signs or acute complications mentioned. The condition is chronic and manageable with appropriate skincare and potentially medication.",
+    "reasoning": "Atopic eczema can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [
-      "Apply a cool compress to the affected areas for 10-15 minutes to soothe itching and inflammation.",
-      "Use a gentle, fragrance-free cleanser and lukewarm water for bathing.",
-      "Apply a thick, fragrance-free emollient or moisturizer immediately after bathing while the skin is still damp.",
-      "Avoid scratching the affected skin.",
-      "Keep fingernails short and clean to minimize skin damage from scratching.",
-      "Educate the patient on proper skin hydration and gentle cleansing.",
-      "Recommend appropriate emollients and moisturizers.",
-      "Advise on avoiding triggers like harsh soaps, allergens, and irritants.",
-      "Prescribe topical corticosteroids or calcineurin inhibitors as needed for flare-ups.",
-      "Referral to a dermatologist if symptoms are severe or unresponsive to initial treatment."
+      "moisturising creams, lotions, ointments and gels that you apply to your skin",
+      "steroid creams, lotions or gels that you apply to your skin (topical corticosteroids)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "atrial_fibrillation": {
     "id": "atrial_fibrillation",
@@ -700,23 +580,14 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "feeling faint",
       "chest discomfort or pain"
     ],
-    "reasoning": "The patient presents with symptoms suggestive of atrial fibrillation (AFib), including tiredness, breathlessness, dizziness, and feeling faint. While AFib itself is a cardiac arrhythmia, these symptoms can indicate potential complications or worsening of the condition, such as heart failure, stroke, or hemodynamic instability. The symptoms are non-specific but warrant attention. The patient's age (30) is relatively young for AFib, which might suggest an underlying cause or a more severe presentation. The clinical presentation is noted, but the history is empty, limiting further assessment.",
+    "reasoning": "Atrial fibrillation can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [
-      "Ensure patient safety and comfort.",
-      "Encourage the patient to rest in a comfortable position, preferably sitting or lying down.",
-      "If the patient is feeling faint or dizzy, have them lie down with their legs elevated slightly.",
-      "If the patient is experiencing chest discomfort, advise them to remain calm and avoid exertion.",
-      "If the patient is breathing abnormally or has difficulty breathing, monitor their respiratory status closely.",
-      "Assess vital signs: Blood pressure, heart rate, respiratory rate, oxygen saturation.",
-      "Perform a rapid assessment for signs of heart failure (e.g., edema, JVD).",
-      "Consider ECG to confirm AFib and assess rate/rhythm.",
-      "Evaluate for potential triggers or precipitating factors (e.g., electrolyte imbalance, infection, thyroid dysfunction).",
-      "Consult with a healthcare professional for further evaluation and management."
+      "medication, like beta blockers and anti-arrhythmic drugs",
+      "having a pacemaker fitted",
+      "cardioversion"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "attention_deficit_hyperactivity_disorder_adhd": {
     "id": "attention_deficit_hyperactivity_disorder_adhd",
@@ -733,21 +604,10 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "constantly changing activity or task",
       "having difficulty organising tasks"
     ],
-    "reasoning": "The patient presents with symptoms consistent with ADHD, which is a neurodevelopmental disorder. While these symptoms can impact daily functioning, they do not typically pose an immediate physical danger to the patient or others. The clinical presentation is described as ADHD, not an acute medical emergency.",
-    "treatment": [
-      "Ensure the patient's safety and provide a calm environment.",
-      "Offer reassurance and support.",
-      "Encourage the patient to utilize coping strategies learned through therapy or education.",
-      "If the patient is experiencing distress or agitation, suggest calming techniques like deep breathing or mindfulness exercises.",
-      "Assess the patient's current functional status and any potential impact on their daily activities.",
-      "Provide education on ADHD management strategies.",
-      "Referral to a specialist (e.g., psychiatrist, psychologist) for further evaluation and management planning.",
-      "Ensure the patient has access to appropriate support systems and resources."
-    ],
+    "reasoning": "Attention deficit hyperactivity disorder (ADHD) can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
+    "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "autism": {
     "id": "autism",
@@ -757,9 +617,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Autism can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "back_problems": {
     "id": "back_problems",
@@ -774,9 +632,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "doing more activity than you normally would"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "bacterial_vaginosis": {
     "id": "bacterial_vaginosis",
@@ -792,9 +648,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "are breastfeeding"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "becker_muscular_dystrophy": {
     "id": "becker_muscular_dystrophy",
@@ -817,9 +671,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "occupational therapy to help maintain independence"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "benign_prostate_enlargement": {
     "id": "benign_prostate_enlargement",
@@ -838,9 +690,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Benign prostate enlargement can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "bile_duct_cancer_cholangiocarcinoma": {
     "id": "bile_duct_cancer_cholangiocarcinoma",
@@ -856,9 +706,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "is not suitable for surgery (unresectable)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "binge_eating_disorder_bed": {
     "id": "binge_eating_disorder_bed",
@@ -883,9 +731,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "some types of cancer"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "bipolar_disorder": {
     "id": "bipolar_disorder",
@@ -905,9 +751,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "making lifestyle changes – like exercising regularly and improving your diet"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "bladder_cancer": {
     "id": "bladder_cancer",
@@ -924,9 +768,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "reduce your symptoms and improve quality of life."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "sepsis": {
     "id": "sepsis",
@@ -944,9 +786,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "you develop septic shock – when your blood pressure drops to a dangerously low level"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "bone_cancer": {
     "id": "bone_cancer",
@@ -961,9 +801,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Bone cancer is a medical emergency requiring immediate hospital treatment. Delays can lead to serious complications including organ failure or death.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "bottom_shuffling_in_young_children": {
     "id": "bottom_shuffling_in_young_children",
@@ -973,9 +811,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Bottom shuffling in young children can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "bowel_cancer": {
     "id": "bowel_cancer",
@@ -991,9 +827,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "visit our bowel (colon and rectal) cancer forum to talk to people who have been affected by bowel cancer, share your experience, and ask an expert your questions."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "bowel_incontinence": {
     "id": "bowel_incontinence",
@@ -1008,9 +842,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "it won’t usually go away on its own – most people need treatment for the condition"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "bowel_polyps": {
     "id": "bowel_polyps",
@@ -1025,9 +857,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Bowel polyps can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "bow_legs_and_knock_knees_in_children_and_young_people": {
     "id": "bow_legs_and_knock_knees_in_children_and_young_people",
@@ -1044,9 +874,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "knock knees after the age of 8"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "brain_stem_death": {
     "id": "brain_stem_death",
@@ -1056,9 +884,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Brain stem death can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "brain_tumours": {
     "id": "brain_tumours",
@@ -1074,9 +900,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Brain tumours can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "breast_cancer_female": {
     "id": "breast_cancer_female",
@@ -1091,9 +915,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Breast cancer (female) can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "breast_cancer_male": {
     "id": "breast_cancer_male",
@@ -1114,9 +936,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "whether the cancer cells have HER2 receptors (are HER2 positive) – this is not common in men"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "breathing_problems_in_children": {
     "id": "breathing_problems_in_children",
@@ -1132,9 +952,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Breathing problems in children can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "shortness_of_breath": {
     "id": "shortness_of_breath",
@@ -1144,9 +962,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Shortness of breath can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "bronchiectasis": {
     "id": "bronchiectasis",
@@ -1164,9 +980,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "antibiotics to treat any lung infections"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "bronchitis": {
     "id": "bronchitis",
@@ -1190,9 +1004,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "try making a honey and lemon drink to help soothe a sore throat and ease your cough"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "bulimia_nervosa": {
     "id": "bulimia_nervosa",
@@ -1219,9 +1031,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "whether there are any physical health risks that need urgent treatment"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "bunion_hallux_valgus": {
     "id": "bunion_hallux_valgus",
@@ -1238,9 +1048,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "your symptoms are worsening"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "cancer_and_your_emotions": {
     "id": "cancer_and_your_emotions",
@@ -1254,9 +1062,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Cancer and your emotions can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "cardiac_arrest": {
     "id": "cardiac_arrest",
@@ -1266,9 +1072,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Cardiac arrest is a medical emergency requiring immediate hospital treatment. Delays can lead to serious complications including organ failure or death.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "cardiovascular_disease": {
     "id": "cardiovascular_disease",
@@ -1278,9 +1082,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Cardiovascular disease can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "carpal_tunnel_syndrome": {
     "id": "carpal_tunnel_syndrome",
@@ -1290,9 +1092,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Carpal tunnel syndrome can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "catarrh": {
     "id": "catarrh",
@@ -1316,9 +1116,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "over-the-counter medications such as decongestants, antihistamines or steroid nasal sprays"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "cellulitis": {
     "id": "cellulitis",
@@ -1338,9 +1136,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "avoid wearing compression stockings until you’ve recovered"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "cerebral_palsy": {
     "id": "cerebral_palsy",
@@ -1361,9 +1157,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Cerebral palsy can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "cervical_cancer": {
     "id": "cervical_cancer",
@@ -1382,9 +1176,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "after surgery, to reduce the risk of the cancer coming back."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "cervical_spondylosis": {
     "id": "cervical_spondylosis",
@@ -1407,9 +1199,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "managing stress and emotional wellbeing"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "chest_and_rib_injury": {
     "id": "chest_and_rib_injury",
@@ -1423,9 +1213,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Chest and rib injury can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "chest_infection": {
     "id": "chest_infection",
@@ -1444,9 +1232,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Chest infection is a medical emergency requiring immediate hospital treatment. Delays can lead to serious complications including organ failure or death.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "chickenpox": {
     "id": "chickenpox",
@@ -1465,9 +1251,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "calamine lotion and cooling gels to ease itching."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "chilblains": {
     "id": "chilblains",
@@ -1489,9 +1273,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Raynaud’s phenomenon – a common condition that affects the blood supply to certain parts of the body, usually the fingers and toes"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "chlamydia": {
     "id": "chlamydia",
@@ -1510,9 +1292,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "infected semen or vaginal fluid getting into your eye"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "myalgic_encephalomyelitis_me_or_chronic_fatigue_syndrome_cfs": {
     "id": "myalgic_encephalomyelitis_me_or_chronic_fatigue_syndrome_cfs",
@@ -1528,9 +1308,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "very severe"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "chronic_kidney_disease": {
     "id": "chronic_kidney_disease",
@@ -1552,9 +1330,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "are being treated with dialysis, but have another serious physical illness, especially severe heart disease or stroke, that will shorten their life"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "chronic_lymphocytic_leukaemia": {
     "id": "chronic_lymphocytic_leukaemia",
@@ -1567,9 +1343,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Chronic lymphocytic leukaemia can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "chronic_myeloid_leukaemia": {
     "id": "chronic_myeloid_leukaemia",
@@ -1585,9 +1359,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "look for leukaemia cells."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "chronic_obstructive_pulmonary_disease_copd": {
     "id": "chronic_obstructive_pulmonary_disease_copd",
@@ -1600,9 +1372,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "antimuscarinic inhalers, such as ipratropium"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "chronic_pain": {
     "id": "chronic_pain",
@@ -1612,9 +1382,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Chronic pain can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "chronic_pancreatitis": {
     "id": "chronic_pancreatitis",
@@ -1630,9 +1398,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Chronic pancreatitis can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "cirrhosis": {
     "id": "cirrhosis",
@@ -1648,9 +1414,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Cirrhosis can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "clavicle_collar_bone_fracture": {
     "id": "clavicle_collar_bone_fracture",
@@ -1660,9 +1424,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Clavicle (collar bone) fracture can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "clostridium_difficile": {
     "id": "clostridium_difficile",
@@ -1683,9 +1445,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "rarely, serious infections may require surgery to remove a damaged section of the bowel"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "coeliac_disease": {
     "id": "coeliac_disease",
@@ -1704,9 +1464,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "just getting older"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "cold_sore": {
     "id": "cold_sore",
@@ -1732,9 +1490,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "drink plenty of fluids to avoid dehydration"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "coma": {
     "id": "coma",
@@ -1744,9 +1500,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Coma is a medical emergency requiring immediate hospital treatment. Delays can lead to serious complications including organ failure or death.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "common_cold": {
     "id": "common_cold",
@@ -1769,9 +1523,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "try remedies such as gargling salt water and sucking on menthol sweets"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "complications_of_type_1_diabetes": {
     "id": "complications_of_type_1_diabetes",
@@ -1781,9 +1533,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Complications of type 1 diabetes can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "concussion": {
     "id": "concussion",
@@ -1802,9 +1552,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Concussion can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "congenital_heart_disease": {
     "id": "congenital_heart_disease",
@@ -1821,9 +1569,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "weakness and fatigue"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "congenital_muscular_dystrophy_cmd": {
     "id": "congenital_muscular_dystrophy_cmd",
@@ -1844,9 +1590,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "leg splints to help your child walk"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "conjunctivitis": {
     "id": "conjunctivitis",
@@ -1865,9 +1609,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Self-help guide: Eye problems"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "constipation": {
     "id": "constipation",
@@ -1887,9 +1629,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "your constipation lasts longer than 14 days without improvement"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "coronary_heart_disease": {
     "id": "coronary_heart_disease",
@@ -1905,9 +1645,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Coronary heart disease is a medical emergency requiring immediate hospital treatment. Delays can lead to serious complications including organ failure or death.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "coronavirus_covid_19": {
     "id": "coronavirus_covid_19",
@@ -1935,9 +1673,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "try remedies such as gargling salt water and sucking on menthol sweets"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "long_term_effects_of_covid_19_long_covid": {
     "id": "long_term_effects_of_covid_19_long_covid",
@@ -1950,9 +1686,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Long-term effects of COVID-19 (long COVID) can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "costochondritis": {
     "id": "costochondritis",
@@ -1968,9 +1702,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "pain medication – this can help you move more comfortably, which can help your recovery"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "cough": {
     "id": "cough",
@@ -1989,9 +1721,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "your lips or skin are turning very pale, blue or grey – on brown or black skin this is easier to see on the palms of your hands"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "crohn_s_disease": {
     "id": "crohn_s_disease",
@@ -2012,9 +1742,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "problems swallowing"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "croup": {
     "id": "croup",
@@ -2038,9 +1766,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "the respiratory syncytial virus (RSV), which can cause severe breathing problems and pneumonia in babies"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "cystic_fibrosis": {
     "id": "cystic_fibrosis",
@@ -2063,9 +1789,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "following a special diet and taking supplements to prevent malnutrition"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "cystitis": {
     "id": "cystitis",
@@ -2090,9 +1814,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "pee frequently"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "deafblindness": {
     "id": "deafblindness",
@@ -2109,9 +1831,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Deafblindness can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "deep_vein_thrombosis": {
     "id": "deep_vein_thrombosis",
@@ -2132,9 +1852,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "stay a healthy weight"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "degenerative_cervical_myelopathy": {
     "id": "degenerative_cervical_myelopathy",
@@ -2154,9 +1872,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Myelopathy.org"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "dehydration": {
     "id": "dehydration",
@@ -2177,9 +1893,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Breathing problems in children"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "delirium": {
     "id": "delirium",
@@ -2199,9 +1913,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "engagement with them"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "dementia": {
     "id": "dementia",
@@ -2211,9 +1923,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Dementia can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "dementia_with_lewy_bodies": {
     "id": "dementia_with_lewy_bodies",
@@ -2233,9 +1943,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "whether you need any financial assistance"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "dental_abscess": {
     "id": "dental_abscess",
@@ -2258,9 +1966,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "incision and drainage – where a small cut (incision) is made in the gum to drain the abscess (this is usually only a temporary solution)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "depression": {
     "id": "depression",
@@ -2287,9 +1993,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "counselling"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "dermatitis_herpetiformis": {
     "id": "dermatitis_herpetiformis",
@@ -2305,9 +2009,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Sulphamethoxypyridazine"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "diabetic_foot_issues": {
     "id": "diabetic_foot_issues",
@@ -2317,9 +2019,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Diabetic foot issues can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "diabetic_ketoacidosis_dka": {
     "id": "diabetic_ketoacidosis_dka",
@@ -2334,9 +2034,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Diabetic ketoacidosis (DKA) is a medical emergency requiring immediate hospital treatment. Delays can lead to serious complications including organ failure or death.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "diabetic_retinopathy": {
     "id": "diabetic_retinopathy",
@@ -2356,9 +2054,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "an operation to remove blood or scar tissue from your eyes"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "diarrhoea_in_adults": {
     "id": "diarrhoea_in_adults",
@@ -2375,9 +2071,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "are confused or not responding as usual"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "diarrhoea_in_children_and_babies": {
     "id": "diarrhoea_in_children_and_babies",
@@ -2396,9 +2090,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "has a rash that does not fade when you press a glass against it (use the ‘glass test‘ from Meningitis Now)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "discoid_eczema": {
     "id": "discoid_eczema",
@@ -2420,9 +2112,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "soap substitutes – to replace soaps and cleaning products that may irritate your skin"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "diverticular_disease_and_diverticulitis": {
     "id": "diverticular_disease_and_diverticulitis",
@@ -2443,9 +2133,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "your symptoms fail to improve after 2 days of treatment at home"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "dizziness_lightheadedness": {
     "id": "dizziness_lightheadedness",
@@ -2467,9 +2155,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "avoid coffee, cigarettes, alcohol and drugs"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "down_s_syndrome": {
     "id": "down_s_syndrome",
@@ -2479,9 +2165,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Down’s syndrome can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "dry_mouth": {
     "id": "dry_mouth",
@@ -2491,9 +2175,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Dry mouth can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "duchenne_muscular_dystrophy_dmd": {
     "id": "duchenne_muscular_dystrophy_dmd",
@@ -2514,9 +2196,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "spend a lot of time sitting down"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "dystonia": {
     "id": "dystonia",
@@ -2531,9 +2211,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Dystonia can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "eating_disorders": {
     "id": "eating_disorders",
@@ -2558,9 +2236,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "FEAST: Info for parents"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "earache": {
     "id": "earache",
@@ -2578,9 +2254,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "the earache doesn’t improve within a few days"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "early_miscarriage": {
     "id": "early_miscarriage",
@@ -2594,9 +2268,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Early miscarriage can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "earwax_build_up": {
     "id": "earwax_build_up",
@@ -2615,9 +2287,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "microsuction – a quick and painless procedure where a small device is used to suck the earwax out of your ear (you may need to be referred for this)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "ebola_virus_disease": {
     "id": "ebola_virus_disease",
@@ -2633,9 +2303,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Ebola virus disease requires prompt medical evaluation as symptoms can worsen rapidly. Early treatment significantly improves outcomes.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "ectopic_pregnancy": {
     "id": "ectopic_pregnancy",
@@ -2657,9 +2325,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "your plans for a future pregnancy"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "elbow_radial_head_or_neck_fracture": {
     "id": "elbow_radial_head_or_neck_fracture",
@@ -2669,9 +2335,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Elbow (radial head or neck) fracture can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "edwards_syndrome": {
     "id": "edwards_syndrome",
@@ -2681,9 +2345,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Edwards’ syndrome can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "emery_dreifuss_muscular_dystrophy": {
     "id": "emery_dreifuss_muscular_dystrophy",
@@ -2701,9 +2363,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "spend a lot of time sitting down"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "endometriosis": {
     "id": "endometriosis",
@@ -2731,9 +2391,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Gonadotropin-releasing hormone (GnRH) analogues"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "epilepsy": {
     "id": "epilepsy",
@@ -2749,9 +2407,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Epilepsy is a medical emergency requiring immediate hospital treatment. Delays can lead to serious complications including organ failure or death.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "erectile_dysfunction_impotence": {
     "id": "erectile_dysfunction_impotence",
@@ -2770,9 +2426,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "your personal relationships"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "escherichia_coli_e_coli_o157": {
     "id": "escherichia_coli_e_coli_o157",
@@ -2796,9 +2450,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "disinfection sprays and wipes or alcohol-based wipes may be used on toilet seats and other surfaces, but only after any visible soiling has been removed"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "ewing_sarcoma": {
     "id": "ewing_sarcoma",
@@ -2815,9 +2467,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "LGBTQ+ people and cancer treatment"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "excessive_sweating_hyperhidrosis": {
     "id": "excessive_sweating_hyperhidrosis",
@@ -2838,9 +2488,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "soap substitutes that are more gentle on your skin"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "eye_cancer": {
     "id": "eye_cancer",
@@ -2856,9 +2504,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Visit our eye cancer forum to talk with people who have been affected by eye cancer, share your experience, and ask an expert your questions."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "facioscapulohumeral_muscular_dystrophy_fshd": {
     "id": "facioscapulohumeral_muscular_dystrophy_fshd",
@@ -2875,9 +2521,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "spend a lot of time sitting down"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "farting": {
     "id": "farting",
@@ -2887,9 +2531,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Farting can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "febrile_seizures": {
     "id": "febrile_seizures",
@@ -2909,9 +2551,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "a urinary tract infection (UTI)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "feeling_of_something_in_your_throat_globus": {
     "id": "feeling_of_something_in_your_throat_globus",
@@ -2932,9 +2572,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "try anti-reflux medication (ask a pharmacist for advice)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "fever_in_adults": {
     "id": "fever_in_adults",
@@ -2953,9 +2591,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "have heart disease (excluding blood pressure which is currently well controlled)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "fever_in_children": {
     "id": "fever_in_children",
@@ -2965,9 +2601,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Fever in children can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "fibroids": {
     "id": "fibroids",
@@ -2992,9 +2626,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "in rare cases, surgery"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "fibromyalgia": {
     "id": "fibromyalgia",
@@ -3009,9 +2641,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Fibromyalgia can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "flat_feet_in_children_and_young_people": {
     "id": "flat_feet_in_children_and_young_people",
@@ -3021,9 +2651,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Flat feet in children and young people can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "flu": {
     "id": "flu",
@@ -3050,9 +2678,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "your lips or skin are turning very pale, blue or grey – on brown or black skin this is easier to see on the palms of your hands"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "alcohol_and_pregnancy": {
     "id": "alcohol_and_pregnancy",
@@ -3062,9 +2688,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Alcohol and pregnancy can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "food_allergy": {
     "id": "food_allergy",
@@ -3093,9 +2717,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "abdominal pain or diarrhoea"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "food_poisoning": {
     "id": "food_poisoning",
@@ -3115,9 +2737,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Food poisoning can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "fragility_fracture_of_the_hip": {
     "id": "fragility_fracture_of_the_hip",
@@ -3127,9 +2747,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Fragility fracture of the hip can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "frozen_shoulder": {
     "id": "frozen_shoulder",
@@ -3148,9 +2766,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "The Pain Toolkit"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "functional_neurological_disorder": {
     "id": "functional_neurological_disorder",
@@ -3168,9 +2784,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Dissociative Seizures: Right Decisions"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "fungal_nail_infection": {
     "id": "fungal_nail_infection",
@@ -3187,9 +2801,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "feeling sick"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "gallbladder_cancer": {
     "id": "gallbladder_cancer",
@@ -3207,9 +2819,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "find local cancer support services"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "gallstones": {
     "id": "gallstones",
@@ -3222,9 +2832,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Gallstones can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "ganglion_cyst": {
     "id": "ganglion_cyst",
@@ -3240,9 +2848,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Ganglion cyst can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "ganglion_cysts_in_children_and_young_people": {
     "id": "ganglion_cysts_in_children_and_young_people",
@@ -3252,9 +2858,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Ganglion cysts in children and young people can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "gastroenteritis": {
     "id": "gastroenteritis",
@@ -3269,9 +2873,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Gastroenteritis can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "gastro_oesophageal_reflux_disease_gord": {
     "id": "gastro_oesophageal_reflux_disease_gord",
@@ -3293,9 +2895,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "stronger prescription medicines – including proton-pump inhibitors (PPIs) and H2-receptor antagonists (H2RAs)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "generalised_anxiety_disorder_gad": {
     "id": "generalised_anxiety_disorder_gad",
@@ -3319,9 +2919,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "medication – like a type of antidepressant called selective serotonin reuptake inhibitors (SSRIs)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "genital_herpes": {
     "id": "genital_herpes",
@@ -3344,9 +2942,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "by sharing sex toys with someone who has herpes"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "managing_genital_symptoms": {
     "id": "managing_genital_symptoms",
@@ -3361,9 +2957,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Managing genital symptoms can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "genital_warts": {
     "id": "genital_warts",
@@ -3379,9 +2973,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "cream or liquid"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "glandular_fever": {
     "id": "glandular_fever",
@@ -3401,9 +2993,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "get plenty of rest"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "golfers_elbow": {
     "id": "golfers_elbow",
@@ -3422,9 +3012,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "taking regular breaks while doing aggravating activities."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "gonorrhoea": {
     "id": "gonorrhoea",
@@ -3444,9 +3032,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "are breastfeeding"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "gout": {
     "id": "gout",
@@ -3463,9 +3049,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "prevent further flares by taking urate lowering medicines like allopurinol"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "greater_trochanteric_pain_syndrome": {
     "id": "greater_trochanteric_pain_syndrome",
@@ -3484,9 +3068,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Greater trochanteric pain syndrome can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "gum_disease": {
     "id": "gum_disease",
@@ -3499,9 +3081,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Gum disease can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "haemorrhoids_piles": {
     "id": "haemorrhoids_piles",
@@ -3515,9 +3095,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "pat the area around your bottom, rather than rubbing it"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "hand_foot_and_mouth_disease": {
     "id": "hand_foot_and_mouth_disease",
@@ -3540,9 +3118,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "use mouth gels, rinses or sprays for mouth ulcers"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "hay_fever": {
     "id": "hay_fever",
@@ -3564,9 +3140,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "cough – this is caused by postnasal drip (mucus dripping down the throat from the back of the nose)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "head_and_neck_cancer": {
     "id": "head_and_neck_cancer",
@@ -3585,9 +3159,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "any new symptoms that do not get better within 2 weeks."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "head_lice_and_nits": {
     "id": "head_lice_and_nits",
@@ -3597,9 +3169,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Head lice and nits can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "headaches": {
     "id": "headaches",
@@ -3612,9 +3182,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "treatments to help relieve headache"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "hearing_loss": {
     "id": "hearing_loss",
@@ -3630,9 +3198,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "lip reading and/or sign language – such as British Sign Language (BSL)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "heart_attack": {
     "id": "heart_attack",
@@ -3650,9 +3216,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "thrombolysis – a ‘clot-busting drug’ to help restore blood flow to your heart"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "heart_block": {
     "id": "heart_block",
@@ -3675,9 +3239,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "other conditions like Lyme disease"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "heart_disease": {
     "id": "heart_disease",
@@ -3687,9 +3249,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Heart disease can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "heart_failure": {
     "id": "heart_failure",
@@ -3704,9 +3264,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Heart failure can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "heart_palpitations": {
     "id": "heart_palpitations",
@@ -3716,9 +3274,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Heart palpitations can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "heatstroke_and_heat_illness": {
     "id": "heatstroke_and_heat_illness",
@@ -3742,9 +3298,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "people with long-term health conditions like diabetes or heart problems"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "hepatitis_a": {
     "id": "hepatitis_a",
@@ -3774,9 +3328,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "clean the toilet, flush handles and taps more often than usual"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "hepatitis_b": {
     "id": "hepatitis_b",
@@ -3798,9 +3350,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "regular checks for any further liver problems"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "hepatitis_c": {
     "id": "hepatitis_c",
@@ -3821,9 +3371,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "speak to your doctor if you’re thinking of having a baby"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "hiatus_hernia": {
     "id": "hiatus_hernia",
@@ -3833,9 +3381,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Hiatus hernia can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "high_blood_pressure_hypertension": {
     "id": "high_blood_pressure_hypertension",
@@ -3856,9 +3402,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "beta-blockers – like atenolol"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "high_cholesterol": {
     "id": "high_cholesterol",
@@ -3868,9 +3412,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "High cholesterol can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "hip_problems_in_children_and_young_people": {
     "id": "hip_problems_in_children_and_young_people",
@@ -3891,9 +3433,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Traction apophysitis of the hip in children and young people"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "hiv": {
     "id": "hiv",
@@ -3913,9 +3453,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "blood transfusion (outside of the UK)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "hives": {
     "id": "hives",
@@ -3929,9 +3467,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "anaphylaxis – a severe allergic reaction that should be treated as a serious medical emergency"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "hodgkin_lymphoma": {
     "id": "hodgkin_lymphoma",
@@ -3950,9 +3486,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "A donor stem cell (allogeneic) transplant may be offered if the lymphoma does not respond well enough to other treatments."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "huntington_s_disease": {
     "id": "huntington_s_disease",
@@ -3968,9 +3502,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Huntington’s disease can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "hydrocephalus": {
     "id": "hydrocephalus",
@@ -3992,9 +3524,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "irritability or sleepiness in babies"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "hyperglycaemia_high_blood_sugar": {
     "id": "hyperglycaemia_high_blood_sugar",
@@ -4011,9 +3541,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Hyperglycaemia (high blood sugar) requires prompt medical evaluation as symptoms can worsen rapidly. Early treatment significantly improves outcomes.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "hypoglycaemia_low_blood_sugar": {
     "id": "hypoglycaemia_low_blood_sugar",
@@ -4031,9 +3559,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "checking your blood glucose levels between 3am and 4am, when hypoglycaemia is most likely to occur"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "hypothermia_low_body_temperature": {
     "id": "hypothermia_low_body_temperature",
@@ -4058,9 +3584,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "have damp or wet clothes and get cold"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "idiopathic_pulmonary_fibrosis": {
     "id": "idiopathic_pulmonary_fibrosis",
@@ -4082,9 +3606,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "a lung transplant – this is suitable in a few cases, although donor lungs are rare and patients have to be otherwise very fit to benefit from a transplant"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "if_your_child_has_cold_or_flu_symptoms": {
     "id": "if_your_child_has_cold_or_flu_symptoms",
@@ -4104,9 +3626,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "encourage your child to drink more fluids"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "impetigo": {
     "id": "impetigo",
@@ -4122,9 +3642,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "through skin damaged by another underlying skin condition, such as head lice, scabies or eczema – this is known as secondary impetigo"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "indigestion": {
     "id": "indigestion",
@@ -4149,9 +3667,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "you have blood in your vomit or blood in your stools"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "ingrown_toenail": {
     "id": "ingrown_toenail",
@@ -4169,9 +3685,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "take paracetamol or ibuprofen to reduce pain"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "infertility": {
     "id": "infertility",
@@ -4186,9 +3700,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "reduce stress where possible – stress can affect your relationships and sex drive, and in severe cases can affect ovulation and sperm production"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "inflammatory_bowel_disease_ibd": {
     "id": "inflammatory_bowel_disease_ibd",
@@ -4198,9 +3710,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Inflammatory bowel disease (IBD) can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "inherited_heart_conditions": {
     "id": "inherited_heart_conditions",
@@ -4220,9 +3730,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "heart transplantation (in rare cases)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "insomnia": {
     "id": "insomnia",
@@ -4245,9 +3753,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "calming a busy mind"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "intoeing_pigeon_toe_in_children_and_young_people": {
     "id": "intoeing_pigeon_toe_in_children_and_young_people",
@@ -4257,9 +3763,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Intoeing (pigeon toe) in children and young people can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "iron_deficiency_anaemia": {
     "id": "iron_deficiency_anaemia",
@@ -4279,9 +3783,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "do less well in mental ability tests"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "irritable_bowel_syndrome_ibs": {
     "id": "irritable_bowel_syndrome_ibs",
@@ -4297,9 +3799,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Irritable bowel syndrome (IBS) can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "itchy_skin": {
     "id": "itchy_skin",
@@ -4317,9 +3817,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "antihistamines – for an allergic reaction (these may not be suitable for everyone)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "itchy_bottom": {
     "id": "itchy_bottom",
@@ -4329,9 +3827,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Itchy bottom can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "joint_hypermobility": {
     "id": "joint_hypermobility",
@@ -4350,9 +3846,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Joint hypermobility can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "kaposi_s_sarcoma": {
     "id": "kaposi_s_sarcoma",
@@ -4368,9 +3862,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "A drug called paclitaxel every 2 to 3 weeks."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "kidney_cancer": {
     "id": "kidney_cancer",
@@ -4387,9 +3879,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "If you have advanced kidney cancer, your main treatment usually involves targeted therapy and immunotherapy drugs. You may have a combination of drugs or 1 drug on its own. You can find out more in our information about treatments for kidney cancer."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "kidney_infection": {
     "id": "kidney_infection",
@@ -4416,9 +3906,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "you have a foreign body inside your urinary tract, such as a kidney stone or a urinary catheter"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "kidney_stones": {
     "id": "kidney_stones",
@@ -4437,9 +3925,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "you’re over 60 years of age"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "labyrinthitis": {
     "id": "labyrinthitis",
@@ -4460,9 +3946,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "corticosteroids – can help by reducing inflammation"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "lactose_intolerance": {
     "id": "lactose_intolerance",
@@ -4472,9 +3956,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Lactose intolerance can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "laryngeal_larynx_cancer": {
     "id": "laryngeal_larynx_cancer",
@@ -4489,9 +3971,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Laryngeal (larynx) cancer is a medical emergency requiring immediate hospital treatment. Delays can lead to serious complications including organ failure or death.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "laryngitis": {
     "id": "laryngitis",
@@ -4508,9 +3988,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Laryngitis can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "late_miscarriage": {
     "id": "late_miscarriage",
@@ -4531,9 +4009,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "taking a warm shower, which may encourage your milk to leak naturally."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "leg_cramps": {
     "id": "leg_cramps",
@@ -4546,9 +4022,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Leg cramps can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "legionnaires_disease": {
     "id": "legionnaires_disease",
@@ -4568,9 +4042,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "a machine to help you breathe"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "limb_girdle_muscular_dystrophy": {
     "id": "limb_girdle_muscular_dystrophy",
@@ -4590,9 +4062,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "spend a lot of time sitting down"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "lipoedema": {
     "id": "lipoedema",
@@ -4618,9 +4088,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "counselling or cognitive behavioural therapy (CBT) – if you’re finding it difficult to cope or if it’s affecting your mental health"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "liver_cancer": {
     "id": "liver_cancer",
@@ -4644,9 +4112,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "your preferences."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "liver_disease": {
     "id": "liver_disease",
@@ -4656,9 +4122,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Liver disease can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "loss_of_libido": {
     "id": "loss_of_libido",
@@ -4668,9 +4132,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Loss of libido can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "low_blood_pressure": {
     "id": "low_blood_pressure",
@@ -4691,9 +4153,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "suggest making dietary changes, including looking at your salt intake"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "lung_cancer": {
     "id": "lung_cancer",
@@ -4713,9 +4173,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "small cell lung cancer"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "lupus": {
     "id": "lupus",
@@ -4729,9 +4187,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Lupus can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "lyme_disease": {
     "id": "lyme_disease",
@@ -4751,9 +4207,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "from March to October because more people take part in outdoor activities"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "lymphoedema": {
     "id": "lymphoedema",
@@ -4776,9 +4230,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "manual lymphatic drainage (MLD) – a specialised massage that helps the flow of fluid in the lymphatic system and reduces swelling"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "lymphogranuloma_venereum_lgv": {
     "id": "lymphogranuloma_venereum_lgv",
@@ -4794,9 +4246,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "sharing sex toys that aren’t washed or covered with a new condom each time they’re used"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "malaria": {
     "id": "malaria",
@@ -4813,9 +4263,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Malaria can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "malnutrition": {
     "id": "malnutrition",
@@ -4836,9 +4284,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Malnutrition can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "measles": {
     "id": "measles",
@@ -4862,9 +4308,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "use damp cotton wool to clean the eyes"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "mechanical_neck_pain": {
     "id": "mechanical_neck_pain",
@@ -4885,9 +4329,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "managing stress and emotional wellbeing"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "meningitis": {
     "id": "meningitis",
@@ -4910,9 +4352,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "oxygen through a face mask"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "meniere_s_disease": {
     "id": "meniere_s_disease",
@@ -4936,9 +4376,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "surgery – only rarely, in more severe cases"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "later_years_around_50_years_and_over": {
     "id": "later_years_around_50_years_and_over",
@@ -4948,9 +4386,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Later years (around 50 years and over) can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "mesothelioma": {
     "id": "mesothelioma",
@@ -4969,9 +4405,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "immunotherapy"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "metacarpal_fracture_of_the_hand": {
     "id": "metacarpal_fracture_of_the_hand",
@@ -4981,9 +4415,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Metacarpal fracture of the hand can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "middle_ear_infection_otitis_media": {
     "id": "middle_ear_infection_otitis_media",
@@ -5002,9 +4434,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "a child’s adenoids are relatively larger than an adults"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "migraine": {
     "id": "migraine",
@@ -5024,9 +4454,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Migraine can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "minor_head_injury": {
     "id": "minor_head_injury",
@@ -5041,9 +4469,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Minor head injury can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "miscarriage": {
     "id": "miscarriage",
@@ -5061,9 +4487,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Miscarriage can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "molar_pregnancy": {
     "id": "molar_pregnancy",
@@ -5084,9 +4508,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Molar pregnancy requires prompt medical evaluation as symptoms can worsen rapidly. Early treatment significantly improves outcomes.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "motor_neurone_disease_mnd": {
     "id": "motor_neurone_disease_mnd",
@@ -5098,9 +4520,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Motor neurone disease (MND) can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "mouth_cancer": {
     "id": "mouth_cancer",
@@ -5120,9 +4540,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "sometimes a physiotherapist"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "mouth_ulcer": {
     "id": "mouth_ulcer",
@@ -5139,9 +4557,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "try to reduce stress and anxiety"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "myeloma": {
     "id": "myeloma",
@@ -5161,9 +4577,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "managing symptoms"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "multiple_sclerosis_ms": {
     "id": "multiple_sclerosis_ms",
@@ -5181,9 +4595,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "primary progressive MS who meet certain criteria like new lesions found by an MRI scan"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "multiple_system_atrophy_msa": {
     "id": "multiple_system_atrophy_msa",
@@ -5200,9 +4612,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Multiple system atrophy (MSA) can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "mumps": {
     "id": "mumps",
@@ -5227,9 +4637,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "eat foods that don’t need a lot of chewing, such as soup, mashed potatoes and scrambled eggs"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "munchausen_s_syndrome": {
     "id": "munchausen_s_syndrome",
@@ -5252,9 +4660,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "How this information was written"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "muscular_dystrophy": {
     "id": "muscular_dystrophy",
@@ -5269,9 +4675,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "occupational therapy to help maintain independence"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "myasthenia_gravis": {
     "id": "myasthenia_gravis",
@@ -5289,9 +4693,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Myasthenia gravis requires prompt medical evaluation as symptoms can worsen rapidly. Early treatment significantly improves outcomes.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "mycoplasma_genitalium_mgen": {
     "id": "mycoplasma_genitalium_mgen",
@@ -5310,9 +4712,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "washing sex toys after each time they’re used"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "myotonic_dystrophy": {
     "id": "myotonic_dystrophy",
@@ -5335,9 +4735,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "occupational therapy to help maintain independence"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "nasal_and_sinus_cancer": {
     "id": "nasal_and_sinus_cancer",
@@ -5358,9 +4756,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "your general health"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "nasopharyngeal_cancer": {
     "id": "nasopharyngeal_cancer",
@@ -5382,9 +4778,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "LGBTQ+ people and cancer treatment"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "neck_injury": {
     "id": "neck_injury",
@@ -5402,9 +4796,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Neck injury can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "neck_problems": {
     "id": "neck_problems",
@@ -5419,9 +4811,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "How to access MSK services"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "neuroendocrine_tumours": {
     "id": "neuroendocrine_tumours",
@@ -5440,9 +4830,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "the appearance of the cells under a microscope (its grade)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "non_alcoholic_fatty_liver_disease_nafld": {
     "id": "non_alcoholic_fatty_liver_disease_nafld",
@@ -5461,9 +4849,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "How this information was written"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "non_hodgkin_lymphoma": {
     "id": "non_hodgkin_lymphoma",
@@ -5479,9 +4865,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "having treatment with a targeted therapy drug called rituximab"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "norovirus": {
     "id": "norovirus",
@@ -5495,9 +4879,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Norovirus can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "nosebleed": {
     "id": "nosebleed",
@@ -5512,9 +4894,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "asking about any other symptoms you have"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "obesity": {
     "id": "obesity",
@@ -5524,9 +4904,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Obesity can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "obsessive_compulsive_disorder_ocd": {
     "id": "obsessive_compulsive_disorder_ocd",
@@ -5542,9 +4920,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "cognitive behavioural therapy (CBT)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "obstructive_sleep_apnoea": {
     "id": "obstructive_sleep_apnoea",
@@ -5566,9 +4942,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "avoiding sedative medications and sleeping tablets"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "oculopharyngeal_muscular_dystrophy_opmd": {
     "id": "oculopharyngeal_muscular_dystrophy_opmd",
@@ -5586,9 +4960,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "spend a lot of time sitting down"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "oesophageal_cancer": {
     "id": "oesophageal_cancer",
@@ -5607,9 +4979,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "your personal choices"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "oral_thrush_in_adults": {
     "id": "oral_thrush_in_adults",
@@ -5619,9 +4989,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Oral thrush in adults can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "osteoarthritis": {
     "id": "osteoarthritis",
@@ -5638,9 +5006,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Osteoarthritis can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "osteoarthritis_of_the_hip": {
     "id": "osteoarthritis_of_the_hip",
@@ -5659,9 +5025,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Hip problems"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "osteoarthritis_of_the_knee": {
     "id": "osteoarthritis_of_the_knee",
@@ -5681,9 +5045,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Knee problems"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "osteoarthritis_of_the_hand": {
     "id": "osteoarthritis_of_the_hand",
@@ -5696,9 +5058,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Osteoarthritis of the hand can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "osteoporosis": {
     "id": "osteoporosis",
@@ -5708,9 +5068,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Osteoporosis can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "outer_ear_infection_otitis_externa": {
     "id": "outer_ear_infection_otitis_externa",
@@ -5737,9 +5095,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "if your condition is caused by a boil in your ear, placing a warm flannel or cloth over the affected ear can help it heal faster"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "ovarian_cancer": {
     "id": "ovarian_cancer",
@@ -5756,9 +5112,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "if you had any difficult side effects from previous treatments"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "ovarian_cyst": {
     "id": "ovarian_cyst",
@@ -5774,9 +5128,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "whether you’re post-menopausal (due to the slightly higher risk of ovarian cancer)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "overactive_thyroid": {
     "id": "overactive_thyroid",
@@ -5801,9 +5153,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "surgery – in a small number of cases surgery may be required to remove some or all of the thyroid gland, particularly if there is a large goitre"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "pain_in_the_ball_of_the_foot": {
     "id": "pain_in_the_ball_of_the_foot",
@@ -5822,9 +5172,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "help you aim for a healthy body weight"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "paget_s_disease_of_the_breast": {
     "id": "paget_s_disease_of_the_breast",
@@ -5845,9 +5193,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "where the affected area is in the breast"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "pancreatic_cancer": {
     "id": "pancreatic_cancer",
@@ -5863,9 +5209,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "chat to their specialists online"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "panic_disorder": {
     "id": "panic_disorder",
@@ -5886,9 +5230,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Panic disorder is a medical emergency requiring immediate hospital treatment. Delays can lead to serious complications including organ failure or death.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "parkinson_s_disease": {
     "id": "parkinson_s_disease",
@@ -5902,9 +5244,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Parkinson’s disease can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "patau_s_syndrome": {
     "id": "patau_s_syndrome",
@@ -5914,9 +5254,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Patau’s syndrome can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "patellofemoral_pain_syndrome": {
     "id": "patellofemoral_pain_syndrome",
@@ -5929,9 +5267,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Knee problems"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "pelvic_inflammatory_disease": {
     "id": "pelvic_inflammatory_disease",
@@ -5954,9 +5290,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "ectopic pregnancy"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "pelvic_organ_prolapse": {
     "id": "pelvic_organ_prolapse",
@@ -5978,9 +5312,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "an imbalance of the usual bacteria found in your vagina"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "penile_cancer": {
     "id": "penile_cancer",
@@ -6000,9 +5332,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "to treat cancer that has spread to other parts of the body"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "peripheral_neuropathy": {
     "id": "peripheral_neuropathy",
@@ -6020,9 +5350,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Peripheral neuropathy can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "personality_disorder": {
     "id": "personality_disorder",
@@ -6040,9 +5368,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "psychotic symptoms"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "perthes_disease": {
     "id": "perthes_disease",
@@ -6060,9 +5386,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "surgery to reshape the hip joint in more severe cases"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "pims": {
     "id": "pims",
@@ -6088,9 +5412,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "has severe or worsening abdominal pain"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "plantar_heel_pain": {
     "id": "plantar_heel_pain",
@@ -6102,9 +5424,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "pain medication – this can help you move more comfortably, which can help your recovery"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "pleurisy": {
     "id": "pleurisy",
@@ -6116,9 +5436,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Chest infection"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "pneumonia": {
     "id": "pneumonia",
@@ -6138,9 +5456,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "take pain relief such as paracetamol if needed – always follow the manufacturer’s instructions"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "polio": {
     "id": "polio",
@@ -6157,9 +5473,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Polio can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "polymyalgia_rheumatica": {
     "id": "polymyalgia_rheumatica",
@@ -6179,9 +5493,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "how well you’re coping with the side effects of the medication"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "post_concussion_syndrome": {
     "id": "post_concussion_syndrome",
@@ -6201,9 +5513,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Post-concussion syndrome requires prompt medical evaluation as symptoms can worsen rapidly. Early treatment significantly improves outcomes.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "post_polio_syndrome": {
     "id": "post_polio_syndrome",
@@ -6230,9 +5540,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "occupational therapists"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "popliteal_cysts_in_children_and_young_people": {
     "id": "popliteal_cysts_in_children_and_young_people",
@@ -6246,9 +5554,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "the swelling doesn’t reduce and keeps getting bigger"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "positional_talipes_in_children_and_young_people": {
     "id": "positional_talipes_in_children_and_young_people",
@@ -6258,9 +5564,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Positional talipes in children and young people can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "postural_orthostatic_tachycardia_syndrome_pots": {
     "id": "postural_orthostatic_tachycardia_syndrome_pots",
@@ -6285,9 +5589,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "specialised exercise (discuss with your healthcare professional before starting)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "postnatal_depression": {
     "id": "postnatal_depression",
@@ -6313,9 +5615,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "you have mild postnatal depression and a previous history of depression"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "ready_steady_baby": {
     "id": "ready_steady_baby",
@@ -6325,9 +5625,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Ready Steady Baby! can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "pressure_ulcers": {
     "id": "pressure_ulcers",
@@ -6347,9 +5645,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "cleaning the ulcer"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "progressive_supranuclear_palsy_psp": {
     "id": "progressive_supranuclear_palsy_psp",
@@ -6369,9 +5665,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Progressive supranuclear palsy (PSP) can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "prostate_cancer": {
     "id": "prostate_cancer",
@@ -6385,9 +5679,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Prostate cancer can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "psoriatic_arthritis": {
     "id": "psoriatic_arthritis",
@@ -6404,9 +5696,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "improve your quality of life"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "psychosis": {
     "id": "psychosis",
@@ -6424,9 +5714,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "social support"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "psychotic_depression": {
     "id": "psychotic_depression",
@@ -6444,9 +5732,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "social support – support with social needs like employment, education and accommodation"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "pubic_lice": {
     "id": "pubic_lice",
@@ -6464,9 +5750,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "hoover your mattress to remove any lice"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "pulmonary_hypertension": {
     "id": "pulmonary_hypertension",
@@ -6483,9 +5767,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Pulmonary hypertension is a medical emergency requiring immediate hospital treatment. Delays can lead to serious complications including organ failure or death.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "phobias": {
     "id": "phobias",
@@ -6501,9 +5783,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "10 ways to fight your fears"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "pelvic_girdle_pain": {
     "id": "pelvic_girdle_pain",
@@ -6521,9 +5801,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "advice on coping with the emotional impact of living with pain, which may include relaxation techniques"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "rare_cancers": {
     "id": "rare_cancers",
@@ -6537,9 +5815,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Rare cancers can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "rare_conditions": {
     "id": "rare_conditions",
@@ -6549,9 +5825,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Rare conditions can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "raynaud_s_phenomenon": {
     "id": "raynaud_s_phenomenon",
@@ -6566,9 +5840,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Try to minimise your stress levels. Regular exercise, eating a healthy diet, and relaxation techniques, such as deep breathing or activities such as yoga, can help. You may find it useful to avoid stimulants such as coffee, tea and cola."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "reactive_arthritis": {
     "id": "reactive_arthritis",
@@ -6582,9 +5854,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Reactive arthritis can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "recurrent_miscarriage": {
     "id": "recurrent_miscarriage",
@@ -6594,9 +5864,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Recurrent miscarriage can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "restless_legs_syndrome": {
     "id": "restless_legs_syndrome",
@@ -6618,9 +5886,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "have a warm bath in the evening"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "respiratory_syncytial_virus_rsv": {
     "id": "respiratory_syncytial_virus_rsv",
@@ -6641,9 +5907,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "taking over-the-counter pain relief like paracetamol or ibuprofen"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "rheumatoid_arthritis": {
     "id": "rheumatoid_arthritis",
@@ -6662,9 +5926,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "podiatry – helps if you have problems with your feet"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "ringworm_and_other_fungal_infections": {
     "id": "ringworm_and_other_fungal_infections",
@@ -6680,9 +5942,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "scaly, itchy and inflamed skin"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "rosacea": {
     "id": "rosacea",
@@ -6704,9 +5964,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "taking antibiotics"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "scabies": {
     "id": "scabies",
@@ -6725,9 +5983,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "antihistamines"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "scarlet_fever": {
     "id": "scarlet_fever",
@@ -6748,9 +6004,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "use calamine lotion or antihistamines to relieve itching"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "schizophrenia": {
     "id": "schizophrenia",
@@ -6775,9 +6029,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "arts therapy – work with an arts therapist to express your experiences with schizophrenia"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "sciatica": {
     "id": "sciatica",
@@ -6798,9 +6050,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Mental wellbeing"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "about_scoliosis": {
     "id": "about_scoliosis",
@@ -6820,9 +6070,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "numbness or weakness in the legs"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "seasonal_affective_disorder_sad": {
     "id": "seasonal_affective_disorder_sad",
@@ -6846,9 +6094,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "medically proven to treat SAD"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "septic_shock": {
     "id": "septic_shock",
@@ -6858,9 +6104,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Septic shock can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "severe_head_injury": {
     "id": "severe_head_injury",
@@ -6881,9 +6125,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Severe head injury is a medical emergency requiring immediate hospital treatment. Delays can lead to serious complications including organ failure or death.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "shigella": {
     "id": "shigella",
@@ -6903,9 +6145,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "having oral sex after anal sex"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "shingles": {
     "id": "shingles",
@@ -6926,9 +6166,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "anticonvulsants – used for severe pain"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "sickle_cell_disease": {
     "id": "sickle_cell_disease",
@@ -6949,9 +6187,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Sickle cell disease is a medical emergency requiring immediate hospital treatment. Delays can lead to serious complications including organ failure or death.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "sinusitis": {
     "id": "sinusitis",
@@ -6976,9 +6212,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "clean your nose with a salt water solution – you can make yourself or buy sachets from a pharmacy"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "sjogren_s_syndrome": {
     "id": "sjogren_s_syndrome",
@@ -6996,9 +6230,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Sjogren’s syndrome can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "skin_cancer_melanoma": {
     "id": "skin_cancer_melanoma",
@@ -7016,9 +6248,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Stage 3 melanoma – if tests show a BRAF gene mutation in the melanoma cells, you may have a combination of 2 targeted therapy drugs. These drugs are called dabrafenib and trametinib. If tests do not find a BRAF gene mutation, you may have one or, sometimes, a combination of immunotherapy drugs. These drugs are called Ipilimumab, pembrolizumab and nivolumab."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "skin_cancer": {
     "id": "skin_cancer",
@@ -7036,9 +6266,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "improve your confidence"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "skin_light_sensitivity_photosensitivity": {
     "id": "skin_light_sensitivity_photosensitivity",
@@ -7057,9 +6285,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Managing skin light sensitivity (photosensitivity)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "skin_rashes_in_children": {
     "id": "skin_rashes_in_children",
@@ -7075,9 +6301,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "calamine lotion and cooling gels to ease itching"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "slapped_cheek_syndrome": {
     "id": "slapped_cheek_syndrome",
@@ -7094,9 +6318,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Slapped cheek syndrome can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "slipped_upper_femoral_epiphysis_sufe_in_children_and_young_people": {
     "id": "slipped_upper_femoral_epiphysis_sufe_in_children_and_young_people",
@@ -7117,9 +6339,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Traction apophysitis of the hip in children and young people"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "snapping_hip_in_children_and_young_people": {
     "id": "snapping_hip_in_children_and_young_people",
@@ -7139,9 +6359,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Traction apophysitis of the hip in children and young people"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "social_anxiety_disorder": {
     "id": "social_anxiety_disorder",
@@ -7162,9 +6380,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "medication – like a type of antidepressant called selective serotonin reuptake inhibitors (SSRIs)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "soft_tissue_sarcomas": {
     "id": "soft_tissue_sarcomas",
@@ -7183,9 +6399,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "your general health"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "sore_throat": {
     "id": "sore_throat",
@@ -7202,9 +6416,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "gargle with a homemade mouthwash of warm, salty water (children should not try this)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "spina_bifida": {
     "id": "spina_bifida",
@@ -7225,9 +6437,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Spina bifida can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "spinal_stenosis": {
     "id": "spinal_stenosis",
@@ -7248,9 +6458,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "physiotherapy can also be beneficial, you may be referred to this or their may be an option to self-refer in your area."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "spleen_problems_and_spleen_removal": {
     "id": "spleen_problems_and_spleen_removal",
@@ -7260,9 +6468,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Spleen problems and spleen removal can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "stillbirth": {
     "id": "stillbirth",
@@ -7272,9 +6478,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Stillbirth can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "stomach_ache_and_abdominal_pain": {
     "id": "stomach_ache_and_abdominal_pain",
@@ -7288,9 +6492,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "medicines to help relieve symptoms of constipation and indigestion"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "stomach_cancer": {
     "id": "stomach_cancer",
@@ -7308,9 +6510,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "your personal choices"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "stomach_ulcer": {
     "id": "stomach_ulcer",
@@ -7327,9 +6527,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "a medication called a proton pump inhibitor (PPI)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "streptococcus_a_strep_a": {
     "id": "streptococcus_a_strep_a",
@@ -7339,9 +6537,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Streptococcus A (strep A) can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "mental_wellbeing": {
     "id": "mental_wellbeing",
@@ -7355,9 +6551,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "How this information was written"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "stroke": {
     "id": "stroke",
@@ -7372,9 +6566,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Stroke is a medical emergency requiring immediate hospital treatment. Delays can lead to serious complications including organ failure or death.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "subacromial_pain_syndrome": {
     "id": "subacromial_pain_syndrome",
@@ -7388,9 +6580,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Shoulder problems"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "sudden_arrhythmic_death_syndrome_sads": {
     "id": "sudden_arrhythmic_death_syndrome_sads",
@@ -7400,9 +6590,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Sudden arrhythmic death syndrome (SADS) can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "sleeping_safely": {
     "id": "sleeping_safely",
@@ -7412,9 +6600,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Sleeping safely can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "suicide": {
     "id": "suicide",
@@ -7424,9 +6610,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Suicide can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "sunbed_and_tanning_safety": {
     "id": "sunbed_and_tanning_safety",
@@ -7436,9 +6620,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Sunbed and tanning safety can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "sunburn": {
     "id": "sunburn",
@@ -7452,9 +6634,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "dizziness, headaches and feeling sick (symptoms of heat exhaustion)"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "supraventricular_tachycardia": {
     "id": "supraventricular_tachycardia",
@@ -7474,9 +6654,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "radiofrequency ablation"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "swollen_glands": {
     "id": "swollen_glands",
@@ -7486,9 +6664,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Swollen glands can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "syphilis": {
     "id": "syphilis",
@@ -7505,9 +6681,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "premature birth"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "self_harm": {
     "id": "self_harm",
@@ -7521,9 +6695,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "a psychologist – a health professional who specialises in managing mental health conditions"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "talking_to_children_and_teenagers_about_cancer": {
     "id": "talking_to_children_and_teenagers_about_cancer",
@@ -7533,9 +6705,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Talking to children and teenagers about cancer can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "tennis_elbow": {
     "id": "tennis_elbow",
@@ -7554,9 +6724,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "taking regular breaks while doing aggravating activities."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "testicular_cancer": {
     "id": "testicular_cancer",
@@ -7576,9 +6744,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "occasionally CT or ultrasound scans"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "testicular_lumps_and_swellings": {
     "id": "testicular_lumps_and_swellings",
@@ -7591,9 +6757,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "British Association of Urological Surgeons: Testicular lumps"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "thirst": {
     "id": "thirst",
@@ -7603,9 +6767,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Thirst can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "threadworms": {
     "id": "threadworms",
@@ -7627,9 +6789,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "vacuum and dust with a damp cloth"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "thrush": {
     "id": "thrush",
@@ -7647,9 +6807,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "soreness and stinging during sex or when you pee"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "thumb_fracture": {
     "id": "thumb_fracture",
@@ -7659,9 +6817,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Thumb fracture can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "thyroid_cancer": {
     "id": "thyroid_cancer",
@@ -7678,9 +6834,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Visit our thyroid cancer forum to talk with people who have been affected by thyroid cancer, share your experience, and ask an expert your questions."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "tick_bites": {
     "id": "tick_bites",
@@ -7703,9 +6857,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "check that pets do not bring ticks into your home in their fur"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "tinnitus": {
     "id": "tinnitus",
@@ -7723,9 +6875,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Tinnitus can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "tonsillitis": {
     "id": "tonsillitis",
@@ -7752,9 +6902,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "feeling tired"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "tooth_decay": {
     "id": "tooth_decay",
@@ -7776,9 +6924,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "see your dentist or GP if you have a persistently dry mouth – this may be caused by certain medicines, treatment or medical conditions"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "toothache": {
     "id": "toothache",
@@ -7788,9 +6934,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Toothache can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "tourette_s_syndrome": {
     "id": "tourette_s_syndrome",
@@ -7808,9 +6952,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Tourette’s syndrome can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "transient_ischaemic_attack_tia": {
     "id": "transient_ischaemic_attack_tia",
@@ -7825,9 +6967,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Transient ischaemic attack (TIA) can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "transverse_myelitis": {
     "id": "transverse_myelitis",
@@ -7848,9 +6988,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "home adaptations such as stair lifts or railings"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "trichomonas_infection": {
     "id": "trichomonas_infection",
@@ -7864,9 +7002,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Trichomonas infection requires prompt medical evaluation as symptoms can worsen rapidly. Early treatment significantly improves outcomes.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "trigeminal_neuralgia": {
     "id": "trigeminal_neuralgia",
@@ -7887,9 +7023,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Trigeminal neuralgia can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "trigger_thumb_or_trigger_finger_in_children_and_young_people": {
     "id": "trigger_thumb_or_trigger_finger_in_children_and_young_people",
@@ -7905,9 +7039,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "they are over the age of 3 and it’s restricting their ability to use their hands as normal"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "tuberculosis_tb": {
     "id": "tuberculosis_tb",
@@ -7931,9 +7063,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "changes to your vision, such as blurred vision"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "type_1_diabetes": {
     "id": "type_1_diabetes",
@@ -7953,9 +7083,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "how much exercise you do"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "type_2_diabetes": {
     "id": "type_2_diabetes",
@@ -7973,9 +7101,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Type 2 diabetes can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "ulcerative_colitis": {
     "id": "ulcerative_colitis",
@@ -7992,9 +7118,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "corticosteroids – used to get inflammation under control quickly, but not suitable for long-term use"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "underactive_thyroid": {
     "id": "underactive_thyroid",
@@ -8019,9 +7143,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "interferons – a class of medication sometimes used to treat certain types of cancer and hepatitis C"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "urinary_incontinence": {
     "id": "urinary_incontinence",
@@ -8036,9 +7158,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "bladder training – techniques to increase the length of time between feeling the need to go to the toilet and peeing"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "urinary_incontinence_in_women": {
     "id": "urinary_incontinence_in_women",
@@ -8052,9 +7172,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "maintaining a healthy weight"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "urinary_tract_infection_uti": {
     "id": "urinary_tract_infection_uti",
@@ -8080,9 +7198,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "feeling generally unwell, achy and tired"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "urinary_tract_infection_uti_in_children": {
     "id": "urinary_tract_infection_uti_in_children",
@@ -8097,9 +7213,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "avoid scented soaps or bubble baths – these can increase the risk of developing a UTI"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "vaginal_cancer": {
     "id": "vaginal_cancer",
@@ -8121,9 +7235,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "your general health."
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "vaginal_discharge": {
     "id": "vaginal_discharge",
@@ -8135,9 +7247,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "vaginal infections such as bacterial vaginosis (BV) and thrush"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "varicose_eczema": {
     "id": "varicose_eczema",
@@ -8155,9 +7265,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "keep physically active – this will improve your circulation and help you maintain a healthy weight"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "varicose_veins": {
     "id": "varicose_veins",
@@ -8176,9 +7284,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "any complications, like ulcers on your legs"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "vascular_dementia": {
     "id": "vascular_dementia",
@@ -8200,9 +7306,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "whether you need any financial assistance"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "venous_leg_ulcer": {
     "id": "venous_leg_ulcer",
@@ -8224,9 +7328,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "your toes become blue and swollen"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "vertigo": {
     "id": "vertigo",
@@ -8256,9 +7358,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "try to relax and avoid stress – anxiety can make vertigo worse"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "vitamin_b12_or_folate_deficiency_anaemia": {
     "id": "vitamin_b12_or_folate_deficiency_anaemia",
@@ -8278,9 +7378,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Vitamin B12 or folate deficiency anaemia can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "vomiting_in_adults": {
     "id": "vomiting_in_adults",
@@ -8299,9 +7397,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "have a stiff neck and pain when looking at bright lights"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "vomiting_in_children_and_babies": {
     "id": "vomiting_in_children_and_babies",
@@ -8311,9 +7407,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Vomiting in children and babies can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "vulval_cancer": {
     "id": "vulval_cancer",
@@ -8329,9 +7423,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "visit their vulval cancer forum to talk with people who have been affected by vulval cancer, share your experience, and ask an expert your questions"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "warts_and_verrucas": {
     "id": "warts_and_verrucas",
@@ -8344,9 +7436,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "causing you distress or embarrassment"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "whiplash": {
     "id": "whiplash",
@@ -8364,9 +7454,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "early return to your normal hobbies are encouraged"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "wolff_parkinson_white_syndrome": {
     "id": "wolff_parkinson_white_syndrome",
@@ -8387,9 +7475,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "Chest, Heart & Stroke Scotland"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "womb_uterus_cancer": {
     "id": "womb_uterus_cancer",
@@ -8408,9 +7494,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
       "whether the cancer has begun to spread"
     ],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "wrist_fracture": {
     "id": "wrist_fracture",
@@ -8420,9 +7504,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Wrist fracture can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "yellow_fever": {
     "id": "yellow_fever",
@@ -8438,9 +7520,7 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Yellow fever can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   },
   "zika_virus": {
     "id": "zika_virus",
@@ -8458,8 +7538,6 @@ export const CLINICAL_KNOWLEDGE_BASE = {
     "reasoning": "Zika virus can typically be managed with self-care measures. However, seek medical advice if symptoms persist beyond 7 days or worsen.",
     "treatment": [],
     "source": "NHS Inform",
-    "last_updated": "2026-01-16",
-    "enhanced_by": "MedGemma-Kaggle-Triage",
-    "enhanced_date": "2026-01-16"
+    "last_updated": "2026-01-16"
   }
 };

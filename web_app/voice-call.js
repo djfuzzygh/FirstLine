@@ -1,29 +1,61 @@
-// FirstLine Voice Call Simulator
-// Demonstrates AI-powered triage via voice interface
+// FirstLine Voice Call Simulator - Enhanced Version
+// Natural conversation with unlimited speech input
 
-const API_BASE = 'https://heliolatrous-unstooping-rosy.ngrok-free.dev';
+import { CLINICAL_KNOWLEDGE_BASE } from './clinical_knowledge_medgemma.js';
+import ClinicalReasoningEngine from './reasoning_engine/index.js';
+
+const API_BASE = window.MEDGEMMA_API || 'https://heliolatrous-unstooping-rosy.ngrok-free.dev';
+
+// Initialize reasoning engine
+let reasoningEngine = null;
+
+async function initReasoningEngine() {
+    try {
+        reasoningEngine = new ClinicalReasoningEngine();
+        await reasoningEngine.initialize();
+        console.log('✅ Offline reasoning engine ready');
+    } catch (error) {
+        console.warn('⚠️ Reasoning engine failed, will use API only');
+    }
+}
+
+// Initialize on load
+initReasoningEngine();
 
 // Voice Call State
 let callState = {
     active: false,
-    stage: 'idle', // idle, greeting, collecting_symptoms, asking_questions, providing_triage
+    stage: 'idle',
     conversationHistory: [],
     patientData: {
         age: null,
         sex: null,
         symptoms: '',
+        symptomDetails: '',
         duration_days: null,
+        temp_c: null,
+        rr: null,
+        hr: null,
+        bp_systolic: null,
+        bp_diastolic: null,
+        pregnancy_status: false,
+        chronic_conditions: [],
+        medications: [],
+        allergies: [],
         followup_responses: {}
     },
-    currentQuestions: [],
-    currentQuestionIndex: 0,
-    triageResult: null
+    currentQuestion: null,
+    awaitingResponse: false,
+    triageResult: null,
+    recognizedText: '',
+    silenceTimeout: null
 };
 
 // Speech Recognition & Synthesis
 let recognition = null;
 let synthesis = window.speechSynthesis;
 let currentLanguage = 'en-US';
+let isListening = false;
 
 // DOM Elements
 const btnCall = document.getElementById('btn-call');
@@ -42,395 +74,661 @@ function initSpeechRecognition() {
     if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         recognition = new SpeechRecognition();
-        recognition.continuous = true; // CHANGED: Alllow pauses
-        recognition.interimResults = true;
+
+        // Enhanced settings for better capture
+        recognition.continuous = true;  // Keep listening
+        recognition.interimResults = true;  // Show interim results
+        recognition.maxAlternatives = 3;  // Get multiple alternatives
         recognition.lang = currentLanguage;
 
-        let silenceTimer = null;
-
         recognition.onstart = () => {
-            updateStatus('listening', 'Listening...', 'Speak now (I will wait for you to finish)');
-            transcript.classList.remove('hidden');
-            waveform.classList.remove('hidden');
-            btnMic.classList.add('recording');
+            isListening = true;
+            updateStatus('listening', 'Listening...', 'Speak clearly');
+            startWaveformAnimation();
         };
 
         recognition.onresult = (event) => {
-            if (silenceTimer) clearTimeout(silenceTimer);
-
             let interimTranscript = '';
-            let finalText = '';
+            let finalTranscript = '';
 
-            // Combine all results (since continuous=true accumulates them)
-            for (let i = 0; i < event.results.length; i++) {
-                finalText += event.results[i][0].transcript;
+            for (let i = event.resultIndex; i < event.results.length; i++) {
+                const transcript = event.results[i][0].transcript;
+                if (event.results[i].isFinal) {
+                    finalTranscript += transcript + ' ';
+                } else {
+                    interimTranscript += transcript;
+                }
             }
 
-            transcript.textContent = finalText || 'Listening...';
-            statusSubtext.textContent = "Processing pause...";
+            // Update transcript display
+            updateTranscript(finalTranscript + interimTranscript);
 
-            // Wait 2.5 seconds of silence before submitting
-            silenceTimer = setTimeout(() => {
-                recognition.stop();
-                handleUserSpeech(finalText);
-            }, 2500);
+            // If we got a final result, process it
+            if (finalTranscript) {
+                callState.recognizedText += finalTranscript;
+
+                // Reset silence timer
+                clearTimeout(callState.silenceTimeout);
+
+                // Set new silence timer (3 seconds of silence = done speaking)
+                callState.silenceTimeout = setTimeout(() => {
+                    if (callState.awaitingResponse && callState.recognizedText.trim()) {
+                        stopListening();
+                        processResponse(callState.recognizedText.trim());
+                        callState.recognizedText = '';
+                    }
+                }, 3000);
+            }
         };
 
         recognition.onerror = (event) => {
             console.error('Speech recognition error:', event.error);
-            if (event.error !== 'no-speech') {
-                addMessage('system', `Error: ${event.error}.`);
+            if (event.error === 'no-speech') {
+                // Just restart
+                if (isListening && callState.awaitingResponse) {
+                    recognition.start();
+                }
+            } else {
+                updateStatus('error', 'Error', event.error);
             }
-            transcript.classList.add('hidden');
-            waveform.classList.add('hidden');
-            btnMic.classList.remove('recording');
         };
 
         recognition.onend = () => {
-            // UI Cleanup
-            // transcript.classList.add('hidden'); 
-            // waveform.classList.add('hidden');
-            btnMic.classList.remove('recording');
+            isListening = false;
+            stopWaveformAnimation();
+
+            // Restart if we're still waiting for response
+            if (callState.awaitingResponse && callState.active) {
+                setTimeout(() => {
+                    if (callState.awaitingResponse) {
+                        recognition.start();
+                    }
+                }, 100);
+            }
         };
     } else {
-        alert('Speech recognition not supported in this browser. Please use Chrome or Edge.');
+        alert('Speech recognition not supported in this browser. Please use Chrome.');
     }
 }
 
-// Text-to-Speech
-function speak(text, callback) {
-    updateStatus('speaking', 'AI Speaking...', text.substring(0, 50) + '...');
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    initSpeechRecognition();
+    setupEventListeners();
+});
 
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = currentLanguage;
-    utterance.rate = 0.9;
-    utterance.pitch = 1.0;
+function setupEventListeners() {
+    btnCall.addEventListener('click', startCall);
+    btnHangup.addEventListener('click', endCall);
+    btnMic.addEventListener('click', toggleMic);
 
-    utterance.onend = () => {
-        if (callback) callback();
-    };
-
-    synthesis.speak(utterance);
-    addMessage('ai', text);
-}
-
-// Update UI Status
-function updateStatus(state, text, subtext) {
-    statusIndicator.className = 'status-indicator status-' + state;
-    statusText.textContent = text;
-    statusSubtext.textContent = subtext || '';
-
-    const icons = {
-        idle: '📞',
-        calling: '📱',
-        listening: '🎤',
-        thinking: '🤔',
-        speaking: '🗣️'
-    };
-    statusIndicator.textContent = icons[state] || '📞';
-}
-
-// Add Message to Conversation Log
-function addMessage(type, text) {
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `message message-${type}`;
-
-    const icon = type === 'ai' ? '🤖 AI: ' : type === 'user' ? '👤 You: ' : '📋 ';
-    messageDiv.textContent = icon + text;
-
-    conversationLog.appendChild(messageDiv);
-    conversationLog.scrollTop = conversationLog.scrollHeight;
-
-    callState.conversationHistory.push({ type, text });
+    languageSelect.addEventListener('change', (e) => {
+        currentLanguage = e.target.value;
+        if (recognition) {
+            recognition.lang = currentLanguage;
+        }
+    });
 }
 
 // Start Call
-btnCall.addEventListener('click', () => {
+async function startCall() {
     callState.active = true;
     callState.stage = 'greeting';
+    callState.conversationHistory = [];
 
-    btnCall.classList.add('hidden');
-    btnMic.classList.remove('hidden');
-    btnHangup.classList.remove('hidden');
+    updateStatus('active', 'Call Active', 'Connected');
+    btnCall.disabled = true;
+    btnHangup.disabled = false;
+    btnMic.disabled = false;
 
-    conversationLog.innerHTML = '';
-
-    updateStatus('calling', 'Connecting...', 'Please wait');
-
-    setTimeout(() => {
-        const greeting = "Welcome to FirstLine, the AI-powered clinical decision support system. I'm here to help you assess your patient. Let's start with some basic information. How old is the patient?";
-        speak(greeting, () => {
-            callState.stage = 'collecting_age';
-            startListening();
-        });
-    }, 1500);
-});
-
-// End Call
-btnHangup.addEventListener('click', () => {
-    endCall();
-});
-
-function endCall() {
-    callState.active = false;
-    callState.stage = 'idle';
-
-    if (recognition) recognition.stop();
-    synthesis.cancel();
-
-    btnCall.classList.remove('hidden');
-    btnMic.classList.add('hidden');
-    btnHangup.classList.add('hidden');
-
-    updateStatus('idle', 'Call Ended', 'Thank you for using FirstLine');
-
-    addMessage('system', 'Call ended. You can start a new consultation anytime.');
+    // Start conversation
+    await speak("Hello! This is FirstLine AI Triage. I'm here to help assess the patient's condition. Let's begin.");
+    await sleep(500);
+    await askAge();
 }
 
-// Start Listening
+// End Call
+function endCall() {
+    callState.active = false;
+    callState.awaitingResponse = false;
+
+    if (recognition && isListening) {
+        recognition.stop();
+    }
+
+    synthesis.cancel();
+
+    updateStatus('idle', 'Call Ended', 'Ready');
+    btnCall.disabled = false;
+    btnHangup.disabled = true;
+    btnMic.disabled = true;
+
+    addToConversation('system', 'Call ended');
+}
+
+// Toggle Mic
+function toggleMic() {
+    if (isListening) {
+        stopListening();
+    } else {
+        startListening();
+    }
+}
+
 function startListening() {
-    if (recognition && callState.active) {
-        updateStatus('listening', 'Listening...', 'Speak now');
+    if (recognition && !isListening) {
+        callState.recognizedText = '';
         recognition.start();
     }
 }
 
-// Handle User Speech
-async function handleUserSpeech(text) {
-    addMessage('user', text);
-    updateStatus('thinking', 'Processing...', 'AI is analyzing');
+function stopListening() {
+    if (recognition && isListening) {
+        recognition.stop();
+    }
+}
+
+// Speech Synthesis
+async function speak(text) {
+    return new Promise((resolve) => {
+        // Cancel any ongoing speech
+        synthesis.cancel();
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = currentLanguage;
+        utterance.rate = 0.9;  // Slightly slower for clarity
+        utterance.pitch = 1.0;
+        utterance.volume = 1.0;
+
+        utterance.onend = () => {
+            resolve();
+        };
+
+        utterance.onerror = (event) => {
+            console.error('Speech synthesis error:', event);
+            resolve();
+        };
+
+        addToConversation('ai', text);
+        synthesis.speak(utterance);
+    });
+}
+
+// Conversation Flow
+async function askAge() {
+    callState.stage = 'collecting_age';
+    await speak("First, how old is the patient? Please tell me their age in years.");
+    callState.awaitingResponse = true;
+    startListening();
+}
+
+async function askSex() {
+    callState.stage = 'collecting_sex';
+    await speak("Thank you. What is the patient's sex? Male, female, or other?");
+    callState.awaitingResponse = true;
+    startListening();
+}
+
+async function askPregnancy() {
+    callState.stage = 'collecting_pregnancy';
+    await speak("Is the patient currently pregnant?");
+    callState.awaitingResponse = true;
+    startListening();
+}
+
+async function askSymptoms() {
+    callState.stage = 'collecting_symptoms';
+    await speak("Now, please describe all the symptoms the patient is experiencing. Take your time and be as detailed as you like. I'll wait for you to finish speaking.");
+    callState.awaitingResponse = true;
+    startListening();
+}
+
+async function askAdditionalSymptoms() {
+    callState.stage = 'collecting_additional_symptoms';
+    await speak("Thank you for that information. Is there anything else about the symptoms you'd like to add? Any additional details that might be important?");
+    callState.awaitingResponse = true;
+    startListening();
+}
+
+async function askDuration() {
+    callState.stage = 'collecting_duration';
+    await speak("How long has the patient been experiencing these symptoms? You can say hours, days, or weeks.");
+    callState.awaitingResponse = true;
+    startListening();
+}
+
+async function askVitals() {
+    callState.stage = 'asking_vitals';
+    await speak("Do you have any vital signs measurements like temperature, respiratory rate, or heart rate?");
+    callState.awaitingResponse = true;
+    startListening();
+}
+
+async function collectVitals() {
+    // Temperature
+    callState.stage = 'collecting_temperature';
+    await speak("What is the patient's temperature in degrees Celsius?");
+    callState.awaitingResponse = true;
+    startListening();
+}
+
+async function collectRespiratoryRate() {
+    callState.stage = 'collecting_rr';
+    await speak("What is the respiratory rate? How many breaths per minute?");
+    callState.awaitingResponse = true;
+    startListening();
+}
+
+async function collectHeartRate() {
+    callState.stage = 'collecting_hr';
+    await speak("What is the heart rate? How many beats per minute?");
+    callState.awaitingResponse = true;
+    startListening();
+}
+
+async function collectBloodPressure() {
+    callState.stage = 'collecting_bp';
+    await speak("Do you have a blood pressure reading? If yes, please tell me the systolic over diastolic values.");
+    callState.awaitingResponse = true;
+    startListening();
+}
+
+async function askMedicalHistory() {
+    callState.stage = 'asking_history';
+    await speak("To improve the accuracy of my assessment, I'd like to ask about medical history. Does the patient have any chronic medical conditions like diabetes, hypertension, or asthma?");
+    callState.awaitingResponse = true;
+    startListening();
+}
+
+async function askMedications() {
+    callState.stage = 'collecting_medications';
+    await speak("Is the patient currently taking any medications? Please list them.");
+    callState.awaitingResponse = true;
+    startListening();
+}
+
+async function askAllergies() {
+    callState.stage = 'collecting_allergies';
+    await speak("Does the patient have any known allergies to medications or other substances?");
+    callState.awaitingResponse = true;
+    startListening();
+}
+
+async function confirmInformation() {
+    callState.stage = 'confirming';
+
+    const data = callState.patientData;
+    let summary = "Let me summarize the information you've provided. ";
+
+    summary += `The patient is ${data.age} years old, ${data.sex}. `;
+    if (data.pregnancy_status) summary += "The patient is pregnant. ";
+    summary += `Symptoms include: ${data.symptoms}. `;
+    if (data.symptomDetails) summary += `Additional details: ${data.symptomDetails}. `;
+    summary += `These symptoms have been present for ${data.duration_days} days. `;
+
+    if (data.temp_c) summary += `Temperature is ${data.temp_c} degrees Celsius. `;
+    if (data.rr) summary += `Respiratory rate is ${data.rr} breaths per minute. `;
+    if (data.hr) summary += `Heart rate is ${data.hr} beats per minute. `;
+    if (data.bp_systolic) summary += `Blood pressure is ${data.bp_systolic} over ${data.bp_diastolic}. `;
+
+    if (data.chronic_conditions.length > 0) {
+        summary += `Chronic conditions: ${data.chronic_conditions.join(', ')}. `;
+    }
+    if (data.medications.length > 0) {
+        summary += `Current medications: ${data.medications.join(', ')}. `;
+    }
+    if (data.allergies.length > 0) {
+        summary += `Known allergies: ${data.allergies.join(', ')}. `;
+    }
+
+    summary += "Is this information correct?";
+
+    await speak(summary);
+    callState.awaitingResponse = true;
+    startListening();
+}
+
+// Process Response
+async function processResponse(text) {
+    callState.awaitingResponse = false;
+    addToConversation('user', text);
+
+    const lowerText = text.toLowerCase();
 
     switch (callState.stage) {
         case 'collecting_age':
-            await handleAgeResponse(text);
+            const ageMatch = text.match(/(\d+)/);
+            if (ageMatch) {
+                callState.patientData.age = parseInt(ageMatch[1]);
+                await askSex();
+            } else {
+                await speak("I didn't catch the age. Please tell me the patient's age in years.");
+                callState.awaitingResponse = true;
+                startListening();
+            }
             break;
+
         case 'collecting_sex':
-            await handleSexResponse(text);
+            if (lowerText.includes('male') && !lowerText.includes('female')) {
+                callState.patientData.sex = 'M';
+                await askSymptoms();
+            } else if (lowerText.includes('female')) {
+                callState.patientData.sex = 'F';
+                await askPregnancy();
+            } else {
+                callState.patientData.sex = 'O';
+                await askSymptoms();
+            }
             break;
+
+        case 'collecting_pregnancy':
+            callState.patientData.pregnancy_status = lowerText.includes('yes');
+            await askSymptoms();
+            break;
+
         case 'collecting_symptoms':
-            await handleSymptomsResponse(text);
+            callState.patientData.symptoms = text;
+            await askAdditionalSymptoms();
             break;
+
+        case 'collecting_additional_symptoms':
+            if (!lowerText.includes('no') && !lowerText.includes('nothing')) {
+                callState.patientData.symptomDetails = text;
+            }
+            await askDuration();
+            break;
+
         case 'collecting_duration':
-            await handleDurationResponse(text);
+            const duration = parseDuration(text);
+            callState.patientData.duration_days = duration;
+            await askVitals();
             break;
-        case 'asking_questions':
-            await handleQuestionResponse(text);
+
+        case 'asking_vitals':
+            if (lowerText.includes('yes')) {
+                await collectVitals();
+            } else {
+                await askMedicalHistory();
+            }
             break;
-        default:
-            speak("I didn't understand that. Could you please repeat?", startListening);
+
+        case 'collecting_temperature':
+            const tempMatch = text.match(/(\d+\.?\d*)/);
+            if (tempMatch) {
+                callState.patientData.temp_c = parseFloat(tempMatch[1]);
+            }
+            await collectRespiratoryRate();
+            break;
+
+        case 'collecting_rr':
+            const rrMatch = text.match(/(\d+)/);
+            if (rrMatch) {
+                callState.patientData.rr = parseInt(rrMatch[1]);
+            }
+            await collectHeartRate();
+            break;
+
+        case 'collecting_hr':
+            const hrMatch = text.match(/(\d+)/);
+            if (hrMatch) {
+                callState.patientData.hr = parseInt(hrMatch[1]);
+            }
+            await collectBloodPressure();
+            break;
+
+        case 'collecting_bp':
+            const bpMatch = text.match(/(\d+)\s*(?:over|\/)\s*(\d+)/);
+            if (bpMatch) {
+                callState.patientData.bp_systolic = parseInt(bpMatch[1]);
+                callState.patientData.bp_diastolic = parseInt(bpMatch[2]);
+            }
+            await askMedicalHistory();
+            break;
+
+        case 'asking_history':
+            if (lowerText.includes('yes') || (!lowerText.includes('no') && text.length > 10)) {
+                callState.patientData.chronic_conditions = parseList(text);
+                await askMedications();
+            } else {
+                await askMedications();
+            }
+            break;
+
+        case 'collecting_medications':
+            if (!lowerText.includes('no') && !lowerText.includes('none')) {
+                callState.patientData.medications = parseList(text);
+            }
+            await askAllergies();
+            break;
+
+        case 'collecting_allergies':
+            if (!lowerText.includes('no') && !lowerText.includes('none')) {
+                callState.patientData.allergies = parseList(text);
+            }
+            await confirmInformation();
+            break;
+
+        case 'confirming':
+            if (lowerText.includes('yes') || lowerText.includes('correct')) {
+                await performTriage();
+            } else {
+                await speak("Let's start over to ensure we have accurate information.");
+                await askAge();
+            }
+            break;
     }
 }
 
-// Handle Age Response
-async function handleAgeResponse(text) {
-    const age = parseInt(text.match(/\d+/)?.[0]);
+// Helper Functions
+function parseDuration(text) {
+    const lowerText = text.toLowerCase();
 
-    if (age && age > 0 && age < 120) {
-        callState.patientData.age = age;
-        speak(`Got it, ${age} years old. Is the patient male or female?`, () => {
-            callState.stage = 'collecting_sex';
-            startListening();
-        });
-    } else {
-        speak("I didn't catch the age. Please say the patient's age in years.", startListening);
-    }
-}
-
-// Handle Sex Response
-async function handleSexResponse(text) {
-    const textLower = text.toLowerCase();
-
-    if (textLower.includes('male') && !textLower.includes('female')) {
-        callState.patientData.sex = 'Male';
-    } else if (textLower.includes('female')) {
-        callState.patientData.sex = 'Female';
-    } else {
-        speak("Please say either male or female.", startListening);
-        return;
+    if (lowerText.includes('hour')) {
+        const match = text.match(/(\d+)/);
+        return match ? parseInt(match[1]) / 24 : 0.5;
+    } else if (lowerText.includes('day')) {
+        const match = text.match(/(\d+)/);
+        return match ? parseInt(match[1]) : 1;
+    } else if (lowerText.includes('week')) {
+        const match = text.match(/(\d+)/);
+        return match ? parseInt(match[1]) * 7 : 7;
+    } else if (lowerText.includes('month')) {
+        const match = text.match(/(\d+)/);
+        return match ? parseInt(match[1]) * 30 : 30;
     }
 
-    speak(`Understood, ${callState.patientData.sex}. Now, please describe the main symptoms or complaints.`, () => {
-        callState.stage = 'collecting_symptoms';
-        startListening();
-    });
+    // Default to 1 day if unclear
+    return 1;
 }
 
-// Handle Symptoms Response
-async function handleSymptomsResponse(text) {
-    callState.patientData.symptoms = text;
+function parseList(text) {
+    // Remove common filler words
+    const cleaned = text.toLowerCase()
+        .replace(/yes,?\s*/gi, '')
+        .replace(/i have\s*/gi, '')
+        .replace(/the patient has\s*/gi, '')
+        .replace(/\band\b/gi, ',');
 
-    speak(`Thank you. How many days has the patient had these symptoms?`, () => {
-        callState.stage = 'collecting_duration';
-        startListening();
-    });
-}
-
-// Handle Duration Response
-async function handleDurationResponse(text) {
-    const days = parseInt(text.match(/\d+/)?.[0]);
-
-    if (days && days > 0) {
-        callState.patientData.duration_days = days;
-
-        speak(`Understood, ${days} days. Let me ask a few follow-up questions to better assess the situation.`, async () => {
-            await getFollowUpQuestions();
-        });
-    } else {
-        speak("Please say the number of days.", startListening);
-    }
-}
-
-// Get Follow-up Questions from API
-async function getFollowUpQuestions() {
-    try {
-        const response = await fetch(`${API_BASE}/followup_questions`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                age: callState.patientData.age,
-                sex: callState.patientData.sex,
-                symptoms: callState.patientData.symptoms,
-                duration_days: callState.patientData.duration_days,
-                has_consent: true
-            })
-        });
-
-        const data = await response.json();
-        callState.currentQuestions = data.questions || [];
-        callState.currentQuestionIndex = 0;
-        callState.stage = 'asking_questions';
-
-        askNextQuestion();
-    } catch (error) {
-        console.error('Error fetching questions:', error);
-        speak("I'm having trouble connecting. Let me proceed with the assessment based on what you've told me.", performTriage);
-    }
-}
-
-// Ask Next Follow-up Question
-function askNextQuestion() {
-    if (callState.currentQuestionIndex < callState.currentQuestions.length) {
-        const question = callState.currentQuestions[callState.currentQuestionIndex];
-        speak(question.question, startListening);
-    } else {
-        speak("Thank you for answering those questions. Let me analyze this case now.", performTriage);
-    }
-}
-
-// Handle Question Response
-async function handleQuestionResponse(text) {
-    const question = callState.currentQuestions[callState.currentQuestionIndex];
-    callState.patientData.followup_responses[question.question] = text;
-
-    callState.currentQuestionIndex++;
-    askNextQuestion();
-}
-
-function saveToDashboard(intake, triage, source) {
-    try {
-        const newCase = {
-            id: `FL-${Date.now().toString().slice(-4)}`,
-            date: new Date(),
-            age: intake.age || 5,
-            symptom: (intake.symptoms || 'General').split(',')[0],
-            tier: triage.risk_tier,
-            region: 'Greater Accra',
-            responseTime: Math.floor(Math.random() * 5) + 1,
-            source: source
-        };
-
-        const cases = JSON.parse(localStorage.getItem('firstline_cases') || '[]');
-        cases.unshift(newCase);
-        if (cases.length > 50) cases.pop();
-
-        localStorage.setItem('firstline_cases', JSON.stringify(cases));
-        console.log('✅ Case saved to dashboard:', newCase);
-    } catch (e) {
-        console.error('Failed to save to dashboard', e);
-    }
+    return cleaned.split(',')
+        .map(item => item.trim())
+        .filter(item => item.length > 2);
 }
 
 // Perform Triage
 async function performTriage() {
-    updateStatus('thinking', 'Analyzing Case...', 'AI is making triage decision');
+    callState.stage = 'analyzing';
+    await speak("Thank you for all that information. Let me analyze this data now. Please wait a moment.");
 
     try {
-        const response = await fetch(`${API_BASE}/triage`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                intake: {
-                    age: callState.patientData.age,
-                    sex: callState.patientData.sex,
-                    symptoms: callState.patientData.symptoms,
-                    duration_days: callState.patientData.duration_days,
-                    has_consent: true
-                },
-                followup_responses: callState.patientData.followup_responses
-            })
-        });
+        const data = callState.patientData;
 
-        const triage = await response.json();
-        callState.triageResult = triage;
+        const input = {
+            age: data.age,
+            sex: data.sex,
+            symptoms: `${data.symptoms} ${data.symptomDetails}`.trim(),
+            duration_days: data.duration_days,
+            temp_c: data.temp_c,
+            rr: data.rr,
+            hr: data.hr,
+            pregnancy_status: data.pregnancy_status
+        };
 
-        // Save to Dashboard
-        saveToDashboard(callState.patientData, triage, 'Voice');
+        let result;
 
-        announceTriageResult(triage);
+        // Try offline first
+        if (reasoningEngine) {
+            try {
+                result = await reasoningEngine.analyze(input);
+                result.source = 'offline';
+            } catch (error) {
+                console.warn('Offline analysis failed');
+            }
+        }
+
+        // Try API if offline failed
+        if (!result && navigator.onLine) {
+            try {
+                const response = await fetch(`${API_BASE}/triage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ intake: data })
+                });
+                result = await response.json();
+                result.source = 'online';
+            } catch (error) {
+                console.warn('API call failed');
+            }
+        }
+
+        // Fallback
+        if (!result) {
+            result = performBasicTriage(input);
+            result.source = 'fallback';
+        }
+
+        callState.triageResult = result;
+        await presentResults(result);
+
     } catch (error) {
-        console.error('Error performing triage:', error);
-        speak("I'm having trouble completing the analysis. Please consult with a supervisor or refer to the nearest health facility.", endCall);
+        console.error('Triage failed:', error);
+        await speak("I apologize, but I encountered an error during analysis. Please try again or seek immediate medical attention if this is an emergency.");
+        endCall();
     }
 }
 
-// Announce Triage Result
-function announceTriageResult(triage) {
-    let announcement = `Based on my assessment, this case is classified as ${triage.risk_tier} priority. `;
+function performBasicTriage(input) {
+    const hasFever = input.temp_c && input.temp_c > 38.0;
+    const hasHighRR = input.rr && input.rr > 25;
+    const isYoung = input.age < 5;
 
-    if (triage.risk_tier === 'RED') {
-        announcement += "This is an emergency. Immediate referral to a hospital is required. ";
-    } else if (triage.risk_tier === 'YELLOW') {
-        announcement += "This requires medical attention. Refer to a health center within 24 hours. ";
+    let tier = 'GREEN';
+    let diagnosis = 'General illness';
+
+    if ((hasFever && hasHighRR) || (isYoung && hasFever)) {
+        tier = 'RED';
+        diagnosis = 'Possible serious infection';
+    } else if (hasFever || hasHighRR) {
+        tier = 'YELLOW';
+        diagnosis = 'Possible infection';
+    }
+
+    return {
+        diagnosis,
+        tier,
+        confidence: 60,
+        reasoning: `Based on the symptoms described`,
+        actions: [
+            tier === 'RED' ? 'Seek immediate medical attention' : 'Monitor symptoms closely',
+            'Ensure adequate hydration',
+            'Get plenty of rest'
+        ]
+    };
+}
+
+async function presentResults(result) {
+    callState.stage = 'presenting_results';
+
+    let message = "Based on my analysis, here are my findings. ";
+
+    // Tier
+    if (result.tier === 'RED') {
+        message += "This is classified as a RED tier case, which means it's an EMERGENCY. ";
+    } else if (result.tier === 'YELLOW') {
+        message += "This is classified as a YELLOW tier case, which means it's URGENT. ";
     } else {
-        announcement += "This can likely be managed at the community level. ";
+        message += "This is classified as a GREEN tier case, which means it's ROUTINE. ";
     }
 
-    if (triage.danger_signs && triage.danger_signs.length > 0) {
-        announcement += `Danger signs identified: ${triage.danger_signs.join(', ')}. `;
-    }
+    // Diagnosis
+    message += `The likely diagnosis is: ${result.diagnosis}. `;
+    message += `I am ${result.confidence} percent confident in this assessment. `;
 
-    announcement += `Recommended actions: ${triage.recommended_actions.join(', ')}. `;
+    // Reasoning
+    message += `My reasoning is as follows: ${result.reasoning.substring(0, 200)}. `;
 
-    // Announce First Aid if available
-    if (triage.first_aid_advice && triage.first_aid_advice.length > 0) {
-        announcement += `Immediate First Aid: ${triage.first_aid_advice[0]}. `;
-    }
-
-    announcement += "A detailed referral summary will be sent to you via SMS. Thank you for using FirstLine.";
-
-    speak(announcement, () => {
-        setTimeout(endCall, 3000);
+    // Actions
+    message += "Here are the recommended actions, in order of priority: ";
+    result.actions.forEach((action, index) => {
+        message += `${index + 1}. ${action}. `;
     });
+
+    // Source
+    if (result.source === 'offline') {
+        message += "This assessment was performed using offline AI analysis. ";
+    } else if (result.source === 'online') {
+        message += "This assessment was enhanced with online AI analysis. ";
+    }
+
+    message += "Do you have any questions about this assessment?";
+
+    await speak(message);
+
+    callState.awaitingResponse = true;
+    startListening();
 }
 
-// Language Change
-languageSelect.addEventListener('change', (e) => {
-    currentLanguage = e.target.value;
-    if (recognition) {
-        recognition.lang = currentLanguage;
-    }
-    addMessage('system', `Language changed to ${e.target.options[e.target.selectedIndex].text}`);
-});
+// UI Updates
+function updateStatus(status, text, subtext) {
+    statusIndicator.className = `status-indicator ${status}`;
+    statusText.textContent = text;
+    statusSubtext.textContent = subtext;
+}
 
-// Push to Talk
-btnMic.addEventListener('click', () => {
-    if (callState.active) {
-        startListening();
-    }
-});
+function updateTranscript(text) {
+    transcript.textContent = text;
+}
 
-// Initialize
-initSpeechRecognition();
+function addToConversation(speaker, text) {
+    const entry = document.createElement('div');
+    entry.className = `conversation-entry ${speaker}`;
 
-console.log('🎤 Voice Call Simulator Ready!');
-console.log('📞 Click the green button to start a consultation');
+    const timestamp = new Date().toLocaleTimeString();
+    entry.innerHTML = `
+        <span class="timestamp">${timestamp}</span>
+        <span class="speaker">${speaker === 'ai' ? 'AI' : speaker === 'user' ? 'User' : 'System'}:</span>
+        <span class="text">${text}</span>
+    `;
+
+    conversationLog.appendChild(entry);
+    conversationLog.scrollTop = conversationLog.scrollHeight;
+}
+
+function startWaveformAnimation() {
+    waveform.classList.add('active');
+}
+
+function stopWaveformAnimation() {
+    waveform.classList.remove('active');
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// Export for testing
+export { callState, startCall, endCall, speak };
+
+// ========== Global Functions (for onclick handlers) ==========
+window.startCall = startCall;
+window.endCall = endCall;
+window.toggleMic = toggleMic;

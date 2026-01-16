@@ -1,0 +1,49 @@
+/* Additional styles for collapsible sections */
+.collapsible-section {
+    margin-top: var(--spacing-md);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    background: var(--gray-50);
+}
+
+.collapsible-section summary {
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--primary);
+    padding: var(--spacing-sm);
+    user-select: none;
+    list-style: none;
+}
+
+.collapsible-section summary::-webkit-details-marker {
+    display: none;
+}
+
+.collapsible-section summary::before {
+    content: '▶ ';
+    display: inline-block;
+    transition: transform var(--transition-fast);
+}
+
+.collapsible-section[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.collapsible-section summary:hover {
+    color: var(--primary-dark);
+}
+
+.collapsible-content {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--gray-200);
+}
+
+.collapsible-content .form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.collapsible-content .form-group:last-child {
+    margin-bottom: 0;
+}

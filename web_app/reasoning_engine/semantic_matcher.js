@@ -3,8 +3,12 @@
  * Uses Universal Sentence Encoder for semantic similarity
  */
 
-import * as tf from '@tensorflow/tfjs';
-import * as use from '@tensorflow-models/universal-sentence-encoder';
+// import * as tf from '@tensorflow/tfjs';
+// import * as use from '@tensorflow-models/universal-sentence-encoder';
+
+// Mock TF for browser compatibility without bundler
+const tf = window.tf || null;
+const use = window.use || null;
 
 class SemanticConditionMatcher {
     constructor(knowledgeBase) {
@@ -15,22 +19,26 @@ class SemanticConditionMatcher {
     }
 
     async initialize() {
-        console.log('🤖 Loading Universal Sentence Encoder...');
+        console.log('🤖 Initializing Condition Matcher...');
 
-        try {
-            // Load USE model
-            this.model = await use.load();
-            console.log('✅ Model loaded successfully');
+        if (tf && use) {
+            try {
+                // Load USE model
+                this.model = await use.load();
+                console.log('✅ Model loaded successfully');
 
-            // Pre-compute embeddings for all conditions
-            await this.precomputeEmbeddings();
-            console.log(`✅ Pre-computed embeddings for ${this.conditionKeys.length} conditions`);
+                // Pre-compute embeddings for all conditions
+                await this.precomputeEmbeddings();
+                console.log(`✅ Pre-computed embeddings for ${this.conditionKeys.length} conditions`);
+                return;
 
-        } catch (error) {
-            console.warn('⚠️  Could not load TensorFlow model:', error.message);
-            console.warn('Falling back to keyword matching');
-            this.model = null;
+            } catch (error) {
+                console.warn('⚠️  Could not load TensorFlow model:', error.message);
+            }
         }
+
+        console.log('ℹ️ Using keyword matching (TensorFlow not available)');
+        this.model = null;
     }
 
     async precomputeEmbeddings() {
