@@ -69,7 +69,7 @@ class ClinicalReasoningEngine {
             };
         }
 
-        const reasoning = this.generateReasoning(topMatch, normalizedSymptoms, vitals, dangerAssessment, age, sex);
+        const soap = this.generateReasoning(topMatch, normalizedSymptoms, vitals, dangerAssessment, age, sex);
 
         // Layer 6: Treatment synthesis
         const actions = this.synthesizeTreatment(topMatch, dangerAssessment, vitals);
@@ -78,7 +78,8 @@ class ClinicalReasoningEngine {
             tier: topMatch.tier,
             diagnosis: topMatch.diagnosis,
             confidence: topMatch.confidence,
-            reasoning,
+            reasoning: soap.assessment,
+            soap_note: soap,
             actions,
             differentialDiagnosis: rankedMatches.slice(1, 4).map(m => ({
                 diagnosis: m.diagnosis,
@@ -202,36 +203,45 @@ class ClinicalReasoningEngine {
      * Layer 5: Generate Clinical Reasoning (Enhanced)
      */
     generateReasoning(match, symptoms, vitals, dangerAssessment, age, sex) {
+        // Subjective
+        const subjective = `Patient (${age || '?'}yo ${sex}) presents with symptoms: ${symptoms.join(', ')}.`;
+
+        // Objective
+        const objParts = [];
+        if (vitals.temperature) objParts.push(`Temp: ${vitals.temperature}°C`);
+        if (vitals.hr) objParts.push(`HR: ${vitals.hr}bpm`);
+        if (vitals.rr) objParts.push(`RR: ${vitals.rr}/min`);
+        if (dangerAssessment.hasDangerSigns) objParts.push(`⚠️ DANGER SIGNS: ${dangerAssessment.flags.join(', ')}`);
+        const objective = objParts.length > 0 ? objParts.join(' | ') : "No significant vitals recorded.";
+
+        // Assessment
         const parts = [];
+        parts.push(`Clinical presentation is consistent with **${match.diagnosis}**.`);
 
-        // 1. Patient Context & Diagnosis
-        parts.push(`**Assessment for ${age || '?'}yo ${sex}:** Presentation is consistent with **${match.diagnosis}**.`);
+        if (match.tier === 'RED') parts.push(`**SEVERITY: EMERGENCY**. Immediate intervention required.`);
+        else if (match.tier === 'YELLOW') parts.push(`**SEVERITY: URGENT**. Timely evaluation needed.`);
 
-        // 2. Symptom Evidence
         if (match.matchedSymptoms && match.matchedSymptoms.length > 0) {
-            parts.push(`Identified key correlation with: ${match.matchedSymptoms.join(', ')}.`);
+            parts.push(`Key indicators: ${match.matchedSymptoms.join(', ')}.`);
         }
 
-        // 3. Vital Signs Context
-        if (vitals.temperature) {
-            if (vitals.temperature > 38) parts.push(`Fever of ${vitals.temperature}°C significantly increases infection probability.`);
-            else if (vitals.temperature < 36) parts.push(`Hypothermia (${vitals.temperature}°C) is a critical warning sign.`);
-        }
-        if (vitals.systolicBP && vitals.systolicBP < 90) {
-            parts.push(`Hypotension (BP ${vitals.systolicBP}/${vitals.diastolicBP}) suggests possible shock.`);
-        }
-
-        // 4. Danger Analysis
-        if (dangerAssessment.hasDangerSigns) {
-            parts.push(`\n⚠️ **CRITICAL FINDINGS:** Detected danger signs (${dangerAssessment.flags.join(', ')}) which mandate immediate escalation to RED tier.`);
-        }
-
-        // 5. Clinical Knowledge Base Context
         if (match.reasoning) {
-            parts.push(`\n**Protocol:** ${match.reasoning}`);
+            parts.push(`Protocol Note: ${match.reasoning}`);
         }
 
-        return parts.join(' ');
+        const assessment = parts.join(' ');
+
+        // Plan
+        const plan = match.tier === 'RED' ? 'REFER IMMEDIATELY to higher-level facility. Stabilize patient.' :
+            match.tier === 'YELLOW' ? 'Refer for medical evaluation within 24 hours.' :
+                'Manage with home care and monitoring. Return if symptoms worsen.';
+
+        return {
+            subjective,
+            objective,
+            assessment,
+            plan
+        };
     }
 
     /**

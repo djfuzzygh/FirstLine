@@ -657,11 +657,26 @@ function displayResults() {
                 </div>
             ` : ''}
             
-            <!-- Reasoning -->
+            <!-- Clinical Assessment (SOAP) -->
             <div class="symptoms-section">
-                <h3>Clinical Reasoning</h3>
-                <p>${result.reasoning}</p>
+                <h3>Clinical Assessment</h3>
+                ${result.soap_note && Object.keys(result.soap_note).length > 0 ? `
+                    <div class="soap-container">
+                        <div class="soap-item"><strong>Subjective:</strong> ${result.soap_note.subjective || 'No history provided.'}</div>
+                        <div class="soap-item"><strong>Objective:</strong> ${result.soap_note.objective || 'Vitals and observations recorded.'}</div>
+                        <div class="soap-item"><strong>Assessment:</strong> ${result.soap_note.assessment || result.reasoning}</div>
+                        <div class="soap-item"><strong>Plan:</strong> ${result.soap_note.plan || 'Follow recommended actions.'}</div>
+                    </div>
+                ` : `<p>${result.reasoning}</p>`}
             </div>
+
+            <!-- Referral Note -->
+            ${result.referral_note ? `
+                <div class="referral-section">
+                    <h3>📄 Professional Note</h3>
+                    <div class="referral-content">${result.referral_note.replace(/\n/g, '<br>')}</div>
+                </div>
+            ` : ''}
             
             <!-- Actions -->
             <div class="actions-section">

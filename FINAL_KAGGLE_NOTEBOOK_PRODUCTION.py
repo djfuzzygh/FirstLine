@@ -146,6 +146,8 @@ class TriageResponse(BaseModel):
     tier: str
     confidence: int
     reasoning: str
+    soap_note: Optional[Dict[str, str]] = {}
+    referral_note: Optional[str] = ""
     actions: List[str]
     followup_questions: Optional[List[str]] = []
     danger_signs: int
@@ -213,15 +215,24 @@ def create_triage_prompt(intake: IntakeData) -> str:
     
     # Request block
     request = """
-Based on the data above, provide:
-1. Most likely diagnosis
-2. Urgency tier (RED=emergency, YELLOW=urgent, GREEN=routine)
-3. Confidence level (0-100%)
-4. Clinical reasoning
-5. Recommended actions (prioritized)
-6. Any danger signs detected
+Based on the data above, provide a comprehensive clinical assessment in JSON format with the following structure:
 
-Format your response clearly and concisely.
+{
+  "diagnosis": "Most likely condition",
+  "tier": "RED/YELLOW/GREEN",
+  "confidence": 85,
+  "soap_note": {
+    "subjective": "Summary of patient's compliant and history",
+    "objective": "Summary of vitals and observable signs",
+    "assessment": "Clinical impression and reasoning",
+    "plan": "Detailed management steps including medication and care"
+  },
+  "recommended_actions": ["List of specific, prioritized actions"],
+  "danger_signs": ["List of critical signs"],
+  "referral_note": "A professional referral letter to a higher-level facility (if RED/YELLOW) or discharge note (if GREEN)"
+}
+
+Ensure the response is valid JSON.
 """
 
     # Combine using Gemma Instruction Format
@@ -231,52 +242,65 @@ Format your response clearly and concisely.
 
 def parse_medgemma_response(response: str, intake: IntakeData) -> TriageResponse:
     """Parse MedGemma response into structured format"""
-    
-    # Simple parsing (could be enhanced with regex)
-    lines = response.lower()
-    
-    # Determine tier based on keywords
-    tier = "GREEN"
-    if any(word in lines for word in ["emergency", "urgent", "immediate", "critical", "severe"]):
-        tier = "RED" if "emergency" in lines or "immediate" in lines else "YELLOW"
-    
-    # Extract diagnosis (first sentence usually)
-    diagnosis = response.split('\n')[0].strip()
-    if len(diagnosis) > 100:
-        diagnosis = diagnosis[:100] + "..."
-    
-    # Count danger signs
-    danger_keywords = ["chest pain", "difficulty breathing", "severe", "bleeding", "unconscious"]
-    danger_signs = sum(1 for keyword in danger_keywords if keyword in lines)
-    
-    # Generate actions based on tier
-    actions = []
-    if tier == "RED":
-        actions.append("🚨 Seek immediate medical attention - call emergency services or go to nearest hospital")
-    elif tier == "YELLOW":
-        actions.append("⚠️ Seek medical attention within 24 hours")
-    else:
-        actions.append("Monitor symptoms and seek medical advice if they worsen")
-    
-    # Add symptom-specific actions
-    if intake.temp_c and intake.temp_c > 38.5:
-        actions.append("💊 Take paracetamol for fever (500mg every 6 hours)")
-    
-    actions.append("💧 Stay well hydrated - drink plenty of fluids")
-    actions.append("😴 Get adequate rest")
-    
-    if tier != "GREEN":
-        actions.append("📝 Monitor vital signs regularly")
-    
-    return TriageResponse(
-        diagnosis=diagnosis,
-        tier=tier,
-        confidence=75,  # Could be enhanced with confidence extraction
-        reasoning=response[:500],  # First 500 chars
-        actions=actions,
-        followup_questions=[],
-        danger_signs=danger_signs
-    )
+    import json
+    import re
+
+    try:
+        # 1. Try to extract JSON block
+        json_match = re.search(r'```json\s*(.*?)\s*```', response, re.DOTALL)
+        if json_match:
+            data = json.loads(json_match.group(1))
+        else:
+            # 2. Try parsing entire response as JSON
+            data = json.loads(response)
+
+        # Success - populate from structured data
+        return TriageResponse(
+            diagnosis=data.get("diagnosis", "Assessment Complete"),
+            tier=data.get("tier", "YELLOW"),
+            confidence=int(data.get("confidence", 70)),
+            reasoning=data.get("soap_note", {}).get("assessment", "Clinical assessment completed."),
+            soap_note=data.get("soap_note", {}),
+            referral_note=data.get("referral_note", ""),
+            actions=data.get("recommended_actions", ["Seek medical advice"]),
+            followup_questions=[],
+            danger_signs=len(data.get("danger_signs", []))
+        )
+
+    except (json.JSONDecodeError, AttributeError, Exception) as e:
+        print(f"⚠️ JSON Parsing failed: {e}. Falling back to text parsing.")
+        
+        # --- Fallback: Text Parsing (Legacy) ---
+        lines = response.lower()
+        
+        # Determine tier
+        tier = "GREEN"
+        if any(word in lines for word in ["emergency", "urgent", "immediate", "critical", "severe"]):
+            tier = "RED" if "emergency" in lines or "immediate" in lines else "YELLOW"
+        
+        # Determine diagnosis
+        diagnosis = response.split('\\n')[0].strip()[:100]
+        
+        # Danger signs count
+        danger_keywords = ["chest pain", "difficulty breathing", "severe", "bleeding", "unconscious"]
+        danger_signs = sum(1 for keyword in danger_keywords if keyword in lines)
+        
+        # Basic actions
+        actions = ["Seek medical attention" if tier != "GREEN" else "Monitor symptoms"]
+        if intake.temp_c and intake.temp_c > 38.5: actions.append("Take paracetamol")
+        actions.append("Stay hydrated")
+        
+        return TriageResponse(
+            diagnosis=diagnosis,
+            tier=tier,
+            confidence=60,
+            reasoning=response[:500],
+            soap_note={"assessment": response[:500]},
+            referral_note="",
+            actions=actions,
+            followup_questions=[],
+            danger_signs=danger_signs
+        )
 
 # ========== API Endpoints ==========
 
