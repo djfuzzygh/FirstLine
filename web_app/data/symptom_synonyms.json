@@ -1,0 +1,50 @@
+{
+  "fever": [
+    "high temperature",
+    "hot body",
+    "burning up",
+    "pyrexia"
+  ],
+  "vomiting": [
+    "being sick",
+    "throwing up",
+    "nausea and vomiting"
+  ],
+  "diarrhea": [
+    "diarrhoea",
+    "loose stool",
+    "watery stool"
+  ],
+  "headache": [
+    "head pain",
+    "migraine"
+  ],
+  "cough": [
+    "coughing",
+    "persistent cough"
+  ],
+  "rash": [
+    "skin rash",
+    "spots",
+    "red skin"
+  ],
+  "pain": [
+    "ache",
+    "discomfort",
+    "soreness"
+  ],
+  "breathing difficulty": [
+    "shortness of breath",
+    "breathlessness",
+    "wheezing"
+  ],
+  "confusion": [
+    "disorientation",
+    "confused"
+  ],
+  "weakness": [
+    "fatigue",
+    "tiredness",
+    "lethargy"
+  ]
+}

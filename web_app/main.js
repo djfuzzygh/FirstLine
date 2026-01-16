@@ -1,3 +1,5 @@
+import { performOfflineTriage } from './offline_protocols.js';
+
 const API_BASE = 'https://heliolatrous-unstooping-rosy.ngrok-free.dev';
 
 // Demo Cases
@@ -146,7 +148,22 @@ function setupEventListeners() {
 
     // Welcome -> Intake
     document.getElementById('btn-start').addEventListener('click', () => {
+        // Generate Unique Patient ID
+        const uniqueId = 'PT-' + Date.now().toString().slice(-6) + '-' + Math.floor(Math.random() * 1000);
+        caseData.id = uniqueId;
+        document.getElementById('patient-id-display').textContent = uniqueId;
+
         showView('intake');
+    });
+
+    // Hospital Selection Logic
+    document.getElementById('input-decision').addEventListener('change', (e) => {
+        const hospitalGroup = document.getElementById('hospital-selector-group');
+        if (e.target.value === 'refer') {
+            hospitalGroup.classList.remove('hidden');
+        } else {
+            hospitalGroup.classList.add('hidden');
+        }
     });
 
     // Voice Input
@@ -335,8 +352,14 @@ async function handleIntakeSubmit() {
         showView('followup');
     } catch (error) {
         console.error('API Error:', error);
-        alert('Could not connect to backend. Ensure FastAPI is running.');
+
+        // Handle Offline Fallback
         updateConnectionStatus(false);
+        if (confirm("⚠️ Cannot connect to MedGemma AI.\n\nSwitch to Offline Protocol Mode?")) {
+            // In offline mode, skip follow-up generation and go straight to Rule-Based Triage
+            addAuditEntry("Switched to Offline Mode.");
+            handleTriageCalculation(true); // Force offline mode
+        }
     } finally {
         btn.textContent = 'CONTINUE TO FOLLOW-UP';
         btn.disabled = false;
@@ -445,12 +468,16 @@ function updateQuestionProgress(total) {
 }
 
 // Triage Calculation
-async function handleTriageCalculation() {
+async function handleTriageCalculation(forceOffline = false) {
     const btn = document.getElementById('btn-to-triage');
     btn.textContent = 'Analysing...';
     btn.disabled = true;
 
     try {
+        if (forceOffline === true) {
+            throw new Error("Force Offline");
+        }
+
         const response = await fetch(`${API_BASE}/triage`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -461,17 +488,17 @@ async function handleTriageCalculation() {
         });
 
         caseData.triage = await response.json();
-        renderTriage(caseData.triage);
-        showView('triage');
-        addAuditEntry(`Triage calculated: ${caseData.triage.risk_tier}`);
     } catch (error) {
-        console.error('API Error:', error);
-        alert('Triage analysis failed.');
-        updateConnectionStatus(false);
-    } finally {
-        btn.textContent = 'CALCULATE TRIAGE';
-        btn.disabled = false;
+        console.log("⚠️ Using Offline Protocols");
+        caseData.triage = performOfflineTriage(caseData.intake);
+        addAuditEntry("Generated OFFLINE Triage Result");
     }
+
+    renderTriage(caseData.triage);
+    showView('triage');
+
+    btn.textContent = 'CALCULATE TRIAGE';
+    btn.disabled = false;
 }
 
 function saveToDashboard(intake, triage, source = 'Web App') {
@@ -594,6 +621,20 @@ async function handleReferralGeneration() {
     btn.textContent = 'Generating...';
     btn.disabled = true;
 
+    // Get selected hospital
+    const hospital = document.getElementById('input-hospital').value;
+    const isReferral = document.getElementById('input-decision').value === 'refer';
+
+    if (isReferral && !hospital) {
+        alert('Please select a referral destination hospital.');
+        btn.textContent = 'GENERATE REFERRAL NOTE';
+        btn.disabled = false;
+        return;
+    }
+
+
+    let referralNote = "";
+
     try {
         const response = await fetch(`${API_BASE}/referral_summary`, {
             method: 'POST',
@@ -605,23 +646,38 @@ async function handleReferralGeneration() {
         });
 
         const referral = await response.json();
-        document.getElementById('referral-soap').textContent = referral.soap_note;
+        referralNote = referral.soap_note;
 
-        // Generate QR Code
-        generateQRCode();
-
-        // Render Audit Trail
-        renderAuditTrail();
-
-        showView('referral');
-        addAuditEntry('Referral summary generated');
     } catch (error) {
-        console.error('API Error:', error);
-        alert('Referral generation failed.');
-    } finally {
-        btn.textContent = 'GENERATE REFERRAL NOTE';
-        btn.disabled = false;
+        console.log("⚠️ Generating Offline Referral");
+        // Dynamic Import 
+        const { generateOfflineReferralNote } = await import('./offline_protocols.js');
+        referralNote = generateOfflineReferralNote(caseData.intake, caseData.triage);
+        addAuditEntry("Generated OFFLINE referral note");
     }
+
+    // Prepend Hospital and ID to SOAP Note
+    let header = `PATIENT ID: ${caseData.id || 'N/A'}\n`;
+    header += `DATE: ${new Date().toLocaleString()}\n`;
+    if (hospital) {
+        header += `REFERRED TO: ${hospital.toUpperCase()}\n`;
+    }
+    header += `----------------------------------------\n\n`;
+
+    document.getElementById('referral-soap').textContent = header + referralNote;
+
+    // Generate QR Code
+    generateQRCode();
+
+    // Render Audit Trail
+    renderAuditTrail();
+
+    showView('referral');
+    addAuditEntry('Referral summary generated');
+
+
+    btn.textContent = 'GENERATE REFERRAL NOTE';
+    btn.disabled = false;
 }
 
 // QR Code Generation
