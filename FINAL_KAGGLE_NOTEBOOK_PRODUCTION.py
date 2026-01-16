@@ -160,31 +160,36 @@ def call_medgemma(prompt: str, max_tokens: int = 500) -> str:
         outputs = model.generate(
             **inputs,
             max_new_tokens=max_tokens,
-            do_sample=False,  # FIXED: Greedy decoding is more stable (prevents CUDA assert errors)
-            # temperature=0.7, # Not used when do_sample=False
-            # top_p=0.9,      # Not used when do_sample=False
-            repetition_penalty=1.1, # Prevent loops
+            min_new_tokens=20, # Ensure it doesn't just stop
+            do_sample=False,  
+            repetition_penalty=1.1, 
             pad_token_id=tokenizer.eos_token_id
         )
         
+        # skip_special_tokens=True is important here
         response = tokenizer.decode(outputs[0], skip_special_tokens=True)
         
-        # Remove the prompt from response
-        if prompt in response:
-            response = response.replace(prompt, "").strip()
+        # The prompt might still be there if tokenizer doesn't clean it well
+        # In Gemma 2, it often includes the model turn start
+        if "<start_of_turn>model" in response:
+            response = response.split("<start_of_turn>model")[-1].strip()
+        elif "model\n" in response:
+             response = response.split("model\n")[-1].strip()
         
-        return response
+        return response.strip()
         
     except Exception as e:
         print(f"⚠️ MedGemma call failed: {e}")
         return ""
 
 def create_triage_prompt(intake: IntakeData) -> str:
-    """Create a structured prompt for MedGemma"""
+    """Create a structured prompt for MedGemma using Gemma instruction format"""
     
-    prompt = f"""You are a medical AI assistant helping with clinical triage in rural Ghana.
-
-Patient Information:
+    # Header/Context
+    instruction = "You are a professional medical AI assistant helping with clinical triage in rural Ghana. Analyze the following patient data and provide a structured assessment."
+    
+    # Patient Data block
+    patient_info = f"""Patient Information:
 - Age: {intake.age} years
 - Sex: {intake.sex}
 - Symptoms: {intake.symptoms}
@@ -192,22 +197,23 @@ Patient Information:
 """
     
     if intake.temp_c:
-        prompt += f"- Temperature: {intake.temp_c}°C\n"
+        patient_info += f"- Temperature: {intake.temp_c}°C\n"
     if intake.rr:
-        prompt += f"- Respiratory Rate: {intake.rr}/min\n"
+        patient_info += f"- Respiratory Rate: {intake.rr}/min\n"
     if intake.hr:
-        prompt += f"- Heart Rate: {intake.hr} bpm\n"
+        patient_info += f"- Heart Rate: {intake.hr} bpm\n"
     if intake.pregnancy_status:
-        prompt += "- Pregnant: Yes\n"
+        patient_info += "- Pregnant: Yes\n"
     if intake.chronic_conditions:
-        prompt += f"- Chronic Conditions: {', '.join(intake.chronic_conditions)}\n"
+        patient_info += f"- Chronic Conditions: {', '.join(intake.chronic_conditions)}\n"
     if intake.medications:
-        prompt += f"- Current Medications: {', '.join(intake.medications)}\n"
+        patient_info += f"- Current Medications: {', '.join(intake.medications)}\n"
     if intake.allergies:
-        prompt += f"- Allergies: {', '.join(intake.allergies)}\n"
+        patient_info += f"- Allergies: {', '.join(intake.allergies)}\n"
     
-    prompt += """
-Based on this information, provide a clinical assessment with:
+    # Request block
+    request = """
+Based on the data above, provide:
 1. Most likely diagnosis
 2. Urgency tier (RED=emergency, YELLOW=urgent, GREEN=routine)
 3. Confidence level (0-100%)
@@ -217,8 +223,11 @@ Based on this information, provide a clinical assessment with:
 
 Format your response clearly and concisely.
 """
+
+    # Combine using Gemma Instruction Format
+    full_prompt = f"<start_of_turn>user\n{instruction}\n\n{patient_info}\n{request}<end_of_turn>\n<start_of_turn>model\n"
     
-    return prompt
+    return full_prompt
 
 def parse_medgemma_response(response: str, intake: IntakeData) -> TriageResponse:
     """Parse MedGemma response into structured format"""
@@ -299,7 +308,7 @@ async def triage(request: TriageRequest):
     """
     try:
         print(f"\n🏥 Triage request for {request.intake.age}yo {request.intake.sex}")
-        print(f"   Symptoms: {request.intake.symptoms[:50]}...")
+        print(f"   Symptoms: {request.intake.symptoms[:200]}...")
         
         # Create prompt
         prompt = create_triage_prompt(request.intake)
@@ -364,7 +373,27 @@ except Exception as e:
 
 # ========== CELL 6: Start Server ==========
 
+import time
+import socket
+
+def is_port_in_use(port):
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        return s.connect_ex(('localhost', port)) == 0
+
 print("\n🚀 Starting FastAPI server...")
+
+if is_port_in_use(8000):
+    print("🧹 Port 8000 is in use. Killing existing processes...")
+    # Try multiple ways to kill the process
+    !fuser -k 8000/tcp || true
+    !lsof -t -i:8000 | xargs kill -9 || true
+    time.sleep(2) # Give it a moment to release
+    
+    if is_port_in_use(8000):
+        print("⚠️ Failed to clear port 8000. If problems persist, please Restart Session.")
+    else:
+        print("✨ Port 8000 cleared.")
+
 print("Server will run on http://0.0.0.0:8000")
 print("Public access via ngrok URL above")
 print("\n⏳ Server running... (keep this cell running)")
@@ -379,12 +408,19 @@ from threading import Thread
 import uvicorn
 
 def run_server():
-    uvicorn.run(
-        app,
-        host="0.0.0.0",
-        port=8000,
-        log_level="info"
-    )
+    try:
+        uvicorn.run(
+            app,
+            host="0.0.0.0",
+            port=8000,
+            log_level="info"
+        )
+    except BaseException as e:
+        if str(e) == "1": # SystemExit: 1
+            print(f"\n❌ Server failed to bind to port 8000 (Address already in use).")
+        else:
+            print(f"\n❌ Server error: {e}")
+        print("💡 TIP: Please click 'Stop' (the square icon), wait 5 seconds, and then run this cell again.")
 
 # Start server in background
 server_thread = Thread(target=run_server, daemon=True)

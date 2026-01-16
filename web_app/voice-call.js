@@ -48,6 +48,7 @@ let callState = {
     awaitingResponse: false,
     triageResult: null,
     recognizedText: '',
+    currentInterim: '',
     silenceTimeout: null
 };
 
@@ -89,36 +90,35 @@ function initSpeechRecognition() {
 
         recognition.onresult = (event) => {
             let interimTranscript = '';
-            let finalTranscript = '';
+            let currentFinal = '';
 
             for (let i = event.resultIndex; i < event.results.length; i++) {
-                const transcript = event.results[i][0].transcript;
+                const transcriptText = event.results[i][0].transcript;
                 if (event.results[i].isFinal) {
-                    finalTranscript += transcript + ' ';
+                    currentFinal += transcriptText + ' ';
                 } else {
-                    interimTranscript += transcript;
+                    interimTranscript += transcriptText;
                 }
             }
 
+            // Store interim for the "last word" capture
+            callState.currentInterim = interimTranscript;
+
             // Update transcript display
-            updateTranscript(finalTranscript + interimTranscript);
+            updateTranscript(callState.recognizedText + currentFinal + interimTranscript);
 
-            // If we got a final result, process it
-            if (finalTranscript) {
-                callState.recognizedText += finalTranscript;
-
-                // Reset silence timer
-                clearTimeout(callState.silenceTimeout);
-
-                // Set new silence timer (3 seconds of silence = done speaking)
-                callState.silenceTimeout = setTimeout(() => {
-                    if (callState.awaitingResponse && callState.recognizedText.trim()) {
-                        stopListening();
-                        processResponse(callState.recognizedText.trim());
-                        callState.recognizedText = '';
-                    }
-                }, 3000);
+            // Accumulate final results
+            if (currentFinal) {
+                callState.recognizedText += currentFinal;
             }
+
+            // ANY result (even interim) resets the silence timer for snappier feel
+            clearTimeout(callState.silenceTimeout);
+
+            // Set new silence timer (1.5 seconds of silence = done speaking)
+            callState.silenceTimeout = setTimeout(() => {
+                submitResponse();
+            }, 1500);
         };
 
         recognition.onerror = (event) => {
@@ -209,7 +209,7 @@ function endCall() {
 // Toggle Mic
 function toggleMic() {
     if (isListening) {
-        stopListening();
+        submitResponse();
     } else {
         startListening();
     }
@@ -225,6 +225,23 @@ function startListening() {
 function stopListening() {
     if (recognition && isListening) {
         recognition.stop();
+    }
+}
+
+function submitResponse() {
+    clearTimeout(callState.silenceTimeout);
+
+    // Include any remaining interim text so we don't miss the last word!
+    const fullText = (callState.recognizedText + (callState.currentInterim || '')).trim();
+
+    if (callState.awaitingResponse && fullText) {
+        updateStatus('processing', 'Processing...', 'Analyzing your response');
+        stopListening();
+        processResponse(fullText);
+
+        // Reset buffers
+        callState.recognizedText = '';
+        callState.currentInterim = '';
     }
 }
 
@@ -591,7 +608,7 @@ async function performTriage() {
                 const response = await fetch(`${API_BASE}/triage`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ intake: data })
+                    body: JSON.stringify({ intake: input })
                 });
                 result = await response.json();
                 result.source = 'online';

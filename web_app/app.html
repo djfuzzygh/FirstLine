@@ -28,9 +28,16 @@
                 </svg>
                 FirstLine
             </a>
-            <div class="status-badge" id="connection-status">
-                <div class="status-dot"></div>
-                <span id="status-text">Online</span>
+            <div class="header-actions">
+                <div class="mode-toggle" id="mode-toggle" onclick="toggleAnalysisMode()">
+                    <div class="toggle-option active" id="mode-hybrid" title="Auto-switch (Cloud + Local)">Cloud AI
+                    </div>
+                    <div class="toggle-option" id="mode-offline" title="Local reasoning only">Edge Only</div>
+                </div>
+                <div class="status-badge" id="connection-status">
+                    <div class="status-dot"></div>
+                    <span id="status-text">Online</span>
+                </div>
             </div>
         </header>
 

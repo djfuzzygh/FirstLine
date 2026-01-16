@@ -744,3 +744,89 @@ textarea:focus-visible {
 .symptom-list li {
     color: var(--gray-800);
 }
+
+/* ========== Analysis Mode Toggle ========== */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.mode-toggle {
+    display: flex;
+    align-items: center;
+    background: var(--gray-100);
+    padding: 3px;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    border: 1px solid var(--gray-200);
+    transition: all var(--transition-base);
+    user-select: none;
+}
+
+.mode-toggle:hover {
+    border-color: var(--primary);
+    background: var(--gray-200);
+}
+
+.toggle-option {
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 700;
+    transition: all var(--transition-base);
+    color: var(--gray-500);
+    white-space: nowrap;
+}
+
+.toggle-option.active {
+    background: var(--primary);
+    color: white !important;
+    box-shadow: var(--shadow-sm);
+}
+
+#mode-offline.active {
+    background: var(--secondary);
+}
+
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: var(--gray-100);
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gray-400);
+}
+
+.status-badge.online .status-dot {
+    background: var(--success);
+    box-shadow: 0 0 0 2px var(--tier-green-light);
+}
+
+/* Source Badge */
+.tier-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.source-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    background: var(--gray-100);
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    letter-spacing: 0.05em;
+}

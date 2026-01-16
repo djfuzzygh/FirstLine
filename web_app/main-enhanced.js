@@ -8,7 +8,7 @@ import ClinicalReasoningEngine from './reasoning_engine/index.js';
 
 // ========== Configuration ==========
 const CONFIG = {
-    API_BASE: 'https://heliolatrous-unstooping-rosy.ngrok-free.dev',
+    API_BASE: window.MEDGEMMA_API || 'https://heliolatrous-unstooping-rosy.ngrok-free.dev',
     OFFLINE_MODE: true,
     AUTO_SAVE: true,
     SAVE_INTERVAL: 30000, // 30 seconds
@@ -48,6 +48,7 @@ const state = {
     },
     triageResult: null,
     errors: [],
+    analysisMode: 'hybrid', // 'hybrid' (Cloud+Edge) or 'offline' (Edge Only)
     isOnline: navigator.onLine,
 };
 
@@ -443,17 +444,15 @@ async function analyzePatient() {
 
 async function performAnalysis() {
     // Update progress
-    updateAnalysisProgress(0, 'Preparing data...');
+    updateAnalysisProgress(10, 'Preparing data...');
 
-    await sleep(500);
+    await sleep(300);
 
     // Combine symptoms
     const allSymptoms = [
         ...state.intakeData.symptoms,
         state.intakeData.symptomText
     ].filter(s => s).join(', ');
-
-    updateAnalysisProgress(20, 'Analyzing symptoms...');
 
     // Prepare input for reasoning engine
     const input = {
@@ -465,40 +464,75 @@ async function performAnalysis() {
         rr: state.intakeData.vitals.rr,
         hr: state.intakeData.vitals.hr,
         pregnancy_status: state.intakeData.pregnancy_status,
+        chronic_conditions: state.intakeData.chronic_conditions,
+        medications: state.intakeData.medications,
+        allergies: state.intakeData.allergies
     };
 
-    updateAnalysisProgress(40, 'Running clinical reasoning...');
+    let result = null;
 
-    try {
-        // Use reasoning engine
-        if (reasoningEngine) {
-            const result = await reasoningEngine.analyze(input);
-            state.triageResult = result;
-            updateAnalysisProgress(80, 'Generating recommendations...');
-        } else {
-            // Fallback to basic triage
-            state.triageResult = performBasicTriage(input);
-            updateAnalysisProgress(80, 'Using basic triage...');
+    // --- PHASE 1: Try Cloud AI (If in Hybrid mode) ---
+    if (state.analysisMode === 'hybrid' && state.isOnline) {
+        updateAnalysisProgress(30, 'Connecting to Cloud AI...');
+        try {
+            const response = await fetch(`${CONFIG.API_BASE}/triage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ intake: input }),
+                signal: AbortSignal.timeout(10000) // 10s timeout
+            });
+
+            if (response.ok) {
+                result = await response.json();
+                result.source = 'cloud';
+                updateAnalysisProgress(70, 'Received Cloud AI assessment...');
+            }
+        } catch (error) {
+            console.warn('Cloud AI failed, falling back to Local Edge...', error);
         }
+    }
 
-        await sleep(500);
+    // --- PHASE 2: Local Edge Analysis (If Cloud failed or in Offline mode) ---
+    if (!result) {
+        updateAnalysisProgress(50, 'Running Local Edge reasoning...');
+        try {
+            if (reasoningEngine) {
+                result = await reasoningEngine.analyze(input);
+                result.source = 'edge';
+            } else {
+                result = performBasicTriage(input);
+                result.source = 'basic';
+            }
+        } catch (error) {
+            console.error('Local analysis failed:', error);
+            result = performBasicTriage(input);
+        }
+    }
 
-        updateAnalysisProgress(100, 'Complete!');
+    // Finalize
+    state.triageResult = result;
+    updateAnalysisProgress(100, 'Analysis complete!');
+    await sleep(400);
 
-        await sleep(500);
+    // Show results
+    displayResults();
+    nextStep(6);
+}
 
-        // Show results
-        displayResults();
-        nextStep(6);
+function toggleAnalysisMode() {
+    const hybridBtn = document.getElementById('mode-hybrid');
+    const offlineBtn = document.getElementById('mode-offline');
 
-    } catch (error) {
-        console.error('Analysis error:', error);
-
-        // Fallback to basic triage
-        console.warn('Using fallback triage');
-        state.triageResult = performBasicTriage(input);
-        displayResults();
-        nextStep(6);
+    if (state.analysisMode === 'hybrid') {
+        state.analysisMode = 'offline';
+        hybridBtn?.classList.remove('active');
+        offlineBtn?.classList.add('active');
+        console.log('Mode switched to: Edge Only (Offline)');
+    } else {
+        state.analysisMode = 'hybrid';
+        hybridBtn?.classList.add('active');
+        offlineBtn?.classList.remove('active');
+        console.log('Mode switched to: Cloud AI (Hybrid)');
     }
 }
 
@@ -564,10 +598,15 @@ function displayResults() {
     // Build HTML
     container.innerHTML = `
         <div class="result-card">
-            <!-- Tier Badge -->
-            <div class="tier-badge ${tierClass}">
-                <span class="tier-icon">${tierIcon}</span>
-                <span class="tier-text">${result.tier} - ${getTierLabel(result.tier)}</span>
+            <!-- Tier Header -->
+            <div class="tier-header">
+                <div class="tier-badge ${tierClass}">
+                    <span class="tier-icon">${tierIcon}</span>
+                    <span class="tier-text">${result.tier} - ${getTierLabel(result.tier)}</span>
+                </div>
+                <div class="source-badge">
+                    ${result.source === 'cloud' ? '✨ Cloud AI' : '📡 Local Edge'}
+                </div>
             </div>
             
             <!-- Diagnosis -->
@@ -756,6 +795,7 @@ window.previousStep = previousStep;
 window.analyzePatient = analyzePatient;
 window.updateVitalDisplay = updateVitalDisplay;
 window.startNewAssessment = startNewAssessment;
+window.toggleAnalysisMode = toggleAnalysisMode;
 
 // ========== Export for testing ==========
 export {
