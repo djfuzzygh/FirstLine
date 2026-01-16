@@ -55,7 +55,20 @@ class ClinicalReasoningEngine {
         const rankedMatches = this.rankMatches(matches, dangerAssessment, age);
 
         // Layer 5: Generate reasoning
-        const topMatch = rankedMatches[0];
+        let topMatch = rankedMatches[0];
+
+        // Fallback if no specific condition matched
+        if (!topMatch) {
+            topMatch = {
+                diagnosis: 'Undetermined Infection / Condition',
+                tier: dangerAssessment.hasDangerSigns ? 'RED' : 'YELLOW',
+                confidence: 50,
+                matchedSymptoms: [],
+                reasoning: 'Symptoms do not fully match a specific protocol, but clinical presentation warrants attention.',
+                treatment: ['Monitor symptoms closely', 'Seek professional medical evaluation']
+            };
+        }
+
         const reasoning = this.generateReasoning(topMatch, normalizedSymptoms, vitals, dangerAssessment, age, sex);
 
         // Layer 6: Treatment synthesis
@@ -88,7 +101,19 @@ class ClinicalReasoningEngine {
             'watery stool': 'diarrhea',
             'head pain': 'headache',
             'shortness of breath': 'breathing difficulty',
-            'breathlessness': 'breathing difficulty'
+            'breathlessness': 'breathing difficulty',
+            'blood in pee': 'blood in the urine',
+            'blood coming from pee': 'blood in the urine',
+            'blood in urine': 'blood in the urine',
+            'hematuria': 'blood in the urine',
+            'hard to pee': 'pain passing urine',
+            'difficult time peeing': 'pain passing urine',
+            'painful urination': 'pain passing urine',
+            'swollen feet': 'swelling',
+            'feet is swollen': 'swelling',
+            'edema': 'swelling',
+            'body aches': 'body pain',
+            'aching body': 'body pain'
         };
 
         return symptoms.map(s => {

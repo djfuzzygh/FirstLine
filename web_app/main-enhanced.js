@@ -569,11 +569,31 @@ function performBasicTriage(input) {
         confidence = 60;
     }
 
+    // Generate structured reasoning
+    let reasoning = `Analysis based on clinical presentation of ${input.age}yo ${input.sex}. `;
+
+    if (tier === 'RED') {
+        reasoning += `patient flagged as EMERGENCY due to ${hasFever && hasHighRR ? 'simultaneous high fever and rapid breathing' : isYoung ? 'vulnerable age with fever' : 'detected danger signs'}. `;
+        reasoning += `Immediate escalation is required.`;
+    } else if (tier === 'YELLOW') {
+        reasoning += `Patient flagged as URGENT due to ${hasFever ? 'significant fever' : 'abnormal vital signs'}. `;
+        reasoning += `Requires medical assessment within 24 hours.`;
+    } else {
+        reasoning += `Symptoms appear manageable with home care, but monitor for deterioration.`;
+    }
+
+    // Add list of matched symptoms for clarity
+    const symptomsArr = input.symptoms.split(',').map(s => s.trim()).filter(s => s);
+    if (symptomsArr.length > 0) {
+        reasoning += `\n\nNoted symptoms: ${symptomsArr.join(', ')}.`;
+    }
+
     return {
         diagnosis,
         tier,
         confidence,
-        reasoning: `Based on age ${input.age}, symptoms: ${input.symptoms}`,
+        reasoning,
+        matchedSymptoms: symptomsArr,
         actions: [
             tier === 'RED' ? '🚨 Seek immediate medical attention' : 'Monitor symptoms',
             'Stay hydrated',
